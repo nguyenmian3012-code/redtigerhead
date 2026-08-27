@@ -1,0 +1,66 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#fbfaf7" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Chuyển đến nội dung chính</a>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Bình Minh — Trang chủ">
+        <span class="brand-mark" aria-hidden="true">BM</span>
+        <span><strong>BÌNH MINH</strong><small>Since 1984</small></span>
+      </a>
+      <nav aria-label="Điều hướng chính">
+        <a href="/">Trang chủ</a>
+        <a href="/#gioi-thieu">Giới thiệu</a>
+        <a href="/tuyen-dung/">Tuyển dụng</a>
+        <a href="/#lien-he">Liên hệ</a>
+      </nav>
+      <span class="locale" aria-label="Ngôn ngữ hiện tại">VN</span>
+    </header>
+    <main id="main"><slot /></main>
+    <footer id="lien-he" class="site-footer">
+      <div>
+        <a class="brand footer-brand" href="/">
+          <span class="brand-mark" aria-hidden="true">BM</span>
+          <span><strong>BÌNH MINH</strong><small>Tinh bột sắn · Tapioca starch</small></span>
+        </a>
+        <p>Binh Minh Tapioca Starch Production Limited</p>
+      </div>
+      <div>
+        <p class="footer-title">Địa điểm</p>
+        <a href="https://share.google/gObIoobsojQDyauEq" rel="noreferrer"
+          >Xem vị trí trên Google Maps →</a
+        >
+      </div>
+      <div>
+        <p class="footer-title">Liên hệ</p>
+        <p>Thông tin đang được cập nhật</p>
+      </div>
+    </footer>
+    <div class="copyright">© {new Date().getFullYear()} Bình Minh. All rights reserved.</div>
+  </body>
+</html>

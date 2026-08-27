@@ -14,6 +14,12 @@ Foundation. The repository contains a minimal Astro static site and quality auto
 - Cloudflare Pages is the intended hosting platform.
 - `main` represents stable production-ready work.
 - Privacy-respecting baseline with no analytics, cookies, third-party embeds, or forms yet.
+- English trade name: Binh Minh Tapioca Starch Production Limited.
+- Founded in 1984; moved to the current location in 2006.
+- Average production capacity is approximately 200 tons/day.
+- Visual direction: minimal porcelain white, dark red wine, restrained red and gold accents.
+- Recruitment and application live on a separate page from the company home page.
+- The five shared principles are Integrity/Transparency, Respect/Cooperation, Responsibility/Discipline, Innovation/Efficiency, and Safety/Sustainability.
 
 ## Infrastructure status
 

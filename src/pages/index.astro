@@ -1,134 +1,89 @@
 ---
-const title = 'Bình Minh | Website đang được xây dựng';
-const description =
-  'Website chính thức của Bình Minh đang được xây dựng trên một nền tảng nhanh, ổn định và bền vững.';
+import BaseLayout from '../layouts/baselayout.astro';
+import SectionHeading from '../components/sectionheading.astro';
+
+const principles = [
+  ['Chính trực', 'Minh bạch'],
+  ['Tôn trọng', 'Hợp tác'],
+  ['Trách nhiệm', 'Kỷ luật'],
+  ['Đổi mới', 'Hiệu quả'],
+  ['An toàn', 'Bền vững'],
+];
 ---
 
-<!doctype html>
-<html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="description" content={description} />
-    <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#f6f2e8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="canonical" href={Astro.site} />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:url" content={Astro.site} />
-    <title>{title}</title>
-  </head>
-  <body>
-    <main>
-      <section aria-labelledby="page-title">
-        <p class="eyebrow">Bình Minh · Red Tiger Head</p>
-        <h1 id="page-title">Một nền tảng bền vững đang được hình thành.</h1>
-        <p class="intro">
-          Website chính thức của Bình Minh đang trong giai đoạn xây dựng. Chúng tôi ưu tiên sự rõ
-          ràng, tốc độ và độ tin cậy ngay từ nền móng.
-        </p>
-        <div class="status" role="status">
-          <span aria-hidden="true"></span>
-          Đang chuẩn bị nội dung và nhận diện chính thức
-        </div>
-      </section>
-    </main>
-    <footer><p>© {new Date().getFullYear()} Bình Minh</p></footer>
-  </body>
-</html>
+<BaseLayout
+  title="Bình Minh | Sản xuất tinh bột sắn từ năm 1984"
+  description="Binh Minh Tapioca Starch Production Limited — doanh nghiệp sản xuất tinh bột sắn với công suất trung bình khoảng 200 tấn mỗi ngày."
+>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Năng lực sản xuất · Tinh bột sắn</p>
+      <h1>Bình Minh</h1>
+      <p>
+        Sản xuất tinh bột sắn với kinh nghiệm tích lũy qua nhiều thập kỷ, không ngừng đổi mới để xây
+        dựng quy mô và uy tín bền vững.
+      </p>
+      <div class="capacity">
+        <span class="capacity-icon" aria-hidden="true">⌁</span>
+        <span><small>Công suất trung bình</small><strong>200 <em>tấn/ngày</em></strong></span>
+      </div>
+      <div class="actions">
+        <a class="button primary" href="#gioi-thieu">Về chúng tôi <span>→</span></a>
+        <a class="button" href="/tuyen-dung/">Tuyển dụng <span>→</span></a>
+      </div>
+    </div>
+    <div
+      class="hero-visual"
+      role="img"
+      aria-label="Vị trí dành cho ảnh toàn cảnh nhà máy Bình Minh"
+    >
+    </div>
+  </section>
 
-<style>
-  :root {
-    color-scheme: light;
-    font-family:
-      Inter,
-      ui-sans-serif,
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Segoe UI',
-      sans-serif;
-    color: #24221e;
-    background: #f6f2e8;
-    font-synthesis: none;
-  }
-  * {
-    box-sizing: border-box;
-  }
-  body {
-    min-height: 100vh;
-    margin: 0;
-    display: grid;
-    grid-template-rows: 1fr auto;
-    background:
-      radial-gradient(circle at 15% 15%, rgb(166 63 43 / 10%), transparent 30rem), #f6f2e8;
-  }
-  main {
-    width: min(100% - 2rem, 72rem);
-    margin-inline: auto;
-    display: grid;
-    align-items: center;
-    padding-block: clamp(4rem, 12vw, 9rem);
-  }
-  section {
-    max-width: 52rem;
-  }
-  .eyebrow {
-    margin: 0 0 1.25rem;
-    color: #8f3527;
-    font-size: 0.82rem;
-    font-weight: 750;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-  h1 {
-    max-width: 15ch;
-    margin: 0;
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: clamp(2.8rem, 8vw, 6.4rem);
-    font-weight: 500;
-    line-height: 0.98;
-    letter-spacing: -0.045em;
-    text-wrap: balance;
-  }
-  .intro {
-    max-width: 42rem;
-    margin: 2rem 0 0;
-    color: #5b574f;
-    font-size: clamp(1.05rem, 2vw, 1.25rem);
-    line-height: 1.7;
-  }
-  .status {
-    width: fit-content;
-    margin-top: 2.25rem;
-    display: flex;
-    gap: 0.7rem;
-    align-items: center;
-    padding: 0.7rem 1rem;
-    border: 1px solid rgb(36 34 30 / 15%);
-    border-radius: 999px;
-    background: rgb(255 255 255 / 45%);
-    color: #4c4942;
-    font-size: 0.9rem;
-  }
-  .status span {
-    width: 0.55rem;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background: #a63f2b;
-    box-shadow: 0 0 0 0.25rem rgb(166 63 43 / 13%);
-  }
-  footer {
-    width: min(100% - 2rem, 72rem);
-    margin-inline: auto;
-    padding-block: 1.5rem;
-    border-top: 1px solid rgb(36 34 30 / 12%);
-    color: #716c62;
-    font-size: 0.85rem;
-  }
-  footer p {
-    margin: 0;
-  }
-</style>
+  <section class="facts" aria-label="Các mốc chính">
+    <div class="fact"><strong>1984</strong><span>Năm thành lập</span></div>
+    <div class="fact"><strong>2006</strong><span>Chuyển về địa điểm hiện tại</span></div>
+    <div class="fact"><strong>≈ 200 tấn</strong><span>Công suất trung bình mỗi ngày</span></div>
+  </section>
+
+  <section id="gioi-thieu" class="section">
+    <SectionHeading
+      eyebrow="Giới thiệu về Bình Minh"
+      title="Kinh nghiệm được bồi đắp qua thời gian"
+      intro="Binh Minh Tapioca Starch Production Limited được thành lập từ năm 1984 và chuyển về địa điểm hiện tại vào năm 2006."
+    />
+    <div class="story-grid">
+      <div class="story-card">
+        <strong>Hơn bốn thập kỷ</strong>
+        <p>
+          Qua nhiều năm tích lũy kinh nghiệm và không ngừng đổi mới, Bình Minh đã xây dựng một vị
+          trí nhất định trong ngành về quy mô cũng như uy tín bền vững.
+        </p>
+      </div>
+      <div class="story-card">
+        <strong>Ổn định để phát triển</strong>
+        <p>
+          Chúng tôi hướng đến năng lực sản xuất ổn định, quan hệ hợp tác lâu dài và sự cải tiến có
+          trách nhiệm trong từng giai đoạn phát triển.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <SectionHeading eyebrow="Cách chúng tôi làm việc" title="Năm nguyên tắc cùng giữ gìn" />
+    <div class="principles">
+      {
+        principles.map(([title, detail]) => (
+          <div class="principle">
+            <>
+              <b>{title}</b>
+              <br />
+            </>
+            {detail}
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>
