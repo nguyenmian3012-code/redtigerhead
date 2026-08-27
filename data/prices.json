@@ -1,0 +1,14 @@
+{
+  "starch": [],
+  "root": [],
+  "residue": [],
+  "_schema": {
+    "note": "Public chart keeps and renders at most the latest 90 days.",
+    "item": {
+      "date": "YYYY-MM-DD",
+      "value": 0,
+      "unit": "VND/kg"
+    },
+    "future_source": "AI/agent update -> validated service -> PR or signed API -> data/prices.json"
+  }
+}
