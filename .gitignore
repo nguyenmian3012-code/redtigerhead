@@ -1,0 +1,21 @@
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Build/cache
+dist/
+.cache/
+node_modules/
+
+# Secrets / local env
+.env
+.env.*
+!.env.example
+
+# Applicant or runtime data must never be committed
+applications/
+uploads/
+*.sqlite
+*.db
