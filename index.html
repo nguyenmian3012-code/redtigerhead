@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Bình Minh — sản xuất tinh bột khoai mì, thông tin công ty và tuyển dụng.">
+  <meta name="theme-color" content="#711d2c">
+  <title>Bình Minh | Red Tiger Head</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="shell navrow">
+    <a class="brand" href="#home" aria-label="Bình Minh"><span class="mark">虎</span><span><b>BINH MINH</b><small>RED TIGER HEAD</small></span></a>
+    <button class="menu" id="menuBtn" aria-label="Menu">☰</button>
+    <nav id="nav">
+      <a href="#home" data-t="nav.home">Trang chủ</a>
+      <a href="#about" data-t="nav.about">Giới thiệu</a>
+      <a href="#careers" data-t="nav.jobs">Tuyển dụng</a>
+      <a href="#contact" data-t="nav.contact">Liên hệ</a>
+    </nav>
+    <div class="tools">
+      <div class="langs"><button data-lang="vi">VN</button><button data-lang="en">EN</button><button data-lang="zh">CN</button></div>
+      <button class="theme" id="themeBtn" aria-label="Đổi giao diện">◐</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-bg"></div><div class="hero-mask"></div>
+  <div class="shell hero-copy">
+    <p class="eyebrow" data-t="hero.kicker">TINH BỘT KHOAI MÌ VIỆT NAM</p>
+    <h1 data-t="hero.title">Bình Minh</h1>
+    <p class="lead" data-t="hero.lead">Sản xuất ổn định, chú trọng chất lượng và vận hành thực tế.</p>
+    <div class="capacity"><strong>200</strong><span><b data-t="hero.unit">Tấn/ngày</b><small data-t="hero.capacity">Công suất sản xuất</small></span></div>
+    <div class="actions"><a class="btn gold" href="#about" data-t="hero.about">Giới thiệu</a><a class="btn outline" href="#careers" data-t="hero.careers">Cơ hội việc làm</a></div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="shell">
+    <header class="section-head"><p class="eyebrow" data-t="about.kicker">GIỚI THIỆU</p><h2 data-t="about.heading">Tập trung vào những thông tin cần thiết.</h2></header>
+    <div class="cols">
+      <article class="panel company">
+        <h3 data-t="about.company">Bình Minh</h3>
+        <p data-t="about.intro">Công ty TNHH SX Tinh Bột Khoai Mì Bình Minh hoạt động trong lĩnh vực chế biến và sản xuất tinh bột khoai mì.</p>
+        <dl>
+          <div><dt data-t="about.field">Lĩnh vực</dt><dd data-t="about.fieldv">Tinh bột khoai mì</dd></div>
+          <div><dt data-t="about.cap">Công suất</dt><dd data-t="about.capv">200 tấn/ngày</dd></div>
+          <div><dt data-t="about.loc">Khu vực</dt><dd data-t="about.locv">Tây Ninh, Việt Nam</dd></div>
+        </dl>
+        <div class="process"><h4 data-t="about.process">Quy trình tổng quát</h4><div><span data-t="p.raw">Nguyên liệu</span><b>→</b><span data-t="p.process">Chế biến</span><b>→</b><span data-t="p.refine">Tinh lọc</span><b>→</b><span data-t="p.dry">Sấy</span><b>→</b><span data-t="p.qc">KCS</span><b>→</b><span data-t="p.pack">Đóng bao</span></div></div>
+      </article>
+
+      <aside class="panel market">
+        <div class="market-head"><div><h3 data-t="market.heading">Giá tham khảo 90 ngày</h3><p data-t="market.sub">Cập nhật khi có thông tin mới.</p></div><button class="asterisk" id="priceInfo" title="Giá tham khảo; giá thực tế dự kiến không vượt quá ±5%.">*</button></div>
+        <div class="chartbox"><div class="charttitle"><b data-t="market.starch">Giá bột EXW</b><span id="starchLatest">—</span></div><div class="chart" data-series="starch"></div></div>
+        <div class="chartbox"><div class="charttitle"><b data-t="market.root">Giá nguyên liệu tại nhà máy</b><span id="rootLatest">—</span></div><div class="chart" data-series="root"></div></div>
+        <div class="chartbox"><div class="charttitle"><b data-t="market.residue">Giá bã mì EXW</b><span id="residueLatest">—</span></div><div class="chart" data-series="residue"></div></div>
+        <small class="note" data-t="market.note">* Giá tham khảo; giá thực tế dự kiến không vượt quá ±5%.</small>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section careers" id="careers">
+  <div class="shell">
+    <header class="section-head"><p class="eyebrow" data-t="jobs.kicker">TUYỂN DỤNG</p><h2 data-t="jobs.heading">Tìm người phù hợp để làm việc lâu dài.</h2></header>
+    <div class="cols career-cols">
+      <div>
+        <article class="panel principles"><h3 data-t="jobs.principles">5 nguyên tắc làm việc chung</h3><ol><li data-t="rule.1">Trung thực trong công việc và báo cáo.</li><li data-t="rule.2">Tôn trọng quy trình, an toàn và tài sản chung.</li><li data-t="rule.3">Chủ động xử lý vấn đề trong phạm vi trách nhiệm.</li><li data-t="rule.4">Phối hợp rõ ràng, không đùn đẩy trách nhiệm.</li><li data-t="rule.5">Học hỏi và cải thiện cách làm việc liên tục.</li></ol></article>
+        <div class="jobarea"><div class="jobhead"><h3 data-t="jobs.open">Vị trí đang tuyển</h3><small data-t="jobs.agent">Sẵn sàng cho Niu_hr quản lý</small></div><div id="jobsList" class="joblist"></div></div>
+      </div>
+
+      <aside class="panel apply" id="apply">
+        <h3 data-t="apply.heading">Ứng tuyển trực tiếp</h3><p class="muted" id="selectedJob" data-t="apply.sub">Chọn vị trí hoặc gửi hồ sơ trực tiếp.</p>
+        <form id="applicationForm">
+          <label><span data-t="apply.name">Họ và tên *</span><input name="name" autocomplete="name" required></label>
+          <label><span data-t="apply.info">Thông tin liên hệ</span><input name="contact"></label>
+          <label><span data-t="apply.phone">Số điện thoại *</span><input name="phone" inputmode="tel" autocomplete="tel" required></label>
+          <label><span data-t="apply.cccd">Số CCCD (không bắt buộc ở bước đầu)</span><input name="cccd" inputmode="numeric"></label>
+          <label><span data-t="apply.position">Vị trí ứng tuyển *</span><select name="position" id="position" required><option value="" data-t="apply.choose">— Chọn vị trí —</option></select></label>
+          <label><span data-t="apply.edu">Bằng cấp</span><textarea name="education" rows="3"></textarea></label>
+          <label><span data-t="apply.exp">Kinh nghiệm liên quan</span><textarea name="experience" rows="4"></textarea></label>
+          <label class="consent"><input type="checkbox" required><span><span data-t="apply.consent">Tôi đồng ý để Bình Minh sử dụng thông tin đã cung cấp cho mục đích tuyển dụng và xác nhận thông tin là trung thực.</span> <button type="button" class="linkbtn" id="privacyBtn" data-t="apply.privacy">Xem thông báo quyền riêng tư</button></span></label>
+          <button class="btn primary wide" type="submit" data-t="apply.submit">Gửi hồ sơ</button><p class="status" id="formStatus"></p>
+        </form>
+        <div class="qr"><div>QR</div><p><b data-t="apply.qr">QR tuyển dụng</b><small data-t="apply.qrsub">Sẵn sàng liên kết trực tiếp tới trang tuyển dụng trên mọi thiết bị.</small></p></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact"><div class="shell"><p class="eyebrow" data-t="contact.kicker">LIÊN HỆ</p><h2>Bình Minh</h2><p data-t="contact.text">Thông tin liên hệ chính thức sẽ được cập nhật tại đây.</p></div></section>
+</main>
+
+<footer><div class="shell"><span><b>BINH MINH</b><small>redtigerhead.com</small></span><span>© 2026 Bình Minh</span></div></footer>
+
+<dialog id="jobDialog"><button class="close" data-close="jobDialog">×</button><div id="jobDetail"></div></dialog>
+<dialog id="privacyDialog"><button class="close" data-close="privacyDialog">×</button><p class="eyebrow">PRIVACY</p><h3 data-t="privacy.heading">Thông báo xử lý dữ liệu ứng viên</h3><p data-t="privacy.1">Bình Minh thu thập thông tin ứng viên để tiếp nhận, đánh giá, liên hệ và quản lý quy trình tuyển dụng.</p><p data-t="privacy.2">Ứng viên chịu trách nhiệm về tính chính xác của thông tin đã cung cấp và có thể yêu cầu cập nhật hoặc rút hồ sơ qua kênh liên hệ chính thức.</p><p data-t="privacy.3">Nội dung này là baseline và cần được rà soát trước khi website nhận hồ sơ thật.</p></dialog>
+<script src="./app.js" defer></script>
+</body>
+</html>
