@@ -1,8 +1,12 @@
 # Red Tiger Head — Bình Minh Website
 
-Independent public website baseline for **redtigerhead.com**.
+Independent public website for **redtigerhead.com**.
 
-## Product principles
+## Current review target
+
+**V0.2 Dashboard Draft** on branch `feature/site-v0.2-dashboard`.
+
+### Product principles
 
 1. Fast
 2. Lightweight
@@ -10,94 +14,73 @@ Independent public website baseline for **redtigerhead.com**.
 4. Durable
 5. Low-maintenance
 
-## Baseline features
+## Public pages
 
-- Mobile-first single-page public site.
-- Vietnamese default + English + Chinese.
-- Light / dark themes.
-  - Light: cream with burgundy + restrained gold accents.
-  - Dark: deep burgundy.
-- Home hero with **200 tons/day** production capacity.
-- Minimal company introduction.
-- Two-column About section:
-  - company/process information
-  - three 90-day public price charts
-- Two-column Careers section:
-  - five shared work principles + job cards
-  - direct application form
-- Job detail modal + automatic job-category preselection.
-- Privacy/consent baseline.
-- Niu_hr and AI update hooks designed as future integration points without making ABMT Core a runtime dependency.
+- `/` — corporate dashboard homepage
+  - Bình Minh hero / current logo and factory image
+  - 200 tons/day production capacity
+  - concise company introduction
+  - simple production flow
+  - three 90-day reference price charts
+- `/gioi-thieu/` — dedicated company introduction only
+- `/tuyen-dung/` — dedicated recruitment and direct-application page
+  - five work principles
+  - job cards + detail modal
+  - position-aware Apply Now flow
+  - recruitment QR code
+  - privacy/consent baseline
+
+All pages support Vietnamese (default), English and Chinese, plus light/dark themes.
+
+## V0.2 visual system
+
+- Dark Red Wine
+- Porcelain White
+- Red highlights
+- Restrained Gold accents
+
+The design intentionally avoids overusing accent colors and keeps public company information concise.
 
 ## Important independence rule
 
-The public site must stay available even if ABMT Core, OpenClaw, gateway services, factory servers or internal databases are offline.
+The public website has **no runtime dependency** on ABMT Core, OpenClaw, factory servers or internal databases.
 
-Future agents should update public data **through controlled interfaces** (preferred: validated PR/commit or dedicated public CMS/API), not by exposing factory systems to the website.
+Future Niu_hr / AI workflows may publish validated public data through controlled interfaces, but internal systems must never be exposed directly to the browser.
 
 ## Data
 
-### Price data
+### Price charts — `data/prices.json`
 
-`data/prices.json`
+The UI automatically ignores entries older than 90 days. V0.2 currently contains **demo/reference data for visual review only**. Replace it with a validated feed before production publication.
 
-- Public history is limited to the latest 90 days.
-- No fake sample price is shipped in the live file.
-- Suggested update pipeline:
+Planned flow:
 
-`authorized message -> AI extraction -> human/rule validation -> normalized price payload -> public repository update`
+`authorized message -> AI extraction -> validation -> normalized public price update -> website`
 
-### Jobs
+### Recruitment — `data/jobs.json`
 
-`data/jobs.json`
+The page currently contains draft job data to exercise the UI. Future Niu_hr publishing should update only the public job schema through a controlled workflow.
 
-- Live file starts empty.
-- `data/jobs.example.json` contains a schema/example only.
-- Future Niu_hr should create/update job data through a controlled workflow.
+Applicant personal data must **never** be committed to Git.
 
 ## Application form
 
-The form is intentionally **non-submitting in this baseline**. Before production intake:
+The V0.2 form is intentionally non-submitting. Before enabling real intake:
 
-1. Add a dedicated recruitment API or form endpoint.
-2. Add rate limiting / anti-spam.
-3. Define retention policy.
-4. Review the privacy notice.
-5. Encrypt and restrict applicant data access.
-6. Never commit applicant data to Git.
+1. Add a dedicated recruitment endpoint.
+2. Add anti-spam/rate limiting.
+3. Define access controls and retention policy.
+4. Review the final privacy notice.
+5. Keep applicant records outside this public repository.
 
-The National ID / CCCD field is optional at the initial application stage by default.
+CCCD / National ID remains optional at the initial application stage.
 
-## Images
+## Repository workflow
 
-Put the approved, retouched factory hero image at:
+Normal changes follow:
 
-`assets/images/hero-factory.webp`
+`feature/* | fix/* | content/* -> Pull Request -> review -> main -> production`
 
-Retouching guideline:
-- remove distracting visual imperfections
-- correct exposure/white balance
-- remove temporary clutter if appropriate
-- do **not** fabricate production lines, equipment, certifications, capacity, buildings or other factual claims
+Do not make normal website changes directly on `main`.
 
-## Local preview
-
-Any static HTTP server works, e.g.:
-
-```bash
-python -m http.server 8080
-```
-
-Then open `http://localhost:8080`.
-
-## Recommended deployment
-
-Cloudflare Pages from this repository.
-
-Suggested environments:
-
-- `main` -> production -> redtigerhead.com
-- `develop` -> integration
-- feature branches -> preview deployments
-
-No production secrets should be stored in the repository.
+See `docs/WORKFLOW.md`, `docs/ARCHITECTURE.md`, and `docs/PRIVACY_BASELINE.md`.
