@@ -33,8 +33,9 @@ const points = series.map((point, index) => ({
   point
 }));
 const pathD = points.map((point, index) => (index === 0 ? "M" : "L") + point.x.toFixed(2) + " " + point.y.toFixed(2)).join(" ");
-const ticks = Array.from({ length: 5 }, (_, index) => {
-  const ratio = index / 4;
+const tickCount = Math.round(range / step) + 1;
+const ticks = Array.from({ length: tickCount }, (_, index) => {
+  const ratio = index / Math.max(1, tickCount - 1);
   return {
     y: top + ratio * (bottom - top),
     value: Math.round(yMax - ratio * range)
