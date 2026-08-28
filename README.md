@@ -1,86 +1,73 @@
 # Red Tiger Head — Bình Minh Website
 
-Independent public website for **redtigerhead.com**.
+Public corporate website for **redtigerhead.com**.
 
-## Current review target
+## Current milestone
 
-**V0.2 Dashboard Draft** on branch `feature/site-v0.2-dashboard`.
+**V0.3 Early State / Milestone A**
 
-### Product principles
+- Astro static output
+- component-based homepage and shared layout
+- data-driven reference charts
+- desktop geometry locked for the 960 × 1200 review viewport
+- responsive foundation for tablet and mobile
+- Vietnamese, English and Chinese UI switching
+- draft recruitment experience with client-side review
 
-1. Fast
-2. Lightweight
-3. Clear
-4. Durable
-5. Low-maintenance
+The visual target and acceptance order are recorded in
+`docs/EARLY_STATE_TARGET.md`.
 
-## Public pages
+## Public routes
 
 - `/` — corporate dashboard homepage
-  - Bình Minh hero / current logo and factory image
-  - 200 tons/day production capacity
-  - concise company introduction
-  - simple production flow
-  - three 90-day reference price charts
-- `/gioi-thieu/` — dedicated company introduction only
-- `/tuyen-dung/` — dedicated recruitment and direct-application page
-  - five work principles
-  - job cards + detail modal
-  - position-aware Apply Now flow
-  - recruitment QR code
-  - privacy/consent baseline
+- `/gioi-thieu/` — company introduction
+- `/bang-gia/` — reference-price dashboard
+- `/tuyen-dung/` — jobs and draft application flow
+- `/lien-he/` — public contact details
 
-All pages support Vietnamese (default), English and Chinese, plus light/dark themes.
+## Technology
 
-## V0.2 visual system
+- Astro
+- standard CSS
+- minimal DOM APIs
+- Cloudflare Workers Static Assets
 
-- Dark Red Wine
-- Porcelain White
-- Red highlights
-- Restrained Gold accents
+No client framework is used. Charts are generated from normalized JSON at build
+time rather than from screenshots or runtime HTML strings.
 
-The design intentionally avoids overusing accent colors and keeps public company information concise.
+## Local commands
 
-## Important independence rule
+```bash
+npm install
+npm run dev
+npm run build
+```
 
-The public website has **no runtime dependency** on ABMT Core, OpenClaw, factory servers or internal databases.
+## Cloudflare Workers
 
-Future Niu_hr / AI workflows may publish validated public data through controlled interfaces, but internal systems must never be exposed directly to the browser.
+The repository includes `wrangler.jsonc`.
 
-## Data
+- Build command: `npm run build`
+- Deploy command: `npx wrangler deploy`
+- Static output: `dist`
+- Worker name: `redtigerhead`
 
-### Price charts — `data/prices.json`
+The production preview hostname remains:
+`redtigerhead.nguyen-mian-3012.workers.dev`.
 
-The UI automatically ignores entries older than 90 days. V0.2 currently contains **demo/reference data for visual review only**. Replace it with a validated feed before production publication.
+## Public-data boundary
 
-Planned flow:
+Price and recruitment data in this repository are draft/demo inputs. Applicant
+records must never be committed to Git. The form does not transmit or store
+personal data until a dedicated protected endpoint, retention policy, rate
+limit and Turnstile verification are ready.
 
-`authorized message -> AI extraction -> validation -> normalized public price update -> website`
+The public application form intentionally does not request CCCD.
 
-### Recruitment — `data/jobs.json`
-
-The page currently contains draft job data to exercise the UI. Future Niu_hr publishing should update only the public job schema through a controlled workflow.
-
-Applicant personal data must **never** be committed to Git.
-
-## Application form
-
-The V0.2 form is intentionally non-submitting. Before enabling real intake:
-
-1. Add a dedicated recruitment endpoint.
-2. Add anti-spam/rate limiting.
-3. Define access controls and retention policy.
-4. Review the final privacy notice.
-5. Keep applicant records outside this public repository.
-
-CCCD / National ID remains optional at the initial application stage.
-
-## Repository workflow
+## Workflow
 
 Normal changes follow:
 
-`feature/* | fix/* | content/* -> Pull Request -> review -> main -> production`
+`feature/* -> Pull Request -> review -> main -> Cloudflare production`
 
-Do not make normal website changes directly on `main`.
-
-See `docs/WORKFLOW.md`, `docs/ARCHITECTURE.md`, and `docs/PRIVACY_BASELINE.md`.
+Do not make routine website changes directly on `main`.

@@ -1,0 +1,17 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+---
+<BaseLayout title="Không tìm thấy trang | Bình Minh" description="Trang bạn tìm kiếm không tồn tại.">
+  <SiteHeader active="home" />
+  <main id="main" class="not-found wine-zone">
+    <div class="shell">
+      <p class="eyebrow gold">404</p>
+      <h1>Không tìm thấy trang</h1>
+      <p>Đường dẫn có thể đã thay đổi hoặc không còn tồn tại.</p>
+      <a class="btn btn-outline-gold" href="/">Về trang chủ</a>
+    </div>
+  </main>
+  <SiteFooter />
+</BaseLayout>

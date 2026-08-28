@@ -1,0 +1,49 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import PageHero from "../../components/PageHero.astro";
+import RecruitmentForm from "../../components/RecruitmentForm.astro";
+import jobs from "../../data/jobs.json";
+import { copy, i18n, principles } from "../../data/site";
+---
+<BaseLayout title="Tuyển dụng | Bình Minh" description="Tuyển dụng Bình Minh — xem vị trí đang tuyển và chuẩn bị hồ sơ ứng tuyển.">
+  <SiteHeader active="careers" />
+  <main id="main">
+    <PageHero kicker="careers.kicker" title="careers.title" lead="careers.lead" />
+    <section class="content-section porcelain-zone">
+      <div class="shell careers-grid">
+        <div>
+          <article class="panel">
+            <h2 class="section-kicker" {...i18n("careers.principles")}>{copy.vi["careers.principles"]}</h2>
+            <ol class="principles">
+              {principles.map((principle) => <li>{principle}</li>)}
+            </ol>
+          </article>
+          <article class="panel jobs-card">
+            <h2 class="section-kicker" {...i18n("careers.openings")}>{copy.vi["careers.openings"]}</h2>
+            <div class="jobs-list">
+              {jobs.filter((job) => job.status === "open").map((job) => (
+                <details class="job-card">
+                  <summary>
+                    <span><small>{job.department}</small><b data-i18n data-vi={job.title.vi} data-en={job.title.en} data-zh={job.title.zh}>{job.title.vi}</b></span>
+                    <span class="detail-action">Chi tiết +</span>
+                  </summary>
+                  <div class="job-detail">
+                    <p data-i18n data-vi={job.summary.vi} data-en={job.summary.en} data-zh={job.summary.zh}>{job.summary.vi}</p>
+                    <h3>Vai trò</h3><p data-i18n data-vi={job.role.vi} data-en={job.role.en} data-zh={job.role.zh}>{job.role.vi}</p>
+                    <h3>Yêu cầu</h3><p data-i18n data-vi={job.requirements.vi} data-en={job.requirements.en} data-zh={job.requirements.zh}>{job.requirements.vi}</p>
+                    <h3>Quyền lợi</h3><p data-i18n data-vi={job.benefits.vi} data-en={job.benefits.en} data-zh={job.benefits.zh}>{job.benefits.vi}</p>
+                    <a href="#apply" class="text-link">Ứng tuyển vị trí này →</a>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </article>
+        </div>
+        <RecruitmentForm />
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</BaseLayout>

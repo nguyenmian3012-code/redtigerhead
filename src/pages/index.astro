@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import HeroSection from "../components/HeroSection.astro";
+import CompanyIntroduction from "../components/CompanyIntroduction.astro";
+import ProductionProcess from "../components/ProductionProcess.astro";
+import PriceDashboard from "../components/PriceDashboard.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+---
+<BaseLayout
+  title="Bình Minh | Red Tiger Head"
+  description="Bình Minh — nhà sản xuất tinh bột khoai mì tại Việt Nam, công suất danh nghĩa 200 tấn/ngày."
+>
+  <SiteHeader active="home" />
+  <main id="main">
+    <HeroSection />
+    <section class="dashboard-section porcelain-zone" aria-label="Giới thiệu và giá tham khảo">
+      <div class="shell dashboard-grid">
+        <div class="dashboard-left">
+          <CompanyIntroduction />
+          <ProductionProcess />
+        </div>
+        <PriceDashboard />
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</BaseLayout>

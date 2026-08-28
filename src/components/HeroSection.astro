@@ -1,0 +1,55 @@
+---
+import Icon from "./Icon.astro";
+import { copy, i18n, site } from "../data/site";
+
+const benefits = [
+  { icon: "shield", key: "benefit.quality" },
+  { icon: "truck", key: "benefit.delivery" },
+  { icon: "leaf", key: "benefit.sustain" }
+] as const;
+---
+<section class="hero wine-zone" aria-labelledby="hero-title">
+  <div class="hero-watermark" aria-hidden="true">虎</div>
+  <div class="shell hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow gold" {...i18n("hero.kicker")}>{copy.vi["hero.kicker"]}</p>
+      <h1 id="hero-title" {...i18n("hero.title")}>{copy.vi["hero.title"]}</h1>
+      <p class="hero-lead" {...i18n("hero.lead")}>{copy.vi["hero.lead"]}</p>
+      <div class="capacity-card">
+        <Icon name="factory" size={48} />
+        <div>
+          <span {...i18n("hero.capacity")}>{copy.vi["hero.capacity"]}</span>
+          <strong>{site.capacity}</strong>
+        </div>
+        <b {...i18n("hero.unit")}>{copy.vi["hero.unit"]}</b>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-red" href="/gioi-thieu/">
+          <span {...i18n("hero.about")}>{copy.vi["hero.about"]}</span><Icon name="arrow" size={18} />
+        </a>
+        <a class="btn btn-outline-gold" href="/bang-gia/">
+          <span {...i18n("hero.price")}>{copy.vi["hero.price"]}</span><Icon name="arrow" size={18} />
+        </a>
+      </div>
+    </div>
+    <div class="factory-card">
+      <div class="factory-photo" data-hero role="img" aria-label="Khu vực nhà máy Bình Minh"></div>
+      <div class="factory-features">
+        {benefits.map((benefit) => (
+          <div>
+            <Icon name={benefit.icon} size={25} />
+            <b {...i18n(benefit.key)}>{copy.vi[benefit.key]}</b>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+  <div class="shell version-bar">
+    <div class="version-name"><span class="version-dot"><Icon name="star" size={18} /></span><strong>Bình Minh {site.version}</strong></div>
+    <span class="version-divider"></span>
+    <p>Dark Red Wine&nbsp; / &nbsp;Porcelain White&nbsp; / &nbsp;Red + Gold</p>
+    <span class="version-spacer"></span>
+    <b>{site.dataStatus}</b>
+    <Icon name="info" size={21} />
+  </div>
+</section>

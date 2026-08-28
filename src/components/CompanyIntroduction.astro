@@ -1,0 +1,23 @@
+---
+import Icon from "./Icon.astro";
+import { copy, i18n } from "../data/site";
+
+const pillars = [
+  { icon: "shield", title: "benefit.quality", detail: "about.qualityDetail" },
+  { icon: "truck", title: "benefit.delivery", detail: "about.deliveryDetail" },
+  { icon: "leaf", title: "benefit.sustain", detail: "about.sustainDetail" }
+] as const;
+---
+<article class="panel intro-card">
+  <h2 class="section-kicker" {...i18n("about.kicker")}>{copy.vi["about.kicker"]}</h2>
+  <p class="intro-text" {...i18n("about.summary")}>{copy.vi["about.summary"]}</p>
+  <div class="pillars">
+    {pillars.map((pillar) => (
+      <div>
+        <span><Icon name={pillar.icon} size={36} /></span>
+        <b {...i18n(pillar.title)}>{copy.vi[pillar.title]}</b>
+        <small {...i18n(pillar.detail)}>{copy.vi[pillar.detail]}</small>
+      </div>
+    ))}
+  </div>
+</article>

@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import PriceDashboard from "../../components/PriceDashboard.astro";
+---
+<BaseLayout title="Bảng giá tham khảo | Bình Minh" description="Biểu đồ giá tham khảo dạng dữ liệu của Bình Minh. Số liệu hiện tại là bản nháp phục vụ thiết kế.">
+  <SiteHeader active="price" />
+  <main id="main">
+    <section class="page-hero wine-zone compact-page-hero">
+      <div class="shell">
+        <p class="eyebrow gold">DỮ LIỆU DRAFT</p>
+        <h1>Bảng giá tham khảo</h1>
+        <p>Số liệu phục vụ kiểm chứng giao diện, chưa phải báo giá hoặc dữ liệu thương mại chính thức.</p>
+      </div>
+    </section>
+    <section class="content-section porcelain-zone">
+      <div class="shell price-page-wrap"><PriceDashboard /></div>
+    </section>
+  </main>
+  <SiteFooter />
+</BaseLayout>

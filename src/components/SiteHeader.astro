@@ -1,0 +1,45 @@
+---
+import { copy, i18n, nav, site } from "../data/site";
+
+interface Props {
+  active: "home" | "about" | "price" | "careers" | "contact";
+}
+
+const { active } = Astro.props;
+const activeHref = {
+  home: "/",
+  about: "/gioi-thieu/",
+  price: "/bang-gia/",
+  careers: "/tuyen-dung/",
+  contact: "/lien-he/"
+}[active];
+---
+<header class="site-header">
+  <div class="shell nav-row">
+    <a class="brand" href="/" aria-label="Bình Minh — Trang chủ">
+      <img class="brand-logo" data-logo alt="" width="48" height="48" />
+      <span class="brand-word">{site.wordmark}</span>
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Mở menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="main-nav" id="main-nav" aria-label="Điều hướng chính">
+      {nav.map((item) => (
+        <a href={item.href} class:list={{ active: item.href === activeHref }} aria-current={item.href === activeHref ? "page" : undefined} {...i18n(item.key)}>
+          {copy.vi[item.key]}
+        </a>
+      ))}
+    </nav>
+    <div class="nav-tools">
+      <div class="lang-switch" role="group" aria-label="Chọn ngôn ngữ">
+        <button type="button" data-lang="vi" class="active" aria-pressed="true">VN</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        <button type="button" data-lang="zh" aria-pressed="false">CN</button>
+      </div>
+      <span class="tool-divider" aria-hidden="true"></span>
+      <button class="theme-toggle" type="button" aria-label="Đổi giao diện sáng tối">
+        <span class="sun">☼</span><span class="moon">◔</span>
+      </button>
+    </div>
+  </div>
+</header>

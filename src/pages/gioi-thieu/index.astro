@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import PageHero from "../../components/PageHero.astro";
+import ProductionProcess from "../../components/ProductionProcess.astro";
+import Icon from "../../components/Icon.astro";
+import { copy, i18n, site } from "../../data/site";
+
+const values = [
+  { icon: "shield", title: "benefit.quality", detail: "about.qualityDetail" },
+  { icon: "truck", title: "benefit.delivery", detail: "about.deliveryDetail" },
+  { icon: "leaf", title: "benefit.sustain", detail: "about.sustainDetail" }
+] as const;
+---
+<BaseLayout title="Giới thiệu | Bình Minh" description="Giới thiệu Công ty TNHH SX Tinh Bột Khoai Mì Bình Minh.">
+  <SiteHeader active="about" />
+  <main id="main">
+    <PageHero kicker="aboutPage.kicker" title="aboutPage.title" lead="aboutPage.lead" image />
+    <section class="content-section porcelain-zone">
+      <div class="shell about-grid">
+        <article class="panel prose-card">
+          <h2 class="section-kicker" {...i18n("aboutPage.company")}>{copy.vi["aboutPage.company"]}</h2>
+          <h3>{site.legalName}</h3>
+          <p>{copy.vi["about.summary"]}</p>
+          <dl class="facts">
+            <div><dt>Lĩnh vực</dt><dd>Tinh bột khoai mì</dd></div>
+            <div><dt>Công suất danh nghĩa</dt><dd>{site.capacity} tấn/ngày</dd></div>
+            <div><dt>Khu vực</dt><dd>Long An, Việt Nam</dd></div>
+          </dl>
+        </article>
+        <article class="panel prose-card">
+          <h2 class="section-kicker" {...i18n("aboutPage.approach")}>{copy.vi["aboutPage.approach"]}</h2>
+          <div class="simple-values">
+            {values.map((value, index) => (
+              <div>
+                <span><Icon name={value.icon} size={28} /></span>
+                <b {...i18n(value.title)}>{copy.vi[value.title]}</b>
+                <p {...i18n(value.detail)}>{copy.vi[value.detail]}</p>
+                <em>{String(index + 1).padStart(2, "0")}</em>
+              </div>
+            ))}
+          </div>
+        </article>
+        <div class="process-wide"><ProductionProcess /></div>
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</BaseLayout>

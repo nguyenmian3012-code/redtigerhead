@@ -1,0 +1,77 @@
+---
+interface PricePoint {
+  date: string;
+  value: number;
+  unit: string;
+}
+
+interface Props {
+  title: string;
+  titleEn: string;
+  titleZh: string;
+  series: PricePoint[];
+  tone: "red" | "gold" | "coral";
+}
+
+const { title, titleEn, titleZh, series, tone } = Astro.props;
+const width = 360;
+const height = 112;
+const left = 38;
+const right = 352;
+const top = 9;
+const bottom = 87;
+const values = series.map((point) => Number(point.value));
+const rawMin = Math.min(...values);
+const rawMax = Math.max(...values);
+const step = rawMax > 6000 ? 1000 : rawMax > 3000 ? 500 : 250;
+const yMin = Math.floor((rawMin - step * 0.3) / step) * step;
+const yMax = Math.ceil((rawMax + step * 0.3) / step) * step;
+const range = Math.max(1, yMax - yMin);
+const points = series.map((point, index) => ({
+  x: left + (index * (right - left)) / Math.max(1, series.length - 1),
+  y: bottom - ((Number(point.value) - yMin) / range) * (bottom - top),
+  point
+}));
+const pathD = points.map((point, index) => (index === 0 ? "M" : "L") + point.x.toFixed(2) + " " + point.y.toFixed(2)).join(" ");
+const ticks = Array.from({ length: 4 }, (_, index) => {
+  const ratio = index / 3;
+  return {
+    y: top + ratio * (bottom - top),
+    value: Math.round(yMax - ratio * range)
+  };
+});
+const dateIndexes = [0, Math.floor((series.length - 1) / 3), Math.floor(((series.length - 1) * 2) / 3), series.length - 1];
+const formatDate = (date: string) => {
+  const parts = date.split("-");
+  return parts[2] + "/" + parts[1];
+};
+const latest = series[series.length - 1];
+---
+<section class:list={["price-card", "tone-" + tone]} aria-label={title}>
+  <div class="price-name">
+    <b data-i18n data-vi={title} data-en={titleEn} data-zh={titleZh}>{title}</b>
+    <small>(VND/kg)</small>
+  </div>
+  <div class="chart-body">
+    <svg class="price-chart" viewBox={"0 0 " + width + " " + height} role="img" aria-label={title + " — dữ liệu tham khảo"}>
+      {ticks.map((tick) => (
+        <>
+          <line class="grid-line" x1={left} x2={right} y1={tick.y} y2={tick.y} />
+          <text class="axis-label" x="1" y={tick.y + 3}>{tick.value.toLocaleString("en-US")}</text>
+        </>
+      ))}
+      <path class="series-line" d={pathD} />
+      {points.map((point) => <circle class="series-point" cx={point.x} cy={point.y} r="2.35" />)}
+      {dateIndexes.map((index) => (
+        <text class="date-label" x={points[index].x} y="106" text-anchor={index === 0 ? "start" : index === series.length - 1 ? "end" : "middle"}>
+          {formatDate(series[index].date)}
+        </text>
+      ))}
+    </svg>
+    <div class="latest-box">
+      <strong>{Number(latest.value).toLocaleString("en-US")}</strong>
+      <small>VND/kg</small>
+      <em>{formatDate(latest.date)}</em>
+    </div>
+  </div>
+</section>

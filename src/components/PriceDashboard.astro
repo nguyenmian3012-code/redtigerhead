@@ -1,0 +1,15 @@
+---
+import Icon from "./Icon.astro";
+import PriceChartCard from "./PriceChartCard.astro";
+import priceData from "../data/prices.json";
+import { copy, i18n } from "../data/site";
+---
+<aside class="panel market-card" id="market">
+  <div class="market-header">
+    <h2 class="section-kicker" {...i18n("market.title")}>{copy.vi["market.title"]}</h2>
+    <p class="market-note"><Icon name="info" size={17} /><span {...i18n("market.notice")}>{copy.vi["market.notice"]}</span></p>
+  </div>
+  <PriceChartCard title={copy.vi["market.starch"]} titleEn={copy.en["market.starch"]} titleZh={copy.zh["market.starch"]} series={priceData.starch} tone="red" />
+  <PriceChartCard title={copy.vi["market.root"]} titleEn={copy.en["market.root"]} titleZh={copy.zh["market.root"]} series={priceData.root} tone="gold" />
+  <PriceChartCard title={copy.vi["market.residue"]} titleEn={copy.en["market.residue"]} titleZh={copy.zh["market.residue"]} series={priceData.residue} tone="coral" />
+</aside>
