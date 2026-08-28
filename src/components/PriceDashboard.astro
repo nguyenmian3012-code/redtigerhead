@@ -7,7 +7,10 @@ import { copy, i18n } from "../data/site";
 <aside class="panel market-card" id="market">
   <div class="market-header">
     <h2 class="section-kicker" {...i18n("market.title")}>{copy.vi["market.title"]}</h2>
-    <p class="market-note"><Icon name="info" size={17} /><span {...i18n("market.notice")}>{copy.vi["market.notice"]}</span></p>
+    <p class="market-note" title="Đây là giá tham khảo, giá thực tế không vượt quá ±5%.">
+      <Icon name="info" size={18} />
+      <span data-i18n data-vi="Giá tham khảo; giá thực tế không vượt quá ±5%." data-en="Reference prices; actual prices are expected to remain within ±5%." data-zh="参考价格；实际价格预计控制在 ±5% 以内。">Giá tham khảo; giá thực tế không vượt quá ±5%.</span>
+    </p>
   </div>
   <PriceChartCard title={copy.vi["market.starch"]} titleEn={copy.en["market.starch"]} titleZh={copy.zh["market.starch"]} series={priceData.starch} tone="red" />
   <PriceChartCard title={copy.vi["market.root"]} titleEn={copy.en["market.root"]} titleZh={copy.zh["market.root"]} series={priceData.root} tone="gold" />
