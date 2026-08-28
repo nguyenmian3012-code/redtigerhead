@@ -1,0 +1,64 @@
+---
+const rows = [
+  { vi: "Hàm lượng tinh bột (chất khô)", en: "Starch Content (Dry Basis)", zh: "淀粉含量（干基）", unit: "%", limit: "≥ 85.0% min" },
+  { vi: "Độ ẩm", en: "Moisture Content", zh: "水分", unit: "%", limit: "≤ 13.0% max" },
+  { vi: "pH (dung dịch / huyền phù 10%)", en: "pH (10% slurry / solution)", zh: "pH（10%浆液/溶液）", unit: "—", limit: "5.0 – 7.0" },
+  { vi: "Độ trắng / độ sáng", en: "Whiteness / Brightness", zh: "白度 / 亮度", unit: "%", limit: "≥ 90.0% min" },
+  { vi: "Hàm lượng tro", en: "Ash Content", zh: "灰分", unit: "%", limit: "≤ 0.20% – 0.50% max" },
+  { vi: "Độ nhớt (Brabender / Brookfield)", en: "Viscosity (Brabender / Brookfield)", zh: "粘度（Brabender / Brookfield）", unit: "BU / cPs", limit: "≥ 700 BU min hoặc 200 – 400 cPs tùy phương pháp" },
+  { vi: "Sulfur Dioxide (SO₂)", en: "Sulfur Dioxide (SO₂)", zh: "二氧化硫（SO₂）", unit: "ppm", limit: "≤ 30 – 100 ppm max" },
+  { vi: "Độ mịn / cỡ hạt", en: "Fineness / Granulation", zh: "细度 / 粒度", unit: "%", limit: "≥ 99% qua rây 100 mesh" },
+  { vi: "Xơ thô / bã", en: "Crude Fiber / Pulp", zh: "粗纤维 / 浆渣", unit: "%", limit: "≤ 0.20% max" }
+];
+---
+<section class="product-spec-section porcelain-zone" id="thong-so" aria-labelledby="spec-title">
+  <div class="shell">
+    <article class="panel product-spec-panel">
+      <div class="product-spec-head">
+        <div>
+          <p class="section-kicker" data-i18n data-vi="THÔNG SỐ SẢN PHẨM" data-en="PRODUCT SPECIFICATIONS" data-zh="产品参数">THÔNG SỐ SẢN PHẨM</p>
+          <h2 id="spec-title" data-i18n data-vi="Native Tapioca Starch — Thông số tham khảo Bình Minh" data-en="Native Tapioca Starch — Binh Minh reference specifications" data-zh="Native Tapioca Starch — Binh Minh 参考参数">Native Tapioca Starch — Thông số tham khảo Bình Minh</h2>
+          <p data-i18n data-vi="Bảng thông tin kỹ thuật được trình bày ngắn gọn để khách hàng và đối tác dễ đối chiếu. Thông số thương mại cuối cùng được xác nhận theo COA, lô hàng và mục đích sử dụng." data-en="A concise technical reference for customers and partners. Final commercial specifications are confirmed by COA, production lot and end-use requirements." data-zh="为客户与合作伙伴提供简洁的技术参考。最终商业参数以 COA、生产批次及具体用途要求为准。">Bảng thông tin kỹ thuật được trình bày ngắn gọn để khách hàng và đối tác dễ đối chiếu. Thông số thương mại cuối cùng được xác nhận theo COA, lô hàng và mục đích sử dụng.</p>
+        </div>
+        <span class="spec-badge">BINH MINH · V0.3 PREVIEW</span>
+      </div>
+
+      <div class="spec-table-wrap">
+        <table class="spec-table">
+          <thead>
+            <tr>
+              <th data-i18n data-vi="Thông số" data-en="Parameter" data-zh="参数">Thông số</th>
+              <th data-i18n data-vi="Đơn vị" data-en="Unit" data-zh="单位">Đơn vị</th>
+              <th data-i18n data-vi="Tiêu chuẩn / giới hạn tham khảo" data-en="Reference standard / limit" data-zh="参考标准 / 限值">Tiêu chuẩn / giới hạn tham khảo</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row) => (
+              <tr>
+                <td data-i18n data-vi={row.vi} data-en={row.en} data-zh={row.zh}>{row.vi}</td>
+                <td>{row.unit}</td>
+                <td>{row.limit}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="spec-notes">
+        <section class="spec-note-card">
+          <h3 data-i18n data-vi="Đặc tính" data-en="Characteristics" data-zh="主要特性">Đặc tính</h3>
+          <p data-i18n data-vi="Bột mịn, tơi, màu trắng đến trắng kem nhạt; vị trung tính và không có mùi lạ." data-en="Fine, free-flowing powder, white to light-cream; bland, neutral taste with no foreign odor." data-zh="粉末细腻、流动性好，颜色白至浅奶油色；味道中性、无异味。">Bột mịn, tơi, màu trắng đến trắng kem nhạt; vị trung tính và không có mùi lạ.</p>
+        </section>
+        <section class="spec-note-card">
+          <h3 data-i18n data-vi="Bảo quản" data-en="Storage" data-zh="储存">Bảo quản</h3>
+          <p data-i18n data-vi="Hạn dùng thông thường 12–24 tháng khi lưu trữ nơi khô, sạch, thoáng mát và tránh nhiễm chéo." data-en="Typical shelf life is 12–24 months when stored in cool, dry and clean conditions and protected from cross-contamination." data-zh="在阴凉、干燥、洁净并避免交叉污染的条件下，通常保质期为 12–24 个月。">Hạn dùng thông thường 12–24 tháng khi lưu trữ nơi khô, sạch, thoáng mát và tránh nhiễm chéo.</p>
+        </section>
+        <section class="spec-note-card">
+          <h3 data-i18n data-vi="Đóng gói" data-en="Packaging" data-zh="包装">Đóng gói</h3>
+          <p data-i18n data-vi="Quy cách phổ biến: bao PP/PE 25 kg, 50 kg hoặc jumbo; cấu hình cụ thể theo thỏa thuận đơn hàng." data-en="Common formats: 25 kg, 50 kg or jumbo PP/PE bags; final configuration is agreed per order." data-zh="常见包装为 25 kg、50 kg 或 jumbo PP/PE 编织袋；最终配置按订单约定。">Quy cách phổ biến: bao PP/PE 25 kg, 50 kg hoặc jumbo; cấu hình cụ thể theo thỏa thuận đơn hàng.</p>
+        </section>
+      </div>
+      <p class="spec-footnote" data-i18n data-vi="Lưu ý: yêu cầu cụ thể thay đổi theo ứng dụng công nghiệp, thực phẩm hoặc các cấp chất lượng nghiêm ngặt hơn; các yêu cầu về kim loại nặng và vi sinh cần được xác nhận riêng khi áp dụng." data-en="Note: requirements vary by industrial, food or stricter grades; heavy-metal and microbiological requirements should be confirmed separately when applicable." data-zh="注：不同工业、食品或更严格等级的要求会有所不同；如适用，重金属与微生物指标应另行确认。">Lưu ý: yêu cầu cụ thể thay đổi theo ứng dụng công nghiệp, thực phẩm hoặc các cấp chất lượng nghiêm ngặt hơn; các yêu cầu về kim loại nặng và vi sinh cần được xác nhận riêng khi áp dụng.</p>
+    </article>
+  </div>
+</section>
