@@ -14,12 +14,12 @@ interface Props {
 }
 
 const { title, titleEn, titleZh, series, tone } = Astro.props;
-const width = 360;
-const height = 112;
-const left = 38;
-const right = 352;
-const top = 9;
-const bottom = 87;
+const width = 560;
+const height = 168;
+const left = 52;
+const right = 548;
+const top = 12;
+const bottom = 132;
 const values = series.map((point) => Number(point.value));
 const rawMin = Math.min(...values);
 const rawMax = Math.max(...values);
@@ -42,7 +42,7 @@ const ticks = Array.from({ length: tickCount }, (_, index) => {
   };
 });
 const lastIndex = series.length - 1;
-const labelStride = series.length > 16 ? 2 : 1;
+const labelStride = series.length > 14 ? 2 : 1;
 const dateIndexes = series
   .map((_, index) => index)
   .filter((index) => index === 0 || index === lastIndex || index % labelStride === 0);
@@ -62,13 +62,17 @@ const latest = series[series.length - 1];
       {ticks.map((tick) => (
         <>
           <line class="grid-line" x1={left} x2={right} y1={tick.y} y2={tick.y} />
-          <text class="axis-label" x="1" y={tick.y + 3}>{tick.value.toLocaleString("en-US")}</text>
+          <text class="axis-label" x="1" y={tick.y + 4}>{tick.value.toLocaleString("en-US")}</text>
         </>
       ))}
       <path class="series-line" d={pathD} />
-      {points.map((point) => <circle class="series-point" cx={point.x} cy={point.y} r="2.05" />)}
+      {points.map((point) => (
+        <circle class="series-point" cx={point.x} cy={point.y} r="3">
+          <title>{point.point.date + ": " + Number(point.point.value).toLocaleString("en-US") + " " + point.point.unit}</title>
+        </circle>
+      ))}
       {dateIndexes.map((index) => (
-        <text class="date-label" x={points[index].x} y="106" text-anchor={index === 0 ? "start" : index === series.length - 1 ? "end" : "middle"}>
+        <text class="date-label" x={points[index].x} y="160" text-anchor={index === 0 ? "start" : index === series.length - 1 ? "end" : "middle"}>
           {formatDate(series[index].date)}
         </text>
       ))}

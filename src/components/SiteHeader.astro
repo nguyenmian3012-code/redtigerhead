@@ -1,6 +1,4 @@
 ---
-import { copy, i18n, nav, site } from "../data/site";
-
 interface Props {
   active: "home" | "about" | "price" | "careers" | "contact";
 }
@@ -8,25 +6,31 @@ interface Props {
 const { active } = Astro.props;
 const activeHref = {
   home: "/",
-  about: "/gioi-thieu/",
-  price: "/bang-gia/",
+  about: "/",
+  price: "/",
   careers: "/tuyen-dung/",
   contact: "/lien-he/"
 }[active];
+const nav = [
+  { href: "/", vi: "Trang chủ", en: "Home", zh: "首页" },
+  { href: "/#thong-so", vi: "Thông số sản phẩm", en: "Product Specs", zh: "产品参数" },
+  { href: "/tuyen-dung/", vi: "Tuyển dụng", en: "Careers", zh: "招聘" },
+  { href: "/lien-he/", vi: "Liên hệ", en: "Contact", zh: "联系" }
+];
 ---
 <header class="site-header">
   <div class="shell nav-row">
     <a class="brand" href="/" aria-label="Bình Minh — Trang chủ">
-      <img class="brand-logo" data-logo alt="" width="48" height="48" />
-      <span class="brand-word">{site.wordmark}</span>
+      <img class="brand-logo" src="/assets/binh-minh-logo.png" alt="Logo Bình Minh — Red Tiger Head" width="52" height="52" />
+      <span class="brand-word">BINH MINH</span>
     </a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Mở menu">
       <span></span><span></span><span></span>
     </button>
     <nav class="main-nav" id="main-nav" aria-label="Điều hướng chính">
       {nav.map((item) => (
-        <a href={item.href} class:list={{ active: item.href === activeHref }} aria-current={item.href === activeHref ? "page" : undefined} {...i18n(item.key)}>
-          {copy.vi[item.key]}
+        <a href={item.href} class:list={{ active: item.href === activeHref }} aria-current={item.href === activeHref ? "page" : undefined} data-i18n data-vi={item.vi} data-en={item.en} data-zh={item.zh}>
+          {item.vi}
         </a>
       ))}
     </nav>

@@ -1,0 +1,524 @@
+:root {
+  --shell: 1180px;
+}
+
+/* V0.3 preview polish: wider canvas, clearer hierarchy, larger charts. */
+.hero-grid {
+  grid-template-columns: minmax(0, 0.39fr) minmax(0, 0.61fr);
+  gap: 48px;
+}
+
+.hero-copy {
+  transform: none;
+}
+
+.hero-lead {
+  max-width: 440px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  grid-template-columns: auto;
+}
+
+.hero-actions .btn {
+  min-height: 44px;
+  padding-inline: 22px;
+}
+
+.brand-logo {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+}
+
+.version-bar {
+  min-height: 58px;
+}
+
+.version-guides {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  margin: 0;
+  font-size: 12.5px;
+}
+
+.version-guides span {
+  position: relative;
+  white-space: nowrap;
+}
+
+.version-guides span:not(:last-child)::after {
+  position: absolute;
+  right: -10px;
+  color: var(--gold-500);
+  content: "·";
+}
+
+.product-spec-section {
+  padding: 38px 0 28px;
+}
+
+.product-spec-panel {
+  padding: 24px 26px 26px;
+}
+
+.product-spec-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 22px;
+  margin-bottom: 18px;
+}
+
+.product-spec-head h2 {
+  margin: 0 0 7px;
+  font-family: var(--serif);
+  font-size: clamp(28px, 3vw, 38px);
+  line-height: 1.05;
+}
+
+.product-spec-head p {
+  max-width: 720px;
+  margin: 0;
+  color: var(--muted);
+}
+
+.spec-badge {
+  flex: 0 0 auto;
+  padding: 7px 10px;
+  color: var(--gold-700);
+  border: 1px solid #dfbd75;
+  border-radius: 999px;
+  background: #fff9eb;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  white-space: nowrap;
+}
+
+html[data-theme="dark"] .spec-badge {
+  background: #3a2812;
+}
+
+.spec-table-wrap {
+  overflow-x: auto;
+}
+
+.spec-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+}
+
+.spec-table th {
+  padding: 10px 12px;
+  color: #fff8ef;
+  background: var(--wine-800);
+  font-size: 11px;
+  text-align: left;
+}
+
+.spec-table th:first-child {
+  border-radius: 9px 0 0 9px;
+}
+
+.spec-table th:last-child {
+  border-radius: 0 9px 9px 0;
+}
+
+.spec-table td {
+  padding: 11px 12px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--paper) 77%, var(--porcelain));
+  font-size: 12px;
+}
+
+.spec-table td:first-child {
+  border-left: 1px solid var(--line);
+  border-radius: 9px 0 0 9px;
+  font-weight: 750;
+}
+
+.spec-table td:last-child {
+  border-right: 1px solid var(--line);
+  border-radius: 0 9px 9px 0;
+}
+
+.spec-notes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 17px;
+}
+
+.spec-note-card {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--porcelain);
+}
+
+.spec-note-card h3 {
+  margin: 0 0 7px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.spec-note-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.spec-footnote {
+  margin: 15px 0 0;
+  color: var(--muted);
+  font-size: 10.5px;
+}
+
+.dashboard-section {
+  padding: 32px 0 34px;
+}
+
+.dashboard-grid {
+  grid-template-columns: minmax(0, 0.40fr) minmax(0, 0.60fr);
+  gap: 24px;
+}
+
+.dashboard-left,
+.market-card {
+  min-width: 0;
+}
+
+.intro-card {
+  min-height: 280px;
+  padding: 24px;
+}
+
+.intro-text {
+  font-size: 13px;
+}
+
+.pillars b {
+  font-size: 11.5px;
+}
+
+.pillars small {
+  font-size: 10px;
+}
+
+.process-card {
+  padding: 21px 22px 18px;
+}
+
+.process-row small {
+  font-size: 10.5px;
+}
+
+.market-card {
+  padding: 22px 20px 18px;
+}
+
+.market-header {
+  align-items: center;
+  margin-bottom: 3px;
+}
+
+.market-header .section-kicker {
+  font-size: 14px;
+}
+
+.market-note {
+  max-width: 290px;
+  font-size: 10.5px;
+}
+
+.price-card {
+  margin-top: 13px;
+  padding: 12px 13px 10px;
+}
+
+.price-name {
+  font-size: 12.5px;
+}
+
+.price-name small {
+  font-size: 10px;
+}
+
+.chart-body {
+  grid-template-columns: minmax(0, 1fr) 92px;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.price-chart {
+  height: 142px;
+}
+
+.axis-label,
+.date-label {
+  font-size: 8.4px;
+}
+
+.series-line {
+  stroke-width: 2.2;
+}
+
+.series-point {
+  stroke-width: .85;
+}
+
+.latest-box {
+  min-height: 90px;
+  padding: 9px 5px;
+}
+
+.latest-box strong {
+  font-size: 20px;
+}
+
+.latest-box small,
+.latest-box em {
+  font-size: 9px;
+}
+
+/* Recruitment */
+.principle-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.principle-item {
+  display: grid;
+  min-width: 0;
+  justify-items: center;
+  gap: 7px;
+  padding: 15px 9px;
+  text-align: center;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--porcelain);
+}
+
+.principle-icon {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  color: var(--red-600);
+  border: 1px solid #e7c8b2;
+  border-radius: 50%;
+  background: var(--paper);
+}
+
+.principle-item b {
+  font-size: 11px;
+  line-height: 1.3;
+}
+
+.principle-item small {
+  color: var(--muted);
+  font-size: 9.5px;
+  line-height: 1.35;
+}
+
+.job-card summary {
+  display: grid;
+  grid-template-columns: 84px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 15px;
+}
+
+.job-visual {
+  display: grid;
+  width: 84px;
+  aspect-ratio: 1;
+  place-items: center;
+  gap: 3px;
+  color: var(--red-600);
+  border: 1px dashed #dcb79f;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(195,31,49,.08), rgba(216,166,61,.08)), var(--paper);
+}
+
+.job-visual small {
+  color: var(--muted) !important;
+  font-size: 8px !important;
+}
+
+.job-title-block {
+  display: grid;
+  gap: 3px;
+}
+
+/* Contact */
+.contact-grid-v03 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.contact-card-v03 {
+  padding: 24px;
+}
+
+.contact-card-v03 h2 {
+  margin: 12px 0 9px;
+  font-family: var(--serif);
+  font-size: 24px;
+}
+
+.contact-card-v03 p,
+.contact-card-v03 li {
+  color: var(--muted);
+}
+
+.contact-lines {
+  display: grid;
+  gap: 9px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-lines a {
+  text-decoration: none;
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 15px;
+}
+
+.channel-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 9px;
+  margin-top: 14px;
+}
+
+.channel-link,
+.channel-pending {
+  display: grid;
+  gap: 4px;
+  padding: 13px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--porcelain);
+  text-decoration: none;
+}
+
+.channel-link b,
+.channel-pending b {
+  color: var(--ink);
+}
+
+.channel-link small,
+.channel-pending small {
+  color: var(--muted);
+  font-size: 9.5px;
+}
+
+.footer-contact p {
+  max-width: 340px;
+}
+
+.footer-contact .footer-phone-stack {
+  display: grid;
+  gap: 3px;
+}
+
+.social-row a,
+.social-row span {
+  width: auto;
+  min-width: 34px;
+  padding-inline: 9px;
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+@media (max-width: 980px) {
+  .spec-notes,
+  .principle-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-grid-v03 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 840px) {
+  .hero-grid,
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-spec-head {
+    display: grid;
+  }
+
+  .spec-badge {
+    justify-self: start;
+  }
+
+  .market-card {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-actions {
+    display: block;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .version-guides {
+    display: none;
+  }
+
+  .spec-notes,
+  .principle-grid,
+  .channel-row {
+    grid-template-columns: 1fr;
+  }
+
+  .product-spec-panel {
+    padding: 19px 16px 20px;
+  }
+
+  .chart-body {
+    grid-template-columns: minmax(0, 1fr) 74px;
+    gap: 7px;
+  }
+
+  .price-chart {
+    height: 124px;
+  }
+
+  .job-card summary {
+    grid-template-columns: 70px minmax(0, 1fr);
+  }
+
+  .job-visual {
+    width: 70px;
+  }
+
+  .detail-action {
+    grid-column: 1 / -1;
+    padding-left: 85px;
+  }
+}
