@@ -33,14 +33,18 @@ const points = series.map((point, index) => ({
   point
 }));
 const pathD = points.map((point, index) => (index === 0 ? "M" : "L") + point.x.toFixed(2) + " " + point.y.toFixed(2)).join(" ");
-const ticks = Array.from({ length: 4 }, (_, index) => {
-  const ratio = index / 3;
+const ticks = Array.from({ length: 5 }, (_, index) => {
+  const ratio = index / 4;
   return {
     y: top + ratio * (bottom - top),
     value: Math.round(yMax - ratio * range)
   };
 });
-const dateIndexes = [0, Math.floor((series.length - 1) / 3), Math.floor(((series.length - 1) * 2) / 3), series.length - 1];
+const lastIndex = series.length - 1;
+const labelStride = series.length > 16 ? 2 : 1;
+const dateIndexes = series
+  .map((_, index) => index)
+  .filter((index) => index === 0 || index === lastIndex || index % labelStride === 0);
 const formatDate = (date: string) => {
   const parts = date.split("-");
   return parts[2] + "/" + parts[1];
@@ -61,7 +65,7 @@ const latest = series[series.length - 1];
         </>
       ))}
       <path class="series-line" d={pathD} />
-      {points.map((point) => <circle class="series-point" cx={point.x} cy={point.y} r="2.35" />)}
+      {points.map((point) => <circle class="series-point" cx={point.x} cy={point.y} r="2.05" />)}
       {dateIndexes.map((index) => (
         <text class="date-label" x={points[index].x} y="106" text-anchor={index === 0 ? "start" : index === series.length - 1 ? "end" : "middle"}>
           {formatDate(series[index].date)}
@@ -70,7 +74,7 @@ const latest = series[series.length - 1];
     </svg>
     <div class="latest-box">
       <strong>{Number(latest.value).toLocaleString("en-US")}</strong>
-      <small>VND/kg</small>
+      <small>{latest.unit}</small>
       <em>{formatDate(latest.date)}</em>
     </div>
   </div>
