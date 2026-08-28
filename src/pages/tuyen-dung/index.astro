@@ -16,7 +16,8 @@ const principles = [
   { icon: "shield", vi: "An toàn & Bền vững", en: "Safety & Sustainability", zh: "安全与可持续", viD: "Ưu tiên an toàn lao động và tư duy phát triển dài hạn.", enD: "Prioritize occupational safety and long-term development.", zhD: "优先考虑生产安全与长期发展。" }
 ] as const;
 
-const roleIcon = (id: string) => id.includes("kcs") ? "clipboard" : id.includes("mechanic") ? "factory" : "truck";
+type RoleIcon = "clipboard" | "factory" | "truck";
+const roleIcon = (id: string): RoleIcon => id.includes("kcs") ? "clipboard" : id.includes("mechanic") ? "factory" : "truck";
 ---
 <BaseLayout title="Tuyển dụng | Bình Minh" description="Tuyển dụng Bình Minh — xem vị trí đang tuyển và chuẩn bị hồ sơ ứng tuyển.">
   <SiteHeader active="careers" />
