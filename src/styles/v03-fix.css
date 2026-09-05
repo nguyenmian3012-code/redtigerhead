@@ -7,18 +7,21 @@
 
 .brand {
   min-height: 64px;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: 5px;
 }
 
 .brand-logo {
   display: block;
   width: 46px;
-  height: 46px;
-  padding: 2px;
-  object-fit: contain;
-  object-position: 50% 50%;
+  height: auto;
+  max-height: none;
+  padding: 0;
+  object-fit: initial;
+  object-position: top center;
   clip-path: none;
   transform: none;
+  align-self: flex-start;
 }
 
 .spec-characteristics {
@@ -85,20 +88,23 @@
 @media (max-width: 840px) {
   .brand {
     min-height: 58px;
+    padding-top: 4px;
   }
 
   .brand-logo {
-    width: 40px;
-    height: 40px;
-    padding: 3px;
+    width: 42px;
+    height: auto;
   }
 }
 
 @media (max-width: 600px) {
+  .brand {
+    padding-top: 2px;
+  }
+
   .brand-logo {
-    width: 38px;
-    height: 38px;
-    padding: 3px;
+    width: 40px;
+    height: auto;
   }
 
   .spec-characteristic-list {
