@@ -1,4 +1,6 @@
 ---
+import Icon from "./Icon.astro";
+
 const rows = [
   { vi: "Hàm lượng tinh bột (chất khô)", en: "Starch Content (Dry Basis)", zh: "淀粉含量（干基）", unit: "%", limit: "≥ 85.0% min" },
   { vi: "Độ ẩm", en: "Moisture Content", zh: "水分", unit: "%", limit: "≤ 13.0% max" },
@@ -10,6 +12,14 @@ const rows = [
   { vi: "Độ mịn / cỡ hạt", en: "Fineness / Granulation", zh: "细度 / 粒度", unit: "%", limit: "≥ 99% qua rây 100 mesh" },
   { vi: "Xơ thô / bã", en: "Crude Fiber / Pulp", zh: "粗纤维 / 浆渣", unit: "%", limit: "≤ 0.20% max" }
 ];
+
+const characteristics = [
+  { icon: "star", vi: "Ngoại quan", en: "Appearance", zh: "外观", viText: "Bột mịn, tơi, màu trắng đến trắng kem nhạt.", enText: "Fine, free-flowing powder, white to light-cream.", zhText: "粉末细腻、流动性好，颜色白至浅奶油色。" },
+  { icon: "shield", vi: "Mùi & vị", en: "Taste & odor", zh: "气味与口感", viText: "Vị trung tính, không có mùi lạ hay tạp mùi bất thường.", enText: "Neutral taste with no foreign or abnormal odor.", zhText: "味道中性，无异味或异常气味。" },
+  { icon: "clock", vi: "Hạn sử dụng", en: "Shelf life", zh: "保质期", viText: "Thông thường 12–24 tháng khi bảo quản nơi khô, sạch và thoáng mát.", enText: "Typically 12–24 months in cool, dry and clean storage conditions.", zhText: "在阴凉、干燥、洁净条件下通常为 12–24 个月。" },
+  { icon: "bag", vi: "Đóng gói", en: "Packaging", zh: "包装", viText: "Phổ biến 25 kg, 50 kg hoặc bao jumbo PP/PE; cấu hình theo đơn hàng.", enText: "Commonly 25 kg, 50 kg or jumbo PP/PE bags; final configuration per order.", zhText: "常见为 25 kg、50 kg 或 jumbo PP/PE 编织袋；最终配置按订单约定。" },
+  { icon: "factory", vi: "Ứng dụng", en: "Applications", zh: "应用", viText: "Phù hợp nhiều ứng dụng công nghiệp và thực phẩm tùy theo cấp chất lượng và COA.", enText: "Suitable for multiple industrial and food applications depending on grade and COA.", zhText: "可根据等级与 COA 用于多种工业及食品用途。" }
+] as const;
 ---
 <section class="product-spec-section porcelain-zone" id="thong-so" aria-labelledby="spec-title">
   <div class="shell">
@@ -44,20 +54,21 @@ const rows = [
         </table>
       </div>
 
-      <div class="spec-notes">
-        <section class="spec-note-card">
-          <h3 data-i18n data-vi="Đặc tính" data-en="Characteristics" data-zh="主要特性">Đặc tính</h3>
-          <p data-i18n data-vi="Bột mịn, tơi, màu trắng đến trắng kem nhạt; vị trung tính và không có mùi lạ." data-en="Fine, free-flowing powder, white to light-cream; bland, neutral taste with no foreign odor." data-zh="粉末细腻、流动性好，颜色白至浅奶油色；味道中性、无异味。">Bột mịn, tơi, màu trắng đến trắng kem nhạt; vị trung tính và không có mùi lạ.</p>
-        </section>
-        <section class="spec-note-card">
-          <h3 data-i18n data-vi="Bảo quản" data-en="Storage" data-zh="储存">Bảo quản</h3>
-          <p data-i18n data-vi="Hạn dùng thông thường 12–24 tháng khi lưu trữ nơi khô, sạch, thoáng mát và tránh nhiễm chéo." data-en="Typical shelf life is 12–24 months when stored in cool, dry and clean conditions and protected from cross-contamination." data-zh="在阴凉、干燥、洁净并避免交叉污染的条件下，通常保质期为 12–24 个月。">Hạn dùng thông thường 12–24 tháng khi lưu trữ nơi khô, sạch, thoáng mát và tránh nhiễm chéo.</p>
-        </section>
-        <section class="spec-note-card">
-          <h3 data-i18n data-vi="Đóng gói" data-en="Packaging" data-zh="包装">Đóng gói</h3>
-          <p data-i18n data-vi="Quy cách phổ biến: bao PP/PE 25 kg, 50 kg hoặc jumbo; cấu hình cụ thể theo thỏa thuận đơn hàng." data-en="Common formats: 25 kg, 50 kg or jumbo PP/PE bags; final configuration is agreed per order." data-zh="常见包装为 25 kg、50 kg 或 jumbo PP/PE 编织袋；最终配置按订单约定。">Quy cách phổ biến: bao PP/PE 25 kg, 50 kg hoặc jumbo; cấu hình cụ thể theo thỏa thuận đơn hàng.</p>
-        </section>
-      </div>
+      <section class="spec-characteristics" aria-labelledby="characteristics-title">
+        <h3 id="characteristics-title" data-i18n data-vi="TÍNH CHẤT SẢN PHẨM" data-en="PRODUCT CHARACTERISTICS" data-zh="产品特性">TÍNH CHẤT SẢN PHẨM</h3>
+        <ul class="spec-characteristic-list">
+          {characteristics.map((item) => (
+            <li>
+              <span class="spec-characteristic-icon"><Icon name={item.icon} size={19} /></span>
+              <div>
+                <b data-i18n data-vi={item.vi} data-en={item.en} data-zh={item.zh}>{item.vi}</b>
+                <p data-i18n data-vi={item.viText} data-en={item.enText} data-zh={item.zhText}>{item.viText}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+
       <p class="spec-footnote" data-i18n data-vi="Lưu ý: yêu cầu cụ thể thay đổi theo ứng dụng công nghiệp, thực phẩm hoặc các cấp chất lượng nghiêm ngặt hơn; các yêu cầu về kim loại nặng và vi sinh cần được xác nhận riêng khi áp dụng." data-en="Note: requirements vary by industrial, food or stricter grades; heavy-metal and microbiological requirements should be confirmed separately when applicable." data-zh="注：不同工业、食品或更严格等级的要求会有所不同；如适用，重金属与微生物指标应另行确认。">Lưu ý: yêu cầu cụ thể thay đổi theo ứng dụng công nghiệp, thực phẩm hoặc các cấp chất lượng nghiêm ngặt hơn; các yêu cầu về kim loại nặng và vi sinh cần được xác nhận riêng khi áp dụng.</p>
     </article>
   </div>
