@@ -17,11 +17,14 @@ const nav = [
   { href: "/tuyen-dung/", vi: "Tuyển dụng", en: "Careers", zh: "招聘" },
   { href: "/lien-he/", vi: "Liên hệ", en: "Contact", zh: "联系" }
 ];
+const languages = active === "careers"
+  ? [{ code: "vi", label: "VN" }, { code: "en", label: "EN" }]
+  : [{ code: "vi", label: "VN" }, { code: "en", label: "EN" }, { code: "zh", label: "CN" }];
 ---
 <header class="site-header">
   <div class="shell nav-row">
     <a class="brand" href="/" aria-label="Bình Minh — Trang chủ">
-      <img class="brand-logo" src="/assets/binh-minh-logo.png" alt="Logo Bình Minh — Red Tiger Head" width="52" height="52" />
+      <img class="brand-logo" src="/assets/binh-minh-logo.png" alt="Logo Bình Minh — Red Tiger Head" width="46" height="46" />
       <span class="brand-word">BINH MINH</span>
     </a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Mở menu">
@@ -36,9 +39,9 @@ const nav = [
     </nav>
     <div class="nav-tools">
       <div class="lang-switch" role="group" aria-label="Chọn ngôn ngữ">
-        <button type="button" data-lang="vi" class="active" aria-pressed="true">VN</button>
-        <button type="button" data-lang="en" aria-pressed="false">EN</button>
-        <button type="button" data-lang="zh" aria-pressed="false">CN</button>
+        {languages.map((language) => (
+          <button type="button" data-lang={language.code} class:list={{ active: language.code === "vi" }} aria-pressed={language.code === "vi" ? "true" : "false"}>{language.label}</button>
+        ))}
       </div>
       <span class="tool-divider" aria-hidden="true"></span>
       <button class="theme-toggle" type="button" aria-label="Đổi giao diện sáng tối">

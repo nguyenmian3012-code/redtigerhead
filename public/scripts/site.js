@@ -19,16 +19,25 @@
       const open = nav.classList.toggle("open");
       menuButton.setAttribute("aria-expanded", String(open));
     });
+    nav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+      });
+    });
   }
 
+  const languageButtons = [...document.querySelectorAll("[data-lang]")];
+  const availableLanguages = languageButtons.map((button) => button.dataset.lang).filter(Boolean);
   const applyLanguage = (language) => {
-    const safeLanguage = ["vi", "en", "zh"].includes(language) ? language : "vi";
+    const requested = ["vi", "en", "zh"].includes(language) ? language : "vi";
+    const safeLanguage = availableLanguages.includes(requested) ? requested : "vi";
     root.lang = safeLanguage === "zh" ? "zh-CN" : safeLanguage;
     document.querySelectorAll("[data-i18n]").forEach((element) => {
       const value = element.dataset[safeLanguage];
       if (typeof value === "string") element.textContent = value;
     });
-    document.querySelectorAll("[data-lang]").forEach((button) => {
+    languageButtons.forEach((button) => {
       const active = button.dataset.lang === safeLanguage;
       button.classList.toggle("active", active);
       button.setAttribute("aria-pressed", String(active));
@@ -36,7 +45,7 @@
     localStorage.setItem("rth-language", safeLanguage);
   };
 
-  document.querySelectorAll("[data-lang]").forEach((button) => {
+  languageButtons.forEach((button) => {
     button.addEventListener("click", () => applyLanguage(button.dataset.lang));
   });
   applyLanguage(localStorage.getItem("rth-language") || "vi");
