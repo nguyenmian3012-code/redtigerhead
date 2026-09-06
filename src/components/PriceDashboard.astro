@@ -7,9 +7,9 @@ import { copy, i18n } from "../data/site";
 <aside class="panel market-card" id="market">
   <div class="market-header">
     <h2 class="section-kicker" {...i18n("market.title")}>{copy.vi["market.title"]}</h2>
-    <p class="market-note" title="Đây là giá tham khảo, giá thực tế không vượt quá ±5%.">
+    <p class="market-note" title="Giá bột thành phẩm được đồng bộ từ nguồn nội bộ tối đa hai lần mỗi ngày; giao dịch thực tế có thể thay đổi theo điều kiện đơn hàng.">
       <Icon name="info" size={18} />
-      <span data-i18n data-vi="Giá tham khảo; giá thực tế không vượt quá ±5%." data-en="Reference prices; actual prices are expected to remain within ±5%." data-zh="参考价格；实际价格预计控制在 ±5% 以内。">Giá tham khảo; giá thực tế không vượt quá ±5%.</span>
+      <span data-i18n data-vi="Giá bột: dữ liệu nội bộ, đồng bộ 2 lần/ngày. Giá giao dịch thực tế có thể thay đổi theo đơn hàng." data-en="Starch price: internal source, synchronized twice daily. Actual transaction prices may vary by order." data-zh="淀粉价格：来自内部数据，每日同步两次；实际成交价可能因订单条件而变化。">Giá bột: dữ liệu nội bộ, đồng bộ 2 lần/ngày. Giá giao dịch thực tế có thể thay đổi theo đơn hàng.</span>
     </p>
   </div>
   <PriceChartCard title={copy.vi["market.starch"]} titleEn={copy.en["market.starch"]} titleZh={copy.zh["market.starch"]} series={priceData.starch} tone="red" />
