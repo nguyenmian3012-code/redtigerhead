@@ -1,30 +1,24 @@
 {
   "starch": [
-    {"date":"2026-06-05","value":13100,"unit":"VND/kg"},
-    {"date":"2026-06-09","value":13400,"unit":"VND/kg"},
-    {"date":"2026-06-12","value":13250,"unit":"VND/kg"},
-    {"date":"2026-06-16","value":13600,"unit":"VND/kg"},
-    {"date":"2026-06-19","value":13450,"unit":"VND/kg"},
-    {"date":"2026-06-23","value":13150,"unit":"VND/kg"},
-    {"date":"2026-06-26","value":13300,"unit":"VND/kg"},
-    {"date":"2026-06-30","value":13050,"unit":"VND/kg"},
-    {"date":"2026-07-03","value":13150,"unit":"VND/kg"},
-    {"date":"2026-07-07","value":12650,"unit":"VND/kg"},
-    {"date":"2026-07-10","value":12950,"unit":"VND/kg"},
-    {"date":"2026-07-14","value":12550,"unit":"VND/kg"},
-    {"date":"2026-07-17","value":12100,"unit":"VND/kg"},
-    {"date":"2026-07-21","value":11550,"unit":"VND/kg"},
-    {"date":"2026-07-24","value":12050,"unit":"VND/kg"},
-    {"date":"2026-07-28","value":12300,"unit":"VND/kg"},
-    {"date":"2026-07-31","value":11750,"unit":"VND/kg"},
-    {"date":"2026-08-04","value":11600,"unit":"VND/kg"},
-    {"date":"2026-08-07","value":11350,"unit":"VND/kg"},
-    {"date":"2026-08-11","value":10950,"unit":"VND/kg"},
-    {"date":"2026-08-14","value":11300,"unit":"VND/kg"},
-    {"date":"2026-08-18","value":11650,"unit":"VND/kg"},
-    {"date":"2026-08-21","value":11900,"unit":"VND/kg"},
-    {"date":"2026-08-25","value":12500,"unit":"VND/kg"},
-    {"date":"2026-08-28","value":12650,"unit":"VND/kg"}
+    {"date":"2026-08-12","value":16628,"unit":"VND/kg"},
+    {"date":"2026-08-13","value":15893,"unit":"VND/kg"},
+    {"date":"2026-08-15","value":16016,"unit":"VND/kg"},
+    {"date":"2026-08-16","value":15772,"unit":"VND/kg"},
+    {"date":"2026-08-17","value":16562,"unit":"VND/kg"},
+    {"date":"2026-08-18","value":15750,"unit":"VND/kg"},
+    {"date":"2026-08-19","value":16403,"unit":"VND/kg"},
+    {"date":"2026-08-21","value":16624,"unit":"VND/kg"},
+    {"date":"2026-08-22","value":16253,"unit":"VND/kg"},
+    {"date":"2026-08-23","value":16361,"unit":"VND/kg"},
+    {"date":"2026-08-26","value":17222,"unit":"VND/kg"},
+    {"date":"2026-08-27","value":16602,"unit":"VND/kg"},
+    {"date":"2026-08-28","value":15886,"unit":"VND/kg"},
+    {"date":"2026-08-29","value":16078,"unit":"VND/kg"},
+    {"date":"2026-08-30","value":17307,"unit":"VND/kg"},
+    {"date":"2026-08-31","value":16133,"unit":"VND/kg"},
+    {"date":"2026-09-01","value":15888,"unit":"VND/kg"},
+    {"date":"2026-09-02","value":15831,"unit":"VND/kg"},
+    {"date":"2026-09-04","value":15215,"unit":"VND/kg"}
   ],
   "root": [
     {"date":"2026-06-05","value":4250,"unit":"VND/kg"},
@@ -81,7 +75,14 @@
     {"date":"2026-08-28","value":1450,"unit":"VND/kg"}
   ],
   "_meta": {
-    "demo": true,
-    "note": "V0.3 visual-regression demo data only; replace with validated updates before production publication."
+    "starch": {
+      "mode": "real",
+      "source": "Google Sheet / 8-Production Close / column J",
+      "last_source_date": "2026-09-04",
+      "public_formula_private": true
+    },
+    "root": {"mode": "demo"},
+    "residue": {"mode": "demo"},
+    "note": "Starch series is derived from validated internal source data. Root and residue remain demo until dedicated sources are approved."
   }
 }
