@@ -1,0 +1,13 @@
+{
+  "name": "bm-device-bridge-shadow",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "start": "node bridge.mjs",
+    "test": "node self-test.mjs"
+  }
+}
