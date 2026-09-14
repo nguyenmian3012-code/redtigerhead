@@ -6,15 +6,13 @@ export const site = {
   legalName: "Công ty TNHH SX Tinh Bột Khoai Mì Bình Minh",
   domain: "redtigerhead.com",
   capacity: 200,
-  address: "Ấp Bình Hòa, Xã Thạnh Đức, Huyện Bến Lức, Tỉnh Long An, Việt Nam",
-  phone: "+84 272 363 3683",
-  email: "info@redtigerhead.com",
+  address: "Ấp Phước Hưng, Xã Phước Vinh, Tỉnh Tây Ninh, Việt Nam",
+  phone: "+84 395 927 457",
   hours: {
     weekdays: "Thứ 2 – Thứ 7: 07:30 – 17:00",
     sunday: "Chủ nhật: Nghỉ"
   },
-  version: "V0.3",
-  dataStatus: "DRAFT / THAM KHẢO"
+  version: "V1.0"
 } as const;
 
 export const nav = [
@@ -43,7 +41,7 @@ export const copy = {
     "benefit.delivery": "Giao hàng đúng hẹn",
     "benefit.sustain": "Phát triển bền vững",
     "about.kicker": "GIỚI THIỆU VỀ BÌNH MINH",
-    "about.summary": "Bình Minh là doanh nghiệp chuyên sản xuất tinh bột khoai mì chất lượng cao, phục vụ cho ngành thực phẩm và công nghiệp. Chúng tôi cam kết cung cấp sản phẩm ổn định, đáp ứng tiêu chuẩn quốc tế, đồng hành cùng khách hàng trong sự phát triển bền vững.",
+    "about.summary": "Bình Minh sản xuất tinh bột khoai mì phục vụ ngành thực phẩm và công nghiệp. Chúng tôi kiểm soát chất lượng theo từng lô, duy trì nguồn cung ổn định và đồng hành lâu dài cùng khách hàng.",
     "about.qualityDetail": "Kiểm soát chặt chẽ từ nguyên liệu đến thành phẩm.",
     "about.deliveryDetail": "Hệ thống logistics linh hoạt, đáp ứng nhu cầu kịp thời.",
     "about.sustainDetail": "Sản xuất thân thiện môi trường, hướng đến tương lai xanh.",
@@ -69,11 +67,11 @@ export const copy = {
     "aboutPage.approach": "CÁCH CHÚNG TÔI LÀM VIỆC",
     "careers.kicker": "TUYỂN DỤNG",
     "careers.title": "Cơ hội tại Bình Minh",
-    "careers.lead": "Thông tin vị trí rõ ràng, ứng tuyển trực tiếp và tôn trọng dữ liệu cá nhân.",
+    "careers.lead": "Khám phá các vị trí tại Bình Minh. Liên hệ để xác nhận nhu cầu tuyển dụng hiện tại.",
     "careers.principles": "5 NGUYÊN TẮC LÀM VIỆC CHUNG",
-    "careers.openings": "VỊ TRÍ ĐANG TUYỂN",
-    "apply.title": "ỨNG TUYỂN TRỰC TIẾP",
-    "apply.draft": "Môi trường thử nghiệm — hồ sơ chưa được gửi hoặc lưu trữ.",
+    "careers.openings": "VỊ TRÍ THAM KHẢO",
+    "apply.title": "LIÊN HỆ TUYỂN DỤNG",
+    "apply.draft": "Vui lòng liên hệ để xác nhận vị trí và cách gửi hồ sơ.",
     "contact.kicker": "LIÊN HỆ",
     "contact.title": "Kết nối với Bình Minh",
     "contact.lead": "Các kênh liên hệ công khai phục vụ khách hàng, đối tác và ứng viên."
@@ -95,7 +93,7 @@ export const copy = {
     "benefit.delivery": "On-time delivery",
     "benefit.sustain": "Sustainable growth",
     "about.kicker": "ABOUT BINH MINH",
-    "about.summary": "Binh Minh produces high-quality tapioca starch for food and industrial applications. We focus on stable products, international standards and long-term customer partnerships.",
+    "about.summary": "Binh Minh produces tapioca starch for food and industrial applications. We check quality by production lot, maintain stable supply and build long-term customer partnerships.",
     "about.qualityDetail": "Tight control from raw materials to finished products.",
     "about.deliveryDetail": "Flexible logistics for timely customer support.",
     "about.sustainDetail": "Environment-conscious production for a greener future.",
@@ -121,11 +119,11 @@ export const copy = {
     "aboutPage.approach": "HOW WE WORK",
     "careers.kicker": "CAREERS",
     "careers.title": "Opportunities at Binh Minh",
-    "careers.lead": "Clear roles, direct applications and respectful handling of personal data.",
+    "careers.lead": "Explore roles at Binh Minh. Contact us to confirm current openings.",
     "careers.principles": "FIVE SHARED WORK PRINCIPLES",
-    "careers.openings": "OPEN POSITIONS",
-    "apply.title": "APPLY DIRECTLY",
-    "apply.draft": "Test environment — applications are not yet sent or stored.",
+    "careers.openings": "ROLE PROFILES",
+    "apply.title": "CAREERS CONTACT",
+    "apply.draft": "Contact us to confirm openings and how to submit an application.",
     "contact.kicker": "CONTACT",
     "contact.title": "Connect with Binh Minh",
     "contact.lead": "Public contact channels for customers, partners and applicants."

@@ -2,22 +2,15 @@
 import Icon from "./Icon.astro";
 
 const rows = [
-  { vi: "Hàm lượng tinh bột (chất khô)", en: "Starch Content (Dry Basis)", zh: "淀粉含量（干基）", unit: "%", limit: "≥ 85.0% min" },
-  { vi: "Độ ẩm", en: "Moisture Content", zh: "水分", unit: "%", limit: "≤ 13.0% max" },
-  { vi: "pH (dung dịch / huyền phù 10%)", en: "pH (10% slurry / solution)", zh: "pH（10%浆液/溶液）", unit: "—", limit: "5.0 – 7.0" },
-  { vi: "Độ trắng / độ sáng", en: "Whiteness / Brightness", zh: "白度 / 亮度", unit: "%", limit: "≥ 90.0% min" },
-  { vi: "Hàm lượng tro", en: "Ash Content", zh: "灰分", unit: "%", limit: "≤ 0.20% – 0.50% max" },
-  { vi: "Độ nhớt (Brabender / Brookfield)", en: "Viscosity (Brabender / Brookfield)", zh: "粘度（Brabender / Brookfield）", unit: "BU / cPs", limit: "≥ 700 BU min hoặc 200 – 400 cPs tùy phương pháp" },
-  { vi: "Sulfur Dioxide (SO₂)", en: "Sulfur Dioxide (SO₂)", zh: "二氧化硫（SO₂）", unit: "ppm", limit: "≤ 30 – 100 ppm max" },
-  { vi: "Độ mịn / cỡ hạt", en: "Fineness / Granulation", zh: "细度 / 粒度", unit: "%", limit: "≥ 99% qua rây 100 mesh" },
-  { vi: "Xơ thô / bã", en: "Crude Fiber / Pulp", zh: "粗纤维 / 浆渣", unit: "%", limit: "≤ 0.20% max" }
+  { vi: "Độ ẩm", en: "Moisture Content", zh: "水分", unit: "%", limit: "≤ 13" },
+  { vi: "pH", en: "pH", zh: "pH", unit: "—", limit: "6.4 – 7.0" },
+  { vi: "Độ trắng", en: "Whiteness", zh: "白度", unit: "%", limit: "> 90" }
 ];
 
 const characteristics = [
   { icon: "star", vi: "Ngoại quan", en: "Appearance", zh: "外观", viText: "Bột mịn, tơi, màu trắng đến trắng kem nhạt.", enText: "Fine, free-flowing powder, white to light-cream.", zhText: "粉末细腻、流动性好，颜色白至浅奶油色。" },
   { icon: "shield", vi: "Mùi & vị", en: "Taste & odor", zh: "气味与口感", viText: "Vị trung tính, không có mùi lạ hay tạp mùi bất thường.", enText: "Neutral taste with no foreign or abnormal odor.", zhText: "味道中性，无异味或异常气味。" },
-  { icon: "clock", vi: "Hạn sử dụng", en: "Shelf life", zh: "保质期", viText: "Thông thường 12–24 tháng khi bảo quản nơi khô, sạch và thoáng mát.", enText: "Typically 12–24 months in cool, dry and clean storage conditions.", zhText: "在阴凉、干燥、洁净条件下通常为 12–24 个月。" },
-  { icon: "bag", vi: "Đóng gói", en: "Packaging", zh: "包装", viText: "Phổ biến 25 kg, 50 kg hoặc bao jumbo PP/PE; cấu hình theo đơn hàng.", enText: "Commonly 25 kg, 50 kg or jumbo PP/PE bags; final configuration per order.", zhText: "常见为 25 kg、50 kg 或 jumbo PP/PE 编织袋；最终配置按订单约定。" },
+  { icon: "bag", vi: "Đóng gói", en: "Packaging", zh: "包装", viText: "Bao 10 kg, 25 kg và 50 kg; quy cách theo đơn hàng.", enText: "10 kg, 25 kg and 50 kg bags; configuration per order.", zhText: "10 公斤、25 公斤和 50 公斤包装；具体规格按订单约定。" },
   { icon: "factory", vi: "Ứng dụng", en: "Applications", zh: "应用", viText: "Phù hợp nhiều ứng dụng công nghiệp và thực phẩm tùy theo cấp chất lượng và COA.", enText: "Suitable for multiple industrial and food applications depending on grade and COA.", zhText: "可根据等级与 COA 用于多种工业及食品用途。" }
 ] as const;
 ---
@@ -30,7 +23,7 @@ const characteristics = [
           <h2 id="spec-title" data-i18n data-vi="Native Tapioca Starch — Thông số tham khảo Bình Minh" data-en="Native Tapioca Starch — Binh Minh reference specifications" data-zh="Native Tapioca Starch — Binh Minh 参考参数">Native Tapioca Starch — Thông số tham khảo Bình Minh</h2>
           <p data-i18n data-vi="Bảng thông tin kỹ thuật được trình bày ngắn gọn để khách hàng và đối tác dễ đối chiếu. Thông số thương mại cuối cùng được xác nhận theo COA, lô hàng và mục đích sử dụng." data-en="A concise technical reference for customers and partners. Final commercial specifications are confirmed by COA, production lot and end-use requirements." data-zh="为客户与合作伙伴提供简洁的技术参考。最终商业参数以 COA、生产批次及具体用途要求为准。">Bảng thông tin kỹ thuật được trình bày ngắn gọn để khách hàng và đối tác dễ đối chiếu. Thông số thương mại cuối cùng được xác nhận theo COA, lô hàng và mục đích sử dụng.</p>
         </div>
-        <span class="spec-badge">BINH MINH · V0.3 PREVIEW</span>
+        <span class="spec-badge">BINH MINH · NATIVE STARCH</span>
       </div>
 
       <div class="spec-table-wrap">

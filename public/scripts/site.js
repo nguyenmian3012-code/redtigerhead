@@ -8,9 +8,6 @@
   document.querySelectorAll("[data-hero]").forEach((element) => {
     if (assets.hero) element.style.backgroundImage = "url(\"" + assets.hero + "\")";
   });
-  document.querySelectorAll("[data-qr]").forEach((image) => {
-    if (assets.careersQr) image.src = assets.careersQr;
-  });
 
   const menuButton = document.querySelector(".menu-btn");
   const nav = document.querySelector(".main-nav");
@@ -62,57 +59,4 @@
     localStorage.setItem("rth-theme", next);
   });
 
-  document.querySelectorAll("[data-dialog-close]").forEach((button) => {
-    button.addEventListener("click", () => button.closest("dialog")?.close());
-  });
-
-  const form = document.querySelector("#application-form");
-  const reviewDialog = document.querySelector("#application-review");
-  const formStatus = document.querySelector("#application-status");
-  const confirmButton = document.querySelector("#confirm-application");
-  if (form && reviewDialog && formStatus && confirmButton) {
-    const startedAt = Date.now();
-    const cvInput = form.querySelector('input[name="cv"]');
-    cvInput?.addEventListener("change", () => {
-      const file = cvInput.files?.[0];
-      cvInput.setCustomValidity("");
-      if (!file) return;
-      const allowed = [
-        "application/pdf",
-        "application/msword",
-        "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-      ];
-      if (!allowed.includes(file.type) || file.size > 5 * 1024 * 1024) {
-        cvInput.setCustomValidity("CV phải là PDF/DOC/DOCX và không vượt quá 5 MB.");
-        cvInput.reportValidity();
-      }
-    });
-
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      if (!form.reportValidity()) return;
-      const data = new FormData(form);
-      if (data.get("company")) return;
-      if (Date.now() - startedAt < 3000) {
-        formStatus.textContent = "Vui lòng kiểm tra lại thông tin trước khi tiếp tục.";
-        return;
-      }
-      const fields = ["name", "phone", "email", "position", "experience"];
-      fields.forEach((field) => {
-        const target = reviewDialog.querySelector('[data-review="' + field + '"]');
-        if (target) target.textContent = String(data.get(field) || "—");
-      });
-      const fileTarget = reviewDialog.querySelector('[data-review="cv"]');
-      if (fileTarget) fileTarget.textContent = cvInput?.files?.[0]?.name || "Chưa đính kèm";
-      reviewDialog.showModal();
-    });
-
-    confirmButton.addEventListener("click", () => {
-      const stamp = new Date().toISOString().slice(0, 10).replaceAll("-", "");
-      const code = "DEMO-RTH-" + stamp + "-" + Math.random().toString(36).slice(2, 6).toUpperCase();
-      reviewDialog.close();
-      formStatus.textContent = "Mô phỏng hoàn tất — mã thử nghiệm: " + code + ". Hồ sơ chưa được gửi hoặc lưu.";
-      form.reset();
-    });
-  }
 })();
