@@ -1,0 +1,19 @@
+---
+import Icon from "./Icon.astro";
+import PriceChartCard from "./PriceChartCard.astro";
+import priceData from "../data/prices.json";
+import { copy, i18n } from "../data/site";
+const [year, month, day] = priceData._meta.starch.last_source_date.split("-");
+const asOf = `${day}/${month}/${year}`;
+---
+<aside class="panel market-card" id="market">
+  <div class="market-header">
+    <h2 class="section-kicker" {...i18n("market.title")}>{copy.vi["market.title"]}</h2>
+    <p class="market-note">
+      <Icon name="info" size={18} />
+      <span data-i18n data-vi={`Dữ liệu giá bột đến ${asOf}. Giá tham khảo, không phải báo giá.`} data-en={`Starch data through ${asOf}. Reference only; not a quotation.`} data-zh={`淀粉价格数据截至 ${asOf}。仅供参考，非正式报价。`}>Dữ liệu giá bột đến {asOf}. Giá tham khảo, không phải báo giá.</span>
+    </p>
+  </div>
+  <PriceChartCard title={copy.vi["market.starch"]} titleEn={copy.en["market.starch"]} titleZh={copy.zh["market.starch"]} series={priceData.starch} tone="red" />
+  <p class="market-note" data-i18n data-vi="Giá củ mì và bã mì sẽ công bố sau khi nguồn dữ liệu được xác minh." data-en="Cassava root and residue prices will follow once their sources are verified." data-zh="木薯原料及木薯渣价格将在数据源核实后发布。">Giá củ mì và bã mì sẽ công bố sau khi nguồn dữ liệu được xác minh.</p>
+</aside>

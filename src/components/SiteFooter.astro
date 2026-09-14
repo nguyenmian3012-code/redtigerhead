@@ -1,0 +1,32 @@
+---
+import Icon from "./Icon.astro";
+import { copy, i18n } from "../data/site";
+---
+<footer class="site-footer" id="contact">
+  <div class="footer-watermark" aria-hidden="true">虎</div>
+  <div class="shell footer-grid">
+    <div class="footer-brand">
+      <div class="brand footer-logo-wrap">
+        <img class="brand-logo footer-logo" src="/assets/binh-minh-logo.png" alt="Logo Bình Minh — Red Tiger Head" width="58" height="58" />
+        <span class="brand-word">BINH MINH</span>
+      </div>
+      <p {...i18n("footer.tagline")}>{copy.vi["footer.tagline"]}</p>
+      <div class="social-row" aria-label="Kênh liên hệ nhanh">
+        <a href="https://zalo.me/84395927457" target="_blank" rel="noopener">Zalo</a>
+        <a href="https://wa.me/84395927457" target="_blank" rel="noopener">WA</a>
+      </div>
+    </div>
+    <div class="footer-contact">
+      <h2 {...i18n("footer.contact")}>{copy.vi["footer.contact"]}</h2>
+      <p><Icon name="pin" size={17} /><span data-i18n data-vi="Ấp Phước Hưng, Xã Phước Vinh, Tỉnh Tây Ninh, Việt Nam" data-en="Phuoc Hung Hamlet, Phuoc Vinh Commune, Tay Ninh Province, Vietnam" data-zh="越南西宁省福荣社福兴邑">Ấp Phước Hưng, Xã Phước Vinh, Tỉnh Tây Ninh, Việt Nam</span></p>
+      <p><Icon name="phone" size={17} /><span class="footer-phone-stack"><a href="tel:+84395927457">Sale · Mrs My Trinh: +84 395 927 457</a><a href="tel:+84888694742">Tech · Mr Minh An: +84 888 694 742</a></span></p>
+      <p><Icon name="globe" size={17} /><a href="https://redtigerhead.com">redtigerhead.com</a></p>
+    </div>
+    <div class="footer-hours">
+      <h2 {...i18n("footer.hours")}>{copy.vi["footer.hours"]}</h2>
+      <p><Icon name="clock" size={17} /><span><span data-i18n data-vi="Thứ 2 – Thứ 7: 07:30 – 17:00" data-en="Monday – Saturday: 07:30 – 17:00" data-zh="周一 – 周六: 07:30 – 17:00">Thứ 2 – Thứ 7: 07:30 – 17:00</span><br /><span data-i18n data-vi="Chủ nhật: 08:00 – 11:00" data-en="Sunday: 08:00 – 11:00" data-zh="周日: 08:00 – 11:00">Chủ nhật: 08:00 – 11:00</span></span></p>
+      <div class="footer-rule"></div>
+      <p class="copyright">© 2026 Bình Minh.<br />All rights reserved.</p>
+    </div>
+  </div>
+</footer>

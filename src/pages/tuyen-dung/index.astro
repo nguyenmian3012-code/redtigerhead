@@ -1,0 +1,74 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import PageHero from "../../components/PageHero.astro";
+import RecruitmentForm from "../../components/RecruitmentForm.astro";
+import Icon from "../../components/Icon.astro";
+import jobs from "../../data/jobs.json";
+import { copy, i18n } from "../../data/site";
+
+const principles = [
+  { icon: "target", vi: "Chính trực & Minh bạch", en: "Integrity & Transparency", zh: "诚信与透明", viD: "Trung thực trong công việc và báo cáo.", enD: "Be honest in work and reporting.", zhD: "在工作与汇报中保持诚实。" },
+  { icon: "users", vi: "Tôn trọng & Hợp tác", en: "Respect & Cooperation", zh: "尊重与合作", viD: "Tôn trọng đồng nghiệp, quy trình và tài sản chung.", enD: "Respect colleagues, process and shared assets.", zhD: "尊重同事、流程与公共财产。" },
+  { icon: "trend", vi: "Trách nhiệm & Kỷ luật", en: "Responsibility & Discipline", zh: "责任与纪律", viD: "Hoàn thành công việc với trách nhiệm rõ ràng và tác phong kỷ luật.", enD: "Work with clear responsibility and disciplined execution.", zhD: "以明确责任和纪律完成工作。" },
+  { icon: "bulb", vi: "Đổi mới & Hiệu quả", en: "Innovation & Efficiency", zh: "创新与效率", viD: "Chủ động cải thiện cách làm để tăng hiệu quả thực tế.", enD: "Improve practical ways of working to raise efficiency.", zhD: "主动改进工作方式，提高实际效率。" },
+  { icon: "shield", vi: "An toàn & Bền vững", en: "Safety & Sustainability", zh: "安全与可持续", viD: "Ưu tiên an toàn lao động và tư duy phát triển dài hạn.", enD: "Prioritize occupational safety and long-term development.", zhD: "优先考虑生产安全与长期发展。" }
+] as const;
+
+type RoleIcon = "clipboard" | "factory" | "truck";
+const roleIcon = (id: string): RoleIcon => id.includes("kcs") ? "clipboard" : id.includes("mechanic") ? "factory" : "truck";
+---
+<BaseLayout title="Tuyển dụng | Bình Minh" description="Tuyển dụng Bình Minh — xem vị trí đang tuyển và chuẩn bị hồ sơ ứng tuyển.">
+  <SiteHeader active="careers" />
+  <main id="main">
+    <PageHero kicker="careers.kicker" title="careers.title" lead="careers.lead" />
+    <section class="content-section porcelain-zone">
+      <div class="shell careers-grid">
+        <div>
+          <article class="panel">
+            <h2 class="section-kicker" {...i18n("careers.principles")}>{copy.vi["careers.principles"]}</h2>
+            <div class="principle-grid">
+              {principles.map((principle) => (
+                <div class="principle-item">
+                  <span class="principle-icon"><Icon name={principle.icon} size={29} /></span>
+                  <b data-i18n data-vi={principle.vi} data-en={principle.en} data-zh={principle.zh}>{principle.vi}</b>
+                  <small data-i18n data-vi={principle.viD} data-en={principle.enD} data-zh={principle.zhD}>{principle.viD}</small>
+                </div>
+              ))}
+            </div>
+          </article>
+          <article class="panel jobs-card">
+            <h2 class="section-kicker" {...i18n("careers.openings")}>{copy.vi["careers.openings"]}</h2>
+            <div class="jobs-list">
+              {jobs.filter((job) => job.status === "open").map((job) => (
+                <details class="job-card">
+                  <summary>
+                    <span class="job-visual" aria-hidden="true">
+                      <Icon name={roleIcon(job.id)} size={31} />
+                    </span>
+                    <span class="job-title-block">
+                      <small>{job.department}</small>
+                      <b data-i18n data-vi={job.title.vi} data-en={job.title.en} data-zh={job.title.zh}>{job.title.vi}</b>
+                      <span data-i18n data-vi={job.summary.vi} data-en={job.summary.en} data-zh={job.summary.zh}>{job.summary.vi}</span>
+                    </span>
+                    <span class="detail-action" data-i18n data-vi="Chi tiết +" data-en="Details +" data-zh="详情 +">Chi tiết +</span>
+                  </summary>
+                  <div class="job-detail">
+                    <p data-i18n data-vi={job.summary.vi} data-en={job.summary.en} data-zh={job.summary.zh}>{job.summary.vi}</p>
+                    <h3 data-i18n data-vi="Vai trò" data-en="Role" data-zh="职责">Vai trò</h3><p data-i18n data-vi={job.role.vi} data-en={job.role.en} data-zh={job.role.zh}>{job.role.vi}</p>
+                    <h3 data-i18n data-vi="Yêu cầu" data-en="Requirements" data-zh="要求">Yêu cầu</h3><p data-i18n data-vi={job.requirements.vi} data-en={job.requirements.en} data-zh={job.requirements.zh}>{job.requirements.vi}</p>
+                    <h3 data-i18n data-vi="Quyền lợi" data-en="Benefits" data-zh="福利">Quyền lợi</h3><p data-i18n data-vi={job.benefits.vi} data-en={job.benefits.en} data-zh={job.benefits.zh}>{job.benefits.vi}</p>
+                    <a href="#apply" class="text-link" data-i18n data-vi="Hỏi về vị trí này →" data-en="Ask about this role →">Hỏi về vị trí này →</a>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </article>
+        </div>
+        <RecruitmentForm />
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</BaseLayout>

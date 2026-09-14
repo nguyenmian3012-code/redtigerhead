@@ -1,0 +1,54 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import PageHero from "../../components/PageHero.astro";
+import Icon from "../../components/Icon.astro";
+---
+<BaseLayout title="Liên hệ | Bình Minh" description="Thông tin liên hệ công khai của Bình Minh tại Tây Ninh, Việt Nam.">
+  <SiteHeader active="contact" />
+  <main id="main">
+    <PageHero kicker="contact.kicker" title="contact.title" lead="contact.lead" />
+    <section class="content-section porcelain-zone">
+      <div class="shell contact-grid-v03">
+        <article class="panel contact-card-v03">
+          <Icon name="pin" size={29} />
+          <h2 data-i18n data-vi="Địa chỉ nhà máy" data-en="Factory location" data-zh="工厂地址">Địa chỉ nhà máy</h2>
+          <p data-i18n data-vi="Ấp Phước Hưng, Xã Phước Vinh, Tỉnh Tây Ninh, Việt Nam" data-en="Phuoc Hung Hamlet, Phuoc Vinh Commune, Tay Ninh Province, Vietnam" data-zh="越南西宁省福荣社福兴邑">Ấp Phước Hưng, Xã Phước Vinh, Tỉnh Tây Ninh, Việt Nam</p>
+          <div class="contact-actions">
+            <a class="btn btn-outline" href="https://share.google/cq1QxikjBbBvLZRVj" target="_blank" rel="noopener" data-i18n data-vi="Mở vị trí →" data-en="Open location →" data-zh="打开地图 →">Mở vị trí →</a>
+          </div>
+        </article>
+
+        <article class="panel contact-card-v03">
+          <Icon name="phone" size={29} />
+          <h2 data-i18n data-vi="Điện thoại" data-en="Phone" data-zh="电话">Điện thoại</h2>
+          <ul class="contact-lines">
+            <li><b>Sale · Mrs My Trinh</b><br /><a href="tel:+84395927457">+84 395 927 457</a></li>
+            <li><b>Tech · Mr Minh An</b><br /><a href="tel:+84888694742">+84 888 694 742</a></li>
+          </ul>
+        </article>
+
+        <article class="panel contact-card-v03">
+          <Icon name="clock" size={29} />
+          <h2 data-i18n data-vi="Giờ làm việc" data-en="Working hours" data-zh="工作时间">Giờ làm việc</h2>
+          <ul class="contact-lines">
+            <li data-i18n data-vi="Thứ 2 – Thứ 7: 07:30 – 17:00" data-en="Monday – Saturday: 07:30 – 17:00" data-zh="周一 – 周六: 07:30 – 17:00">Thứ 2 – Thứ 7: 07:30 – 17:00</li>
+            <li data-i18n data-vi="Chủ nhật: 08:00 – 11:00" data-en="Sunday: 08:00 – 11:00" data-zh="周日: 08:00 – 11:00">Chủ nhật: 08:00 – 11:00</li>
+          </ul>
+        </article>
+
+        <article class="panel contact-card-v03">
+          <Icon name="globe" size={29} />
+          <h2 data-i18n data-vi="Kênh liên hệ nhanh" data-en="Quick channels" data-zh="快速联系渠道">Kênh liên hệ nhanh</h2>
+          <p data-i18n data-vi="Ưu tiên kênh phù hợp với thị trường và thiết bị của khách hàng." data-en="Choose the channel that best fits your market and device." data-zh="请选择适合您所在市场和设备的联系渠道。">Ưu tiên kênh phù hợp với thị trường và thiết bị của khách hàng.</p>
+          <div class="channel-row">
+            <a class="channel-link" href="https://zalo.me/84395927457" target="_blank" rel="noopener"><b>Zalo</b><small>Sales · +84 395 927 457</small></a>
+            <a class="channel-link" href="https://wa.me/84395927457" target="_blank" rel="noopener"><b>WhatsApp</b><small>Sales · +84 395 927 457</small></a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</BaseLayout>

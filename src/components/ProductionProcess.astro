@@ -1,0 +1,27 @@
+---
+import Icon from "./Icon.astro";
+import { copy, i18n } from "../data/site";
+
+const steps = [
+  { icon: "raw", key: "process.raw" },
+  { icon: "processing", key: "process.processing" },
+  { icon: "refining", key: "process.refining" },
+  { icon: "drying", key: "process.drying" },
+  { icon: "clipboard", key: "process.qc" },
+  { icon: "bag", key: "process.packing" }
+] as const;
+---
+<article class="panel process-card">
+  <h2 class="section-kicker" {...i18n("process.title")}>{copy.vi["process.title"]}</h2>
+  <div class="process-row" role="list">
+    {steps.map((step, index) => (
+      <>
+        <div role="listitem">
+          <span><Icon name={step.icon} size={25} /></span>
+          <small {...i18n(step.key)}>{copy.vi[step.key]}</small>
+        </div>
+        {index < steps.length - 1 && <b aria-hidden="true">→</b>}
+      </>
+    ))}
+  </div>
+</article>

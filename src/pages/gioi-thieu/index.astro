@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import PageHero from "../../components/PageHero.astro";
+import ProductionProcess from "../../components/ProductionProcess.astro";
+import Icon from "../../components/Icon.astro";
+import { copy, i18n, site } from "../../data/site";
+
+const values = [
+  { icon: "shield", title: "benefit.quality", detail: "about.qualityDetail" },
+  { icon: "truck", title: "benefit.delivery", detail: "about.deliveryDetail" },
+  { icon: "leaf", title: "benefit.sustain", detail: "about.sustainDetail" }
+] as const;
+---
+<BaseLayout title="Giới thiệu | Bình Minh" description="Giới thiệu Công ty TNHH SX Tinh Bột Khoai Mì Bình Minh tại Tây Ninh, Việt Nam.">
+  <SiteHeader active="about" />
+  <main id="main">
+    <PageHero kicker="aboutPage.kicker" title="aboutPage.title" lead="aboutPage.lead" image />
+    <section class="content-section porcelain-zone">
+      <div class="shell about-grid">
+        <article class="panel prose-card">
+          <h2 class="section-kicker" {...i18n("aboutPage.company")}>{copy.vi["aboutPage.company"]}</h2>
+          <h3>{site.legalName}</h3>
+          <p>{copy.vi["about.summary"]}</p>
+          <dl class="facts">
+            <div><dt data-i18n data-vi="Lĩnh vực" data-en="Field" data-zh="领域">Lĩnh vực</dt><dd data-i18n data-vi="Tinh bột khoai mì / Tapioca starch" data-en="Tapioca starch" data-zh="木薯淀粉">Tinh bột khoai mì / Tapioca starch</dd></div>
+            <div><dt data-i18n data-vi="Công suất trung bình" data-en="Average capacity" data-zh="平均产能">Công suất trung bình</dt><dd>{site.capacity} tấn/ngày</dd></div>
+            <div><dt data-i18n data-vi="Khu vực" data-en="Region" data-zh="地区">Khu vực</dt><dd data-i18n data-vi="Tây Ninh, Việt Nam" data-en="Tay Ninh, Vietnam" data-zh="越南西宁省">Tây Ninh, Việt Nam</dd></div>
+            <div><dt data-i18n data-vi="Địa chỉ" data-en="Address" data-zh="地址">Địa chỉ</dt><dd data-i18n data-vi="Ấp Phước Hưng, Xã Phước Vinh, Tỉnh Tây Ninh, Việt Nam" data-en="Phuoc Hung Hamlet, Phuoc Vinh Commune, Tay Ninh Province, Vietnam" data-zh="越南西宁省福荣社福兴邑">Ấp Phước Hưng, Xã Phước Vinh, Tỉnh Tây Ninh, Việt Nam</dd></div>
+          </dl>
+        </article>
+        <article class="panel prose-card">
+          <h2 class="section-kicker" {...i18n("aboutPage.approach")}>{copy.vi["aboutPage.approach"]}</h2>
+          <div class="simple-values">
+            {values.map((value, index) => (
+              <div>
+                <span><Icon name={value.icon} size={28} /></span>
+                <b {...i18n(value.title)}>{copy.vi[value.title]}</b>
+                <p {...i18n(value.detail)}>{copy.vi[value.detail]}</p>
+                <em>{String(index + 1).padStart(2, "0")}</em>
+              </div>
+            ))}
+          </div>
+        </article>
+        <div class="process-wide"><ProductionProcess /></div>
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</BaseLayout>

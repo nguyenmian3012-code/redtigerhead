@@ -1,0 +1,130 @@
+{
+  "starch": [
+    {
+      "date": "2026-08-12",
+      "value": 16628,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-08-13",
+      "value": 15893,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-08-15",
+      "value": 16016,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-08-16",
+      "value": 15772,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-08-17",
+      "value": 16562,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-08-18",
+      "value": 15750,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-08-19",
+      "value": 16403,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-08-21",
+      "value": 16624,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-08-22",
+      "value": 16253,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-08-23",
+      "value": 16361,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-08-26",
+      "value": 17222,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-08-27",
+      "value": 16602,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-08-28",
+      "value": 15886,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-08-29",
+      "value": 16078,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-08-30",
+      "value": 17307,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-08-31",
+      "value": 16133,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-09-01",
+      "value": 15888,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-09-02",
+      "value": 15831,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-09-04",
+      "value": 15215,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-09-07",
+      "value": 16388,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-09-08",
+      "value": 15678,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-09-10",
+      "value": 16617,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-09-11",
+      "value": 16282,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-09-12",
+      "value": 16246,
+      "unit": "VND/kg"
+    }
+  ],
+  "_meta": {
+    "starch": {
+      "mode": "real",
+      "last_source_date": "2026-09-12"
+    }
+  }
+}

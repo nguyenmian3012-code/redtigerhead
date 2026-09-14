@@ -1,0 +1,39 @@
+---
+import "../styles/global.css";
+import "../styles/v03.css";
+import "../styles/v03-fix.css";
+
+interface Props {
+  title: string;
+  description: string;
+  themeColor?: string;
+}
+
+const {
+  title,
+  description,
+  themeColor = "#4c0a15"
+} = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+<!doctype html>
+<html lang="vi" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content={themeColor} />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/png" href="/assets/binh-minh-logo.png" />
+    <link rel="apple-touch-icon" href="/assets/binh-minh-logo.png" />
+    <meta name="apple-mobile-web-app-title" content="Binh Minh" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Bỏ qua điều hướng</a>
+    <slot />
+    <script is:inline src="/assets.js"></script>
+    <script is:inline src="/scripts/site.js"></script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import PriceDashboard from "../../components/PriceDashboard.astro";
+---
+<BaseLayout title="Giá tinh bột tham khảo | Bình Minh" description="Diễn biến giá tinh bột khoai mì tham khảo từ nguồn nội bộ đã xác minh; giá giao dịch xác nhận theo đơn hàng.">
+  <SiteHeader active="price" />
+  <main id="main">
+    <section class="page-hero wine-zone compact-page-hero">
+      <div class="shell">
+        <p class="eyebrow gold" data-i18n data-vi="GIÁ THAM KHẢO" data-en="REFERENCE PRICE" data-zh="参考价格">GIÁ THAM KHẢO</p>
+        <h1 data-i18n data-vi="Giá tinh bột khoai mì" data-en="Tapioca starch price" data-zh="木薯淀粉价格">Giá tinh bột khoai mì</h1>
+        <p data-i18n data-vi="Diễn biến giá theo kỳ ghi nhận. Liên hệ bộ phận kinh doanh để nhận báo giá cho đơn hàng cụ thể." data-en="Historical prices by recorded date. Contact sales for a quotation on your order." data-zh="按记录日期展示历史价格。如需订单报价，请联系销售团队。">Diễn biến giá theo kỳ ghi nhận. Liên hệ bộ phận kinh doanh để nhận báo giá cho đơn hàng cụ thể.</p>
+      </div>
+    </section>
+    <section class="content-section porcelain-zone">
+      <div class="shell price-page-wrap"><PriceDashboard /></div>
+    </section>
+  </main>
+  <SiteFooter />
+</BaseLayout>

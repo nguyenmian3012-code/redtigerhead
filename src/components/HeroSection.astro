@@ -1,0 +1,56 @@
+---
+import Icon from "./Icon.astro";
+import { copy, i18n } from "../data/site";
+
+const benefits = [
+  { icon: "shield", key: "benefit.quality" },
+  { icon: "truck", key: "benefit.delivery" },
+  { icon: "leaf", key: "benefit.sustain" }
+] as const;
+---
+<section class="hero wine-zone" aria-labelledby="hero-title">
+  <div class="hero-watermark" aria-hidden="true">虎</div>
+  <div class="shell hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow gold" data-i18n data-vi="TINH BỘT KHOAI MÌ TAPIOCA STARCH" data-en="TAPIOCA STARCH · VIETNAM" data-zh="木薯淀粉 · VIETNAM">TINH BỘT KHOAI MÌ TAPIOCA STARCH</p>
+      <h1 id="hero-title" {...i18n("hero.title")}>{copy.vi["hero.title"]}</h1>
+      <p class="hero-lead" data-i18n data-vi="Nhà sản xuất tinh bột khoai mì chất lượng cao, nguồn cung ổn định, phát triển bền vững đến từ Việt Nam." data-en="A high-quality tapioca starch producer with reliable supply and sustainable development from Vietnam." data-zh="来自越南的高品质木薯淀粉生产商，供应稳定，并致力于可持续发展。">Nhà sản xuất tinh bột khoai mì chất lượng cao, nguồn cung ổn định, phát triển bền vững đến từ Việt Nam.</p>
+      <div class="capacity-card">
+        <Icon name="factory" size={48} />
+        <div>
+          <span data-i18n data-vi="Công suất sản xuất trung bình" data-en="Average production capacity" data-zh="平均生产能力">Công suất sản xuất trung bình</span>
+          <strong>200</strong>
+        </div>
+        <b {...i18n("hero.unit")}>{copy.vi["hero.unit"]}</b>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-red" href="#thong-so">
+          <span data-i18n data-vi="Thông số sản phẩm" data-en="Product Specifications" data-zh="产品参数">Thông số sản phẩm</span><Icon name="arrow" size={18} />
+        </a>
+      </div>
+    </div>
+    <div class="factory-card">
+      <div class="factory-photo" data-hero role="img" aria-label="Khu vực nhà máy Bình Minh"></div>
+      <div class="factory-features">
+        {benefits.map((benefit) => (
+          <div>
+            <Icon name={benefit.icon} size={25} />
+            <b {...i18n(benefit.key)}>{copy.vi[benefit.key]}</b>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+  <div class="shell version-bar">
+    <div class="version-name"><span class="version-dot"><Icon name="star" size={18} /></span><strong>Bình Minh V0.3</strong></div>
+    <span class="version-divider"></span>
+    <p class="version-guides">
+      <span data-i18n data-vi="Chất lượng ổn định" data-en="Stable quality" data-zh="质量稳定">Chất lượng ổn định</span>
+      <span data-i18n data-vi="Nguồn cung đáng tin cậy" data-en="Reliable supply" data-zh="供应可靠">Nguồn cung đáng tin cậy</span>
+      <span data-i18n data-vi="Hợp tác dài hạn" data-en="Long-term partnership" data-zh="长期合作">Hợp tác dài hạn</span>
+    </p>
+    <span class="version-spacer"></span>
+    <b data-i18n data-vi="KIM CHỈ NAM" data-en="GUIDING PRINCIPLES" data-zh="核心原则">KIM CHỈ NAM</b>
+    <Icon name="info" size={21} />
+  </div>
+</section>
