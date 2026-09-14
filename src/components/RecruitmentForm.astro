@@ -1,58 +1,8 @@
 ---
-import jobs from "../data/jobs.json";
 import { copy, i18n } from "../data/site";
 ---
 <aside class="panel apply-card" id="apply">
   <h2 class="section-kicker" {...i18n("apply.title")}>{copy.vi["apply.title"]}</h2>
   <p class="draft-callout" {...i18n("apply.draft")}>{copy.vi["apply.draft"]}</p>
-  <form id="application-form" novalidate>
-    <label class="honeypot" aria-hidden="true">
-      Company
-      <input name="company" tabindex="-1" autocomplete="off" />
-    </label>
-    <div class="form-grid">
-      <label>Họ và tên *<input name="name" required autocomplete="name" maxlength="120" /></label>
-      <label>Số điện thoại *<input name="phone" required inputmode="tel" autocomplete="tel" maxlength="24" /></label>
-      <label>Email<input name="email" type="email" autocomplete="email" maxlength="160" /></label>
-      <label>
-        Vị trí ứng tuyển *
-        <select name="position" required>
-          <option value="">— Chọn vị trí —</option>
-          {jobs.filter((job) => job.status === "open").map((job) => (
-            <option value={job.id}>{job.title.vi}</option>
-          ))}
-        </select>
-      </label>
-    </div>
-    <label>Kinh nghiệm liên quan<textarea name="experience" rows="4" maxlength="2500"></textarea></label>
-    <label>CV — PDF, DOC hoặc DOCX, tối đa 5 MB<input name="cv" type="file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" /></label>
-    <label class="consent-line">
-      <input type="checkbox" name="consent" required />
-      <span>Tôi đồng ý để Bình Minh sử dụng thông tin đã cung cấp cho mục đích tuyển dụng và xác nhận thông tin là trung thực.</span>
-    </label>
-    <button class="btn btn-red full" type="submit">Xem lại hồ sơ →</button>
-    <p id="application-status" class="form-status" aria-live="polite"></p>
-  </form>
-  <div class="qr-panel">
-    <img data-qr alt="Mã QR mở trang tuyển dụng Bình Minh" width="92" height="92" />
-    <div><b>QR tuyển dụng</b><p>Quét mã để mở trang tuyển dụng trên điện thoại.</p></div>
-  </div>
+  <a class="btn btn-red full" href="/lien-he/" data-i18n data-vi="Xem kênh liên hệ →" data-en="Contact Binh Minh →">Xem kênh liên hệ →</a>
 </aside>
-
-<dialog id="application-review" class="dialog-card">
-  <button class="dialog-close" type="button" data-dialog-close aria-label="Đóng">×</button>
-  <p class="section-kicker">XEM LẠI HỒ SƠ — BẢN MÔ PHỎNG</p>
-  <dl class="review-list">
-    <div><dt>Họ và tên</dt><dd data-review="name">—</dd></div>
-    <div><dt>Số điện thoại</dt><dd data-review="phone">—</dd></div>
-    <div><dt>Email</dt><dd data-review="email">—</dd></div>
-    <div><dt>Vị trí</dt><dd data-review="position">—</dd></div>
-    <div><dt>Kinh nghiệm</dt><dd data-review="experience">—</dd></div>
-    <div><dt>CV</dt><dd data-review="cv">—</dd></div>
-  </dl>
-  <p class="draft-callout">Xác nhận chỉ tạo mã mô phỏng trên thiết bị; không gửi dữ liệu lên máy chủ.</p>
-  <div class="dialog-actions">
-    <button class="btn btn-outline" type="button" data-dialog-close>Quay lại</button>
-    <button class="btn btn-red" type="button" id="confirm-application">Xác nhận mô phỏng</button>
-  </div>
-</dialog>

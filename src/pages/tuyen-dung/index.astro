@@ -44,9 +44,8 @@ const roleIcon = (id: string): RoleIcon => id.includes("kcs") ? "clipboard" : id
               {jobs.filter((job) => job.status === "open").map((job) => (
                 <details class="job-card">
                   <summary>
-                    <span class="job-visual" aria-label="Vị trí dành cho hình minh họa 512 × 512">
+                    <span class="job-visual" aria-hidden="true">
                       <Icon name={roleIcon(job.id)} size={31} />
-                      <small>512 × 512</small>
                     </span>
                     <span class="job-title-block">
                       <small>{job.department}</small>
@@ -60,7 +59,7 @@ const roleIcon = (id: string): RoleIcon => id.includes("kcs") ? "clipboard" : id
                     <h3 data-i18n data-vi="Vai trò" data-en="Role" data-zh="职责">Vai trò</h3><p data-i18n data-vi={job.role.vi} data-en={job.role.en} data-zh={job.role.zh}>{job.role.vi}</p>
                     <h3 data-i18n data-vi="Yêu cầu" data-en="Requirements" data-zh="要求">Yêu cầu</h3><p data-i18n data-vi={job.requirements.vi} data-en={job.requirements.en} data-zh={job.requirements.zh}>{job.requirements.vi}</p>
                     <h3 data-i18n data-vi="Quyền lợi" data-en="Benefits" data-zh="福利">Quyền lợi</h3><p data-i18n data-vi={job.benefits.vi} data-en={job.benefits.en} data-zh={job.benefits.zh}>{job.benefits.vi}</p>
-                    <a href="#apply" class="text-link" data-i18n data-vi="Ứng tuyển vị trí này →" data-en="Apply for this position →" data-zh="申请此职位 →">Ứng tuyển vị trí này →</a>
+                    <a href="#apply" class="text-link" data-i18n data-vi="Hỏi về vị trí này →" data-en="Ask about this role →">Hỏi về vị trí này →</a>
                   </div>
                 </details>
               ))}
