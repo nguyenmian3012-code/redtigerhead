@@ -40,7 +40,6 @@ jobs:
           GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
           GOOGLE_SHEET_NAME: 8-Production Close
           POSTGRES_URL: ${{ secrets.POSTGRES_URL }}
-          PRICE_STARCH_SURCHARGE_VND_PER_KG: ${{ secrets.PRICE_STARCH_SURCHARGE_VND_PER_KG }}
           PRICE_SYNC_SLOT: ${{ inputs.slot }}
         run: node scripts/sync-prices.mjs
 
