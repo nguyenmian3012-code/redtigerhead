@@ -59,4 +59,44 @@
     localStorage.setItem("rth-theme", next);
   });
 
+  document.querySelectorAll("[data-product-slider]").forEach((slider) => {
+    const tabs = [...slider.querySelectorAll("[data-product-tab]")];
+    const panels = [...slider.querySelectorAll("[data-product-panel]")];
+    let active = 0;
+    let timer;
+
+    const show = (index, focus = false) => {
+      active = (index + tabs.length) % tabs.length;
+      tabs.forEach((tab, itemIndex) => {
+        const selected = itemIndex === active;
+        tab.setAttribute("aria-selected", String(selected));
+        tab.tabIndex = selected ? 0 : -1;
+        panels[itemIndex].hidden = !selected;
+      });
+      if (focus) tabs[active].focus();
+    };
+
+    const pause = () => {
+      if (timer) window.clearInterval(timer);
+      timer = undefined;
+    };
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => {
+        pause();
+        show(index);
+      });
+      tab.addEventListener("keydown", (event) => {
+        if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+        event.preventDefault();
+        pause();
+        show(index + (event.key === "ArrowRight" ? 1 : -1), true);
+      });
+    });
+
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      timer = window.setInterval(() => show(active + 1), 5000);
+    }
+  });
+
 })();
