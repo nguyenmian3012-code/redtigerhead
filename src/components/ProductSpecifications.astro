@@ -68,13 +68,15 @@ const localized = (value: string | LocalizedText): LocalizedText =>
                   {rows.map(({ left, right }) => {
                     const leftValue = localized(left.value);
                     const rightValue = localized(right.value);
+                    const leftUnit = localized(left.unit);
+                    const rightUnit = localized(right.unit);
                     return (
                       <tr>
                         <td data-i18n data-vi={left.label.vi} data-en={left.label.en} data-zh={left.label.zh}>{left.label.vi}</td>
-                        <td>{left.unit}</td>
+                        <td data-i18n data-vi={leftUnit.vi} data-en={leftUnit.en} data-zh={leftUnit.zh}>{leftUnit.vi}</td>
                         <td data-i18n data-vi={leftValue.vi} data-en={leftValue.en} data-zh={leftValue.zh}>{leftValue.vi}</td>
                         <td class="spec-pair-start" data-i18n data-vi={right.label.vi} data-en={right.label.en} data-zh={right.label.zh}>{right.label.vi}</td>
-                        <td>{right.unit}</td>
+                        <td data-i18n data-vi={rightUnit.vi} data-en={rightUnit.en} data-zh={rightUnit.zh}>{rightUnit.vi}</td>
                         <td data-i18n data-vi={rightValue.vi} data-en={rightValue.en} data-zh={rightValue.zh}>{rightValue.vi}</td>
                       </tr>
                     );

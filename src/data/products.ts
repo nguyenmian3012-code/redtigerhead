@@ -85,7 +85,7 @@ export const productSpecifications = [
       { label: { vi: "Chất khô", en: "Total solids", zh: "总固形物" }, unit: "%", value: "≥ 70*" },
       { label: { vi: "Đương lượng dextrose", en: "Dextrose equivalent", zh: "葡萄糖当量" }, unit: "%", value: "≥ 20*" },
       { label: { vi: "pH", en: "pH", zh: "pH" }, unit: "—", value: { vi: "Theo COA", en: "Per COA", zh: "以 COA 为准" } },
-      { label: { vi: "Hàm lượng maltose", en: "Maltose content", zh: "麦芽糖含量" }, unit: "% chất khô", value: { vi: "Theo cấp hàng", en: "Grade-specific", zh: "按产品等级" } },
+      { label: { vi: "Hàm lượng maltose", en: "Maltose content", zh: "麦芽糖含量" }, unit: { vi: "% chất khô", en: "% dry basis", zh: "%（干基）" }, value: { vi: "Theo cấp hàng", en: "Grade-specific", zh: "按产品等级" } },
       { label: { vi: "Độ Brix", en: "Brix", zh: "白利度" }, unit: "°Bx", value: { vi: "Theo COA", en: "Per COA", zh: "以 COA 为准" } },
       { label: { vi: "Độ tro", en: "Ash", zh: "灰分" }, unit: "%", value: { vi: "Theo COA", en: "Per COA", zh: "以 COA 为准" } }
     ],
@@ -119,9 +119,9 @@ export const productSpecifications = [
       { label: { vi: "Độ ẩm bã tươi", en: "Fresh-pulp moisture", zh: "鲜渣水分" }, unit: "%", value: "≈ 77 – 84*" },
       { label: { vi: "pH", en: "pH", zh: "pH" }, unit: "—", value: { vi: "Theo lô", en: "By lot", zh: "按批次" } },
       { label: { vi: "Ngoại quan", en: "Appearance", zh: "外观" }, unit: "—", value: { vi: "Xơ ẩm, màu kem", en: "Moist, cream-coloured fibre", zh: "湿润、奶油色纤维状" } },
-      { label: { vi: "Tinh bột còn lại", en: "Residual starch", zh: "残余淀粉" }, unit: "% chất khô", value: { vi: "Theo lô", en: "By lot", zh: "按批次" } },
-      { label: { vi: "Xơ thô", en: "Crude fibre", zh: "粗纤维" }, unit: "% chất khô", value: { vi: "Theo lô", en: "By lot", zh: "按批次" } },
-      { label: { vi: "Độ tro", en: "Ash", zh: "灰分" }, unit: "% chất khô", value: { vi: "Theo lô", en: "By lot", zh: "按批次" } }
+      { label: { vi: "Tinh bột còn lại", en: "Residual starch", zh: "残余淀粉" }, unit: { vi: "% chất khô", en: "% dry basis", zh: "%（干基）" }, value: { vi: "Theo lô", en: "By lot", zh: "按批次" } },
+      { label: { vi: "Xơ thô", en: "Crude fibre", zh: "粗纤维" }, unit: { vi: "% chất khô", en: "% dry basis", zh: "%（干基）" }, value: { vi: "Theo lô", en: "By lot", zh: "按批次" } },
+      { label: { vi: "Độ tro", en: "Ash", zh: "灰分" }, unit: { vi: "% chất khô", en: "% dry basis", zh: "%（干基）" }, value: { vi: "Theo lô", en: "By lot", zh: "按批次" } }
     ],
     characteristics: [
       { icon: "star", title: { vi: "Nguồn gốc", en: "Origin", zh: "来源" }, text: { vi: "Thu hồi trực tiếp sau công đoạn tách tinh bột.", en: "Recovered directly after starch extraction.", zh: "在淀粉提取后直接回收。" } },
