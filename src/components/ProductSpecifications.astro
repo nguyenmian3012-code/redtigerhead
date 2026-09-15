@@ -9,10 +9,7 @@ const localized = (value: string | LocalizedText): LocalizedText =>
 <section class="product-spec-section porcelain-zone" id="thong-so" aria-labelledby="spec-section-title">
   <div class="shell">
     <article class="panel product-spec-panel" data-product-slider>
-      <div class="product-spec-title-row">
-        <p id="spec-section-title" class="section-kicker" data-i18n data-vi="THÔNG SỐ SẢN PHẨM" data-en="PRODUCT SPECIFICATIONS" data-zh="产品参数">THÔNG SỐ SẢN PHẨM</p>
-        <span class="spec-draft" data-i18n data-vi="DỮ LIỆU THAM KHẢO" data-en="REFERENCE DATA" data-zh="参考数据">DỮ LIỆU THAM KHẢO</span>
-      </div>
+      <p id="spec-section-title" class="section-kicker" data-i18n data-vi="THÔNG SỐ SẢN PHẨM" data-en="PRODUCT SPECIFICATIONS" data-zh="产品参数">THÔNG SỐ SẢN PHẨM</p>
 
       <div class="product-tabs" role="tablist" aria-label="Product specifications">
         {productSpecifications.map((product, index) => (
@@ -45,11 +42,23 @@ const localized = (value: string | LocalizedText): LocalizedText =>
             data-product-panel
           >
             <div class="product-spec-head">
-              <div>
+              <div class="product-spec-copy">
                 <h2 data-i18n data-vi={product.title.vi} data-en={product.title.en} data-zh={product.title.zh}>{product.title.vi}</h2>
                 <p data-i18n data-vi={product.description.vi} data-en={product.description.en} data-zh={product.description.zh}>{product.description.vi}</p>
               </div>
-              <span class="spec-badge">{product.badge}</span>
+              <figure class="product-spec-image">
+                <img
+                  src={product.image}
+                  alt={product.imageAlt.vi}
+                  data-alt-vi={product.imageAlt.vi}
+                  data-alt-en={product.imageAlt.en}
+                  data-alt-zh={product.imageAlt.zh}
+                  width="480"
+                  height="480"
+                  loading={productIndex === 0 ? "eager" : "lazy"}
+                  decoding="async"
+                />
+              </figure>
             </div>
 
             <div class="spec-table-wrap">

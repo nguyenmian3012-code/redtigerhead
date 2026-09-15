@@ -34,6 +34,7 @@
       const value = element.dataset[safeLanguage];
       if (typeof value === "string") element.textContent = value;
     });
+    document.querySelectorAll("[data-alt-vi]").forEach((image) => image.alt = image.getAttribute(`data-alt-${safeLanguage}`) || "");
     languageButtons.forEach((button) => {
       const active = button.dataset.lang === safeLanguage;
       button.classList.toggle("active", active);

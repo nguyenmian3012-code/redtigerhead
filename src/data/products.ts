@@ -2,16 +2,17 @@ export const productSpecifications = [
   {
     id: "native-starch",
     tab: { vi: "Tinh bột tự nhiên", en: "Native starch", zh: "原淀粉" },
-    badge: "BINH MINH · NATIVE STARCH",
+    image: "/assets/products/native-tapioca-starch.webp",
+    imageAlt: { vi: "Tinh bột khoai mì tự nhiên Bình Minh", en: "Binh Minh native tapioca starch", zh: "Binh Minh 原生木薯淀粉" },
     title: {
-      vi: "Native Tapioca Starch — Thông số tham khảo Bình Minh",
-      en: "Native Tapioca Starch — Binh Minh reference specifications",
-      zh: "原生木薯淀粉 — Binh Minh 参考参数"
+      vi: "Tinh bột khoai mì tự nhiên Bình Minh",
+      en: "Binh Minh Native Tapioca Starch",
+      zh: "Binh Minh 原生木薯淀粉"
     },
     description: {
       vi: "Thông tin kỹ thuật cô đọng để khách hàng và đối tác dễ đối chiếu. Thông số thương mại cuối cùng được xác nhận theo COA, lô hàng và mục đích sử dụng.",
-      en: "A concise technical reference for customers and partners. Final commercial specifications depend on the COA, production lot and intended use.",
-      zh: "为客户与合作伙伴提供简明的技术参考。最终商业参数以 COA、生产批次及具体用途为准。"
+      en: "Concise technical information for customers and partners. Final commercial specifications depend on the COA, production lot and intended use.",
+      zh: "为客户与合作伙伴提供简明的技术信息。最终商业参数以 COA、生产批次及具体用途为准。"
     },
     specs: [
       { label: { vi: "Độ ẩm", en: "Moisture", zh: "水分" }, unit: "%", value: "≤ 13" },
@@ -28,19 +29,20 @@ export const productSpecifications = [
       { icon: "factory", title: { vi: "Ứng dụng", en: "Applications", zh: "应用" }, text: { vi: "Thực phẩm Gluten Free và nhiều ứng dụng công nghiệp, tùy cấp chất lượng và COA.", en: "Gluten-free foods and industrial applications, subject to grade and COA.", zh: "适用于无麸质食品及多种工业用途，具体以等级和 COA 为准。" } }
     ],
     footnote: {
-      vi: "Dữ liệu tham khảo/draft. Yêu cầu về kim loại nặng, vi sinh và độ nhớt cần được xác nhận riêng theo COA.",
-      en: "Reference/draft data. Heavy metals, microbiology and viscosity must be confirmed separately in the COA.",
-      zh: "参考/草案数据。重金属、微生物及黏度指标须在 COA 中另行确认。"
+      vi: "Yêu cầu về kim loại nặng, vi sinh và độ nhớt cần được xác nhận riêng theo COA.",
+      en: "Heavy metals, microbiology and viscosity must be confirmed separately in the COA.",
+      zh: "重金属、微生物及黏度指标须在 COA 中另行确认。"
     }
   },
   {
     id: "modified-starch",
     tab: { vi: "Tinh bột biến tính", en: "Modified starch", zh: "变性淀粉" },
-    badge: "BINH MINH · MODIFIED STARCH",
+    image: "/assets/products/modified-tapioca-starch.webp",
+    imageAlt: { vi: "Tinh bột khoai mì biến tính Bình Minh", en: "Binh Minh modified tapioca starch", zh: "Binh Minh 变性木薯淀粉" },
     title: {
-      vi: "Modified Tapioca Starch — Thông số tham khảo",
-      en: "Modified Tapioca Starch — Reference specifications",
-      zh: "变性木薯淀粉 — 参考参数"
+      vi: "Tinh bột khoai mì biến tính",
+      en: "Modified Tapioca Starch",
+      zh: "变性木薯淀粉"
     },
     description: {
       vi: "Tinh bột mì được điều chỉnh tính năng cho từng ứng dụng. Chỉ tiêu cuối cùng phụ thuộc loại biến tính, mã sản phẩm và COA.",
@@ -70,11 +72,12 @@ export const productSpecifications = [
   {
     id: "maltose-syrup",
     tab: { vi: "Mạch nha Maltose", en: "Maltose syrup", zh: "麦芽糖浆" },
-    badge: "BINH MINH · MALTOSE SYRUP",
+    image: "/assets/products/maltose-syrup.webp",
+    imageAlt: { vi: "Mạch nha Maltose Bình Minh", en: "Binh Minh maltose syrup", zh: "Binh Minh 麦芽糖浆" },
     title: {
-      vi: "Mạch nha Maltose từ tinh bột mì — Thông số tham khảo",
-      en: "Cassava-based Maltose Syrup — Reference specifications",
-      zh: "木薯基麦芽糖浆 — 参考参数"
+      vi: "Mạch nha Maltose",
+      en: "Maltose Syrup",
+      zh: "麦芽糖浆"
     },
     description: {
       vi: "Siro đường thu được từ quá trình thủy phân tinh bột mì. Cấp sản phẩm được xác định theo hàm lượng maltose, DE và yêu cầu ứng dụng.",
@@ -104,11 +107,12 @@ export const productSpecifications = [
   {
     id: "cassava-pulp",
     tab: { vi: "Bã mì", en: "Cassava pulp", zh: "木薯渣" },
-    badge: "BINH MINH · CASSAVA PULP",
+    image: "/assets/products/cassava-pulp.webp",
+    imageAlt: { vi: "Bã mì Bình Minh", en: "Binh Minh cassava pulp", zh: "Binh Minh 木薯渣" },
     title: {
-      vi: "Bã mì — Sản phẩm phụ từ củ mì",
-      en: "Cassava Pulp — Cassava-root side product",
-      zh: "木薯渣 — 木薯根加工副产品"
+      vi: "Bã mì",
+      en: "Cassava Pulp",
+      zh: "木薯渣"
     },
     description: {
       vi: "Sản phẩm phụ sau tách tinh bột từ củ mì. Thành phần biến động theo nguyên liệu, hiệu suất tách và trạng thái tươi hoặc sấy.",

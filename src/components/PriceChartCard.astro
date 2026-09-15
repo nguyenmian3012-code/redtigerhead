@@ -64,7 +64,7 @@ const latestRmbPerTon = Math.round(Number(latest.value) * 1000 / exchangeRates.c
     <small>(VND/kg)</small>
   </div>
   <div class="chart-body">
-    <svg class="price-chart" viewBox={"0 0 " + width + " " + height} role="img" aria-label={title + " — dữ liệu tham khảo"}>
+    <svg class="price-chart" viewBox={"0 0 " + width + " " + height} role="img" aria-label={title + " — biểu đồ giá"}>
       {ticks.map((tick) => (
         <>
           <line class="grid-line" x1={left} x2={right} y1={tick.y} y2={tick.y} />

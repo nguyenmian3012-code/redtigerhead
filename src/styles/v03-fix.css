@@ -71,25 +71,6 @@
   padding: 17px 18px 18px;
 }
 
-.product-spec-title-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 10px;
-}
-
-.product-spec-title-row .section-kicker {
-  margin: 0;
-}
-
-.spec-draft {
-  color: var(--muted);
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: .09em;
-}
-
 .product-tabs {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -112,7 +93,7 @@
 
 .product-tab:hover,
 .product-tab:focus-visible {
-  border-color: var(--gold);
+  border-color: var(--gold-500);
   outline: none;
 }
 
@@ -120,7 +101,7 @@
   color: #fff;
   border-color: var(--wine-800);
   background: var(--wine-800);
-  box-shadow: inset 0 -3px 0 var(--gold);
+  box-shadow: inset 0 -3px 0 var(--gold-500);
 }
 
 .product-tab-panel[hidden] {
@@ -137,13 +118,41 @@
 }
 
 .product-spec-head {
-  gap: 15px;
-  margin-bottom: 12px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 240px;
+  align-items: center;
+  gap: 20px;
+  min-height: 240px;
+  margin-bottom: 14px;
 }
 
 .product-spec-head h2 {
-  margin-bottom: 5px;
+  margin: 0 0 8px;
   font-size: clamp(24px, 2.4vw, 32px);
+  line-height: 1.08;
+}
+
+.product-spec-copy > p {
+  max-width: 570px;
+  margin: 0;
+  color: var(--muted);
+}
+
+.product-spec-image {
+  width: 240px;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--porcelain);
+  box-shadow: 0 10px 24px rgba(61, 22, 8, .1);
+}
+
+.product-spec-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
 }
 
 .spec-table {
@@ -297,16 +306,22 @@
     padding: 15px 13px 16px;
   }
 
-  .product-spec-title-row {
-    align-items: flex-start;
-  }
-
   .product-tabs {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .product-tab {
     border-radius: 10px;
+  }
+
+  .product-spec-head {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .product-spec-image {
+    width: min(240px, 100%);
+    justify-self: center;
   }
 
   .spec-characteristic-list {
