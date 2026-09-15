@@ -13,7 +13,7 @@ for (const key of REQUIRED) {
 const SHEET_ID = process.env.GOOGLE_SHEET_ID || '1LAIuJro3p_e27ZMPFsdutAQUdy9aY53DKTIfBTSI1Mw';
 const SHEET_NAME = process.env.GOOGLE_SHEET_NAME || '8-Production Close';
 const RANGE = `'${SHEET_NAME.replaceAll("'", "''")}'!A2:J1020`;
-const SURCHARGE = 500;
+const SURCHARGE = 1000;
 
 const b64url = (value) => Buffer.from(value).toString('base64url');
 const sqlLit = (value) => `'${String(value ?? '').replaceAll("'", "''")}'`;

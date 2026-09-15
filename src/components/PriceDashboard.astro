@@ -14,6 +14,6 @@ const asOf = `${day}/${month}/${year}`;
       <span data-i18n data-vi={`Dữ liệu giá bột đến ${asOf}. Giá tham khảo, không phải báo giá.`} data-en={`Starch data through ${asOf}. Reference only; not a quotation.`} data-zh={`淀粉价格数据截至 ${asOf}。仅供参考，非正式报价。`}>Dữ liệu giá bột đến {asOf}. Giá tham khảo, không phải báo giá.</span>
     </p>
   </div>
-  <PriceChartCard title={copy.vi["market.starch"]} titleEn={copy.en["market.starch"]} titleZh={copy.zh["market.starch"]} series={priceData.starch} tone="red" />
+  <PriceChartCard title={copy.vi["market.starch"]} titleEn={copy.en["market.starch"]} titleZh={copy.zh["market.starch"]} series={priceData.starch} tone="red" exchangeRates={priceData._meta.exchange_rates} />
   <p class="market-note" data-i18n data-vi="Giá củ mì và bã mì sẽ công bố sau khi nguồn dữ liệu được xác minh." data-en="Cassava root and residue prices will follow once their sources are verified." data-zh="木薯原料及木薯渣价格将在数据源核实后发布。">Giá củ mì và bã mì sẽ công bố sau khi nguồn dữ liệu được xác minh.</p>
 </aside>

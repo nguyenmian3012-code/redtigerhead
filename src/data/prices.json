@@ -2,129 +2,136 @@
   "starch": [
     {
       "date": "2026-08-12",
-      "value": 15328,
+      "value": 15828,
       "unit": "VND/kg"
     },
     {
       "date": "2026-08-13",
-      "value": 14593,
+      "value": 15093,
       "unit": "VND/kg"
     },
     {
       "date": "2026-08-15",
-      "value": 14716,
+      "value": 15216,
       "unit": "VND/kg"
     },
     {
       "date": "2026-08-16",
-      "value": 14472,
+      "value": 14972,
       "unit": "VND/kg"
     },
     {
       "date": "2026-08-17",
-      "value": 15262,
+      "value": 15762,
       "unit": "VND/kg"
     },
     {
       "date": "2026-08-18",
-      "value": 14450,
+      "value": 14950,
       "unit": "VND/kg"
     },
     {
       "date": "2026-08-19",
-      "value": 15103,
+      "value": 15603,
       "unit": "VND/kg"
     },
     {
       "date": "2026-08-21",
-      "value": 15324,
+      "value": 15824,
       "unit": "VND/kg"
     },
     {
       "date": "2026-08-22",
-      "value": 14953,
+      "value": 15453,
       "unit": "VND/kg"
     },
     {
       "date": "2026-08-23",
-      "value": 15061,
+      "value": 15561,
       "unit": "VND/kg"
     },
     {
       "date": "2026-08-26",
-      "value": 15922,
+      "value": 16422,
       "unit": "VND/kg"
     },
     {
       "date": "2026-08-27",
-      "value": 15302,
+      "value": 15802,
       "unit": "VND/kg"
     },
     {
       "date": "2026-08-28",
-      "value": 14586,
+      "value": 15086,
       "unit": "VND/kg"
     },
     {
       "date": "2026-08-29",
-      "value": 14778,
+      "value": 15278,
       "unit": "VND/kg"
     },
     {
       "date": "2026-08-30",
-      "value": 16007,
+      "value": 16507,
       "unit": "VND/kg"
     },
     {
       "date": "2026-08-31",
-      "value": 14833,
+      "value": 15333,
       "unit": "VND/kg"
     },
     {
       "date": "2026-09-01",
-      "value": 14588,
-      "unit": "VND/kg"
-    },
-    {
-      "date": "2026-09-02",
-      "value": 14531,
-      "unit": "VND/kg"
-    },
-    {
-      "date": "2026-09-04",
-      "value": 13915,
-      "unit": "VND/kg"
-    },
-    {
-      "date": "2026-09-07",
       "value": 15088,
       "unit": "VND/kg"
     },
     {
+      "date": "2026-09-02",
+      "value": 15031,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-09-04",
+      "value": 14415,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-09-07",
+      "value": 15588,
+      "unit": "VND/kg"
+    },
+    {
       "date": "2026-09-08",
-      "value": 14378,
+      "value": 14878,
       "unit": "VND/kg"
     },
     {
       "date": "2026-09-10",
-      "value": 15317,
+      "value": 15817,
       "unit": "VND/kg"
     },
     {
       "date": "2026-09-11",
-      "value": 14982,
+      "value": 15482,
       "unit": "VND/kg"
     },
     {
       "date": "2026-09-12",
-      "value": 14946,
+      "value": 15446,
       "unit": "VND/kg"
     }
   ],
   "_meta": {
     "starch": {
       "mode": "real",
-      "last_source_date": "2026-09-12"
+      "last_source_date": "2026-09-12",
+      "source": "Google Sheet / 8-Production Close / column J"
+    },
+    "exchange_rates": {
+      "source": "SBV USD central; Vietcombank CNY transfer reference",
+      "as_of": "2026-09-15",
+      "usd_vnd": 25617,
+      "cny_vnd": 3814.68
     }
   }
 }
