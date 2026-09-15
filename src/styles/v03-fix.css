@@ -63,6 +63,10 @@
   padding: 26px 0 20px;
 }
 
+.product-spec-section .shell {
+  max-width: 900px;
+}
+
 .product-spec-panel {
   padding: 17px 18px 18px;
 }
