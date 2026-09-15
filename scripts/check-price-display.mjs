@@ -6,7 +6,7 @@ const latest = prices.starch.at(-1);
 const { usd_vnd: usdVnd, cny_vnd: cnyVnd } = prices._meta.exchange_rates;
 
 assert.ok(Math.abs(latest.value - 15400) <= 200, 'Reference price differs by more than 200 VND/kg');
-assert.equal((latest.value / usdVnd).toFixed(2), '0.60');
-assert.equal((latest.value / cnyVnd).toFixed(2), '4.05');
+assert.equal(Math.round(latest.value * 1000 / usdVnd), 603);
+assert.equal(Math.round(latest.value * 1000 / cnyVnd), 4049);
 
 console.log('Price display check passed.');

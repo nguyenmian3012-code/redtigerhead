@@ -55,8 +55,8 @@ const formatDate = (date: string) => {
   return parts[2] + "/" + parts[1];
 };
 const latest = series[series.length - 1];
-const latestUsd = Number(latest.value) / exchangeRates.usd_vnd;
-const latestRmb = Number(latest.value) / exchangeRates.cny_vnd;
+const latestUsdPerTon = Math.round(Number(latest.value) * 1000 / exchangeRates.usd_vnd).toLocaleString("en-US");
+const latestRmbPerTon = Math.round(Number(latest.value) * 1000 / exchangeRates.cny_vnd).toLocaleString("en-US");
 ---
 <section class:list={["price-card", "tone-" + tone]} aria-label={title}>
   <div class="price-name">
@@ -86,7 +86,7 @@ const latestRmb = Number(latest.value) / exchangeRates.cny_vnd;
     <div class="latest-box">
       <strong>{Number(latest.value).toLocaleString("en-US")}</strong>
       <small>{latest.unit}</small>
-      <small class="latest-converted" data-i18n data-vi={`≈ ${latestUsd.toFixed(2)} USD/kg`} data-en={`≈ ${latestUsd.toFixed(2)} USD/kg`} data-zh={`≈ ¥${latestRmb.toFixed(2)} RMB/kg`}>≈ ${latestUsd.toFixed(2)} USD/kg</small>
+      <small class="latest-converted" data-i18n data-vi={`≈ ${latestUsdPerTon} USD/t`} data-en={`≈ ${latestUsdPerTon} USD/t`} data-zh={`≈ ${latestRmbPerTon} RMB/t`}>≈ ${latestUsdPerTon} USD/t</small>
       <em>{formatDate(latest.date)}</em>
     </div>
   </div>
