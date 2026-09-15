@@ -1,68 +1,149 @@
 ---
 import Icon from "./Icon.astro";
+import { productSpecifications } from "../data/products";
 
-const rows = [
-  { vi: "Độ ẩm", en: "Moisture Content", zh: "水分", unit: "%", limit: "≤ 13" },
-  { vi: "pH", en: "pH", zh: "pH", unit: "—", limit: "6.4 – 7.0" },
-  { vi: "Độ trắng", en: "Whiteness", zh: "白度", unit: "%", limit: "> 90" }
-];
-
-const characteristics = [
-  { icon: "star", vi: "Ngoại quan", en: "Appearance", zh: "外观", viText: "Bột mịn, tơi, màu trắng đến trắng kem nhạt.", enText: "Fine, free-flowing powder, white to light-cream.", zhText: "粉末细腻、流动性好，颜色白至浅奶油色。" },
-  { icon: "shield", vi: "Mùi & vị", en: "Taste & odor", zh: "气味与口感", viText: "Vị trung tính, không có mùi lạ hay tạp mùi bất thường.", enText: "Neutral taste with no foreign or abnormal odor.", zhText: "味道中性，无异味或异常气味。" },
-  { icon: "bag", vi: "Đóng gói", en: "Packaging", zh: "包装", viText: "Bao 10 kg, 25 kg và 50 kg; quy cách theo đơn hàng.", enText: "10 kg, 25 kg and 50 kg bags; configuration per order.", zhText: "10 公斤、25 公斤和 50 公斤包装；具体规格按订单约定。" },
-  { icon: "factory", vi: "Ứng dụng", en: "Applications", zh: "应用", viText: "Phù hợp nhiều ứng dụng công nghiệp và thực phẩm tùy theo cấp chất lượng và COA.", enText: "Suitable for multiple industrial and food applications depending on grade and COA.", zhText: "可根据等级与 COA 用于多种工业及食品用途。" }
-] as const;
+type LocalizedText = { readonly vi: string; readonly en: string; readonly zh: string };
+const localized = (value: string | LocalizedText): LocalizedText =>
+  typeof value === "string" ? { vi: value, en: value, zh: value } : value;
 ---
-<section class="product-spec-section porcelain-zone" id="thong-so" aria-labelledby="spec-title">
+<section class="product-spec-section porcelain-zone" id="thong-so" aria-labelledby="spec-section-title">
   <div class="shell">
-    <article class="panel product-spec-panel">
-      <div class="product-spec-head">
-        <div>
-          <p class="section-kicker" data-i18n data-vi="THÔNG SỐ SẢN PHẨM" data-en="PRODUCT SPECIFICATIONS" data-zh="产品参数">THÔNG SỐ SẢN PHẨM</p>
-          <h2 id="spec-title" data-i18n data-vi="Native Tapioca Starch — Thông số tham khảo Bình Minh" data-en="Native Tapioca Starch — Binh Minh reference specifications" data-zh="Native Tapioca Starch — Binh Minh 参考参数">Native Tapioca Starch — Thông số tham khảo Bình Minh</h2>
-          <p data-i18n data-vi="Bảng thông tin kỹ thuật được trình bày ngắn gọn để khách hàng và đối tác dễ đối chiếu. Thông số thương mại cuối cùng được xác nhận theo COA, lô hàng và mục đích sử dụng." data-en="A concise technical reference for customers and partners. Final commercial specifications are confirmed by COA, production lot and end-use requirements." data-zh="为客户与合作伙伴提供简洁的技术参考。最终商业参数以 COA、生产批次及具体用途要求为准。">Bảng thông tin kỹ thuật được trình bày ngắn gọn để khách hàng và đối tác dễ đối chiếu. Thông số thương mại cuối cùng được xác nhận theo COA, lô hàng và mục đích sử dụng.</p>
-        </div>
-        <span class="spec-badge">BINH MINH · NATIVE STARCH</span>
+    <article class="panel product-spec-panel" data-product-slider>
+      <div class="product-spec-title-row">
+        <p id="spec-section-title" class="section-kicker" data-i18n data-vi="THÔNG SỐ SẢN PHẨM" data-en="PRODUCT SPECIFICATIONS" data-zh="产品参数">THÔNG SỐ SẢN PHẨM</p>
+        <span class="spec-draft" data-i18n data-vi="DỮ LIỆU THAM KHẢO" data-en="REFERENCE DATA" data-zh="参考数据">DỮ LIỆU THAM KHẢO</span>
       </div>
 
-      <div class="spec-table-wrap">
-        <table class="spec-table">
-          <thead>
-            <tr>
-              <th data-i18n data-vi="Thông số" data-en="Parameter" data-zh="参数">Thông số</th>
-              <th data-i18n data-vi="Đơn vị" data-en="Unit" data-zh="单位">Đơn vị</th>
-              <th data-i18n data-vi="Tiêu chuẩn / giới hạn tham khảo" data-en="Reference standard / limit" data-zh="参考标准 / 限值">Tiêu chuẩn / giới hạn tham khảo</th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((row) => (
-              <tr>
-                <td data-i18n data-vi={row.vi} data-en={row.en} data-zh={row.zh}>{row.vi}</td>
-                <td>{row.unit}</td>
-                <td>{row.limit}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div class="product-tabs" role="tablist" aria-label="Product specifications">
+        {productSpecifications.map((product, index) => (
+          <button
+            class="product-tab"
+            type="button"
+            role="tab"
+            id={`product-tab-${product.id}`}
+            aria-controls={`product-panel-${product.id}`}
+            aria-selected={index === 0 ? "true" : "false"}
+            tabindex={index === 0 ? 0 : -1}
+            data-product-tab
+            data-i18n
+            data-vi={product.tab.vi}
+            data-en={product.tab.en}
+            data-zh={product.tab.zh}
+          >{product.tab.vi}</button>
+        ))}
       </div>
 
-      <section class="spec-characteristics" aria-labelledby="characteristics-title">
-        <h3 id="characteristics-title" data-i18n data-vi="TÍNH CHẤT SẢN PHẨM" data-en="PRODUCT CHARACTERISTICS" data-zh="产品特性">TÍNH CHẤT SẢN PHẨM</h3>
-        <ul class="spec-characteristic-list">
-          {characteristics.map((item) => (
-            <li>
-              <span class="spec-characteristic-icon"><Icon name={item.icon} size={19} /></span>
+      {productSpecifications.map((product, productIndex) => {
+        const rows = product.specs.slice(0, 3).map((left, index) => ({ left, right: product.specs[index + 3] }));
+        return (
+          <section
+            class="product-tab-panel"
+            role="tabpanel"
+            id={`product-panel-${product.id}`}
+            aria-labelledby={`product-tab-${product.id}`}
+            hidden={productIndex !== 0}
+            data-product-panel
+          >
+            <div class="product-spec-head">
               <div>
-                <b data-i18n data-vi={item.vi} data-en={item.en} data-zh={item.zh}>{item.vi}</b>
-                <p data-i18n data-vi={item.viText} data-en={item.enText} data-zh={item.zhText}>{item.viText}</p>
+                <h2 data-i18n data-vi={product.title.vi} data-en={product.title.en} data-zh={product.title.zh}>{product.title.vi}</h2>
+                <p data-i18n data-vi={product.description.vi} data-en={product.description.en} data-zh={product.description.zh}>{product.description.vi}</p>
               </div>
-            </li>
-          ))}
-        </ul>
-      </section>
+              <span class="spec-badge">{product.badge}</span>
+            </div>
 
-      <p class="spec-footnote" data-i18n data-vi="Lưu ý: yêu cầu cụ thể thay đổi theo ứng dụng công nghiệp, thực phẩm hoặc các cấp chất lượng nghiêm ngặt hơn; các yêu cầu về kim loại nặng và vi sinh cần được xác nhận riêng khi áp dụng." data-en="Note: requirements vary by industrial, food or stricter grades; heavy-metal and microbiological requirements should be confirmed separately when applicable." data-zh="注：不同工业、食品或更严格等级的要求会有所不同；如适用，重金属与微生物指标应另行确认。">Lưu ý: yêu cầu cụ thể thay đổi theo ứng dụng công nghiệp, thực phẩm hoặc các cấp chất lượng nghiêm ngặt hơn; các yêu cầu về kim loại nặng và vi sinh cần được xác nhận riêng khi áp dụng.</p>
+            <div class="spec-table-wrap">
+              <table class="spec-table spec-table-paired">
+                <thead>
+                  <tr>
+                    <th data-i18n data-vi="Thông số" data-en="Parameter" data-zh="参数">Thông số</th>
+                    <th data-i18n data-vi="Đơn vị" data-en="Unit" data-zh="单位">Đơn vị</th>
+                    <th data-i18n data-vi="Mức tham khảo" data-en="Reference" data-zh="参考值">Mức tham khảo</th>
+                    <th class="spec-pair-start" data-i18n data-vi="Thông số" data-en="Parameter" data-zh="参数">Thông số</th>
+                    <th data-i18n data-vi="Đơn vị" data-en="Unit" data-zh="单位">Đơn vị</th>
+                    <th data-i18n data-vi="Mức tham khảo" data-en="Reference" data-zh="参考值">Mức tham khảo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {rows.map(({ left, right }) => {
+                    const leftValue = localized(left.value);
+                    const rightValue = localized(right.value);
+                    return (
+                      <tr>
+                        <td data-i18n data-vi={left.label.vi} data-en={left.label.en} data-zh={left.label.zh}>{left.label.vi}</td>
+                        <td>{left.unit}</td>
+                        <td data-i18n data-vi={leftValue.vi} data-en={leftValue.en} data-zh={leftValue.zh}>{leftValue.vi}</td>
+                        <td class="spec-pair-start" data-i18n data-vi={right.label.vi} data-en={right.label.en} data-zh={right.label.zh}>{right.label.vi}</td>
+                        <td>{right.unit}</td>
+                        <td data-i18n data-vi={rightValue.vi} data-en={rightValue.en} data-zh={rightValue.zh}>{rightValue.vi}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+
+            <section class="spec-characteristics" aria-labelledby={`characteristics-${product.id}`}>
+              <h3 id={`characteristics-${product.id}`} data-i18n data-vi="TÍNH CHẤT & ỨNG DỤNG" data-en="CHARACTERISTICS & APPLICATIONS" data-zh="特性与应用">TÍNH CHẤT & ỨNG DỤNG</h3>
+              <ul class="spec-characteristic-list">
+                {product.characteristics.map((item) => (
+                  <li>
+                    <span class="spec-characteristic-icon"><Icon name={item.icon} size={19} /></span>
+                    <div>
+                      <b data-i18n data-vi={item.title.vi} data-en={item.title.en} data-zh={item.title.zh}>{item.title.vi}</b>
+                      <p data-i18n data-vi={item.text.vi} data-en={item.text.en} data-zh={item.text.zh}>{item.text.vi}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            <p class="spec-footnote" data-i18n data-vi={product.footnote.vi} data-en={product.footnote.en} data-zh={product.footnote.zh}>{product.footnote.vi}</p>
+          </section>
+        );
+      })}
     </article>
   </div>
 </section>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-product-slider]").forEach((slider) => {
+    const tabs = [...slider.querySelectorAll<HTMLButtonElement>("[data-product-tab]")];
+    const panels = [...slider.querySelectorAll<HTMLElement>("[data-product-panel]")];
+    let active = 0;
+    let timer: number | undefined;
+
+    const show = (index: number, focus = false) => {
+      active = (index + tabs.length) % tabs.length;
+      tabs.forEach((tab, itemIndex) => {
+        const selected = itemIndex === active;
+        tab.setAttribute("aria-selected", String(selected));
+        tab.tabIndex = selected ? 0 : -1;
+        panels[itemIndex].hidden = !selected;
+      });
+      if (focus) tabs[active].focus();
+    };
+
+    const pause = () => {
+      if (timer !== undefined) window.clearInterval(timer);
+      timer = undefined;
+    };
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => {
+        pause();
+        show(index);
+      });
+      tab.addEventListener("keydown", (event) => {
+        if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+        event.preventDefault();
+        pause();
+        show(index + (event.key === "ArrowRight" ? 1 : -1), true);
+      });
+    });
+
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      timer = window.setInterval(() => show(active + 1), 5000);
+    }
+  });
+</script>
