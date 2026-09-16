@@ -12,15 +12,9 @@
   },
   "env": {
     "preview": {
-      "name": "redtigerhead-web",
-      "workers_dev": false,
-      "preview_urls": false,
-      "routes": [
-        {
-          "pattern": "preview.redtigerhead.com",
-          "custom_domain": true
-        }
-      ]
+      "name": "redtigerhead",
+      "workers_dev": true,
+      "preview_urls": false
     }
   }
 }
