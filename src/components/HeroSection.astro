@@ -9,7 +9,7 @@ const benefits = [
 ] as const;
 ---
 <section class="hero wine-zone" aria-labelledby="hero-title">
-  <div class="hero-watermark" aria-hidden="true">虎</div>
+  <img class="hero-watermark" src="/assets/tiger-watermark.webp" alt="" width="900" height="900" aria-hidden="true" />
   <div class="shell hero-grid">
     <div class="hero-copy">
       <p class="eyebrow gold" data-i18n data-vi="TINH BỘT KHOAI MÌ · VIỆT NAM" data-en="TAPIOCA STARCH · VIETNAM" data-zh="木薯淀粉 · 越南">TINH BỘT KHOAI MÌ · VIỆT NAM</p>
@@ -30,7 +30,15 @@ const benefits = [
       </div>
     </div>
     <div class="factory-card">
-      <div class="factory-photo" data-hero role="img" aria-label="Khu vực nhà máy Bình Minh"></div>
+      <img
+        class="factory-photo"
+        src="/assets/binh-minh-factory.webp"
+        alt="Khu vực nhà máy Bình Minh"
+        width="1600"
+        height="900"
+        fetchpriority="high"
+        decoding="async"
+      />
       <div class="factory-features">
         {benefits.map((benefit) => (
           <div>
@@ -42,7 +50,7 @@ const benefits = [
     </div>
   </div>
   <div class="shell version-bar">
-    <div class="version-name"><span class="version-dot"><Icon name="star" size={18} /></span><strong>Bình Minh V0.3</strong></div>
+    <div class="version-name"><span class="version-dot"><Icon name="star" size={18} /></span><strong data-i18n data-vi="Tapioca Finest Starch" data-en="Tapioca Finest Starch" data-zh="Tapioca Finest Starch">Tapioca Finest Starch</strong></div>
     <span class="version-divider"></span>
     <p class="version-guides">
       <span data-i18n data-vi="Chất lượng ổn định" data-en="Stable quality" data-zh="质量稳定">Chất lượng ổn định</span>

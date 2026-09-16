@@ -494,3 +494,242 @@ label,
     animation: none;
   }
 }
+
+/* V0.4 visual polish: unified grid, metallic gold and restored brand imagery. */
+:root {
+  --gold-solid: #d8a63d;
+  --gold-highlight: #fff1b0;
+  --gold-shadow: #8a5708;
+  --gold-metallic: linear-gradient(115deg, #c58b25 0%, #f2d077 30%, #fff1b0 48%, #d8a63d 68%, #b97812 100%);
+  --gold-metallic-dark: linear-gradient(115deg, #7a4700 0%, #a96f10 32%, #d0a443 50%, #99620a 68%, #704000 100%);
+  --gold-metallic-border: linear-gradient(125deg, #8a5708 0%, #d8a63d 27%, #fff1b0 49%, #c58b25 72%, #7a4700 100%);
+}
+
+/* Keep every major section on the same 1180px shell. */
+.product-spec-section .shell {
+  max-width: var(--shell);
+}
+
+/* Supplied factory image replaces the fragile runtime background injection. */
+.factory-photo,
+.about-photo {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  object-position: center 56%;
+}
+
+.hero-watermark,
+.footer-watermark {
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-watermark {
+  top: 38px;
+  left: -72px;
+  width: 340px;
+  opacity: .055;
+}
+
+.footer-watermark {
+  right: -42px;
+  bottom: -82px;
+  width: 300px;
+  opacity: .075;
+}
+
+/* Metallic gold text on wine surfaces. */
+.gold,
+.lang-switch button.active,
+.capacity-card b,
+.version-bar > b,
+.site-footer h2 {
+  color: var(--gold-highlight);
+  background-image: var(--gold-metallic);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 1px 0 rgba(76, 38, 2, .26);
+}
+
+/* Darker metallic treatment remains legible on porcelain surfaces. */
+.simple-values em,
+.principles li::before,
+.job-card summary small,
+.tone-gold .price-name,
+.tone-gold .latest-box strong {
+  color: var(--gold-shadow);
+  background-image: var(--gold-metallic-dark);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Gold icons gain highlight and shadow instead of a flat yellow stroke. */
+.capacity-card > .icon,
+.factory-features .icon,
+.version-dot .icon,
+.version-bar > .icon,
+.footer-contact .icon,
+.footer-hours .icon,
+.tone-gold .price-chart {
+  color: var(--gold-solid);
+  filter:
+    drop-shadow(-.45px -.45px 0 rgba(255, 241, 176, .85))
+    drop-shadow(.65px .75px 0 rgba(111, 63, 0, .8));
+}
+
+.capacity-card > .icon,
+.factory-features .icon,
+.version-dot .icon,
+.version-bar > .icon,
+.footer-contact .icon,
+.footer-hours .icon {
+  stroke-width: 2;
+}
+
+/* Metallic borders use a two-pixel highlight where the old line felt weak. */
+.capacity-card {
+  border: 2px solid transparent;
+  background:
+    radial-gradient(circle at 70% 22%, rgba(224, 41, 56, .2), transparent 34%) padding-box,
+    linear-gradient(130deg, #801528, #4f0713) padding-box,
+    var(--gold-metallic-border) border-box;
+}
+
+.factory-card {
+  border: 2px solid transparent;
+  background:
+    linear-gradient(#1c1112, #1c1112) padding-box,
+    var(--gold-metallic-border) border-box;
+}
+
+.theme-toggle,
+.version-dot,
+.btn-outline-gold {
+  border: 2px solid transparent;
+  background:
+    linear-gradient(rgba(51, 8, 14, .96), rgba(51, 8, 14, .96)) padding-box,
+    var(--gold-metallic-border) border-box;
+}
+
+.about-photo,
+.tone-gold .latest-box,
+.process-row > div span,
+.spec-table-paired .spec-pair-start {
+  border-color: var(--gold-solid);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 241, 176, .38),
+    0 1px 0 rgba(122, 71, 0, .2);
+}
+
+.main-nav a::after,
+.footer-rule,
+.version-divider,
+.version-guides span:not(:last-child)::after {
+  background: var(--gold-metallic);
+}
+
+.version-guides span:not(:last-child)::after {
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+:focus-visible {
+  outline-color: var(--gold-highlight);
+  box-shadow: 0 0 0 1px var(--gold-shadow);
+}
+
+/* Readability floor for specifications and descriptive copy. */
+.spec-table th {
+  font-size: 13px;
+}
+
+.spec-table td {
+  font-size: 14px;
+}
+
+.product-spec-copy > p,
+.intro-text,
+.contact-card-v03 p,
+.contact-card-v03 li,
+.job-detail p {
+  font-size: clamp(14px, 1.12vw, 15px);
+  line-height: 1.58;
+}
+
+.spec-characteristic-list b {
+  font-size: 13.5px;
+}
+
+.spec-characteristic-list p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.spec-footnote,
+.pillars small,
+.process-row small,
+.market-note,
+.principle-item small,
+.channel-link small,
+.channel-pending small,
+.footer-brand > p,
+.footer-contact p,
+.footer-hours p {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+@media (max-width: 840px) {
+  .hero-watermark {
+    top: 360px;
+    left: -48px;
+    width: 270px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-watermark {
+    top: 250px;
+    left: -70px;
+    width: 250px;
+    opacity: .045;
+  }
+
+  .footer-watermark {
+    right: -70px;
+    bottom: -55px;
+    width: 230px;
+  }
+
+  .spec-table th {
+    font-size: 13px;
+  }
+
+  .spec-table td,
+  .spec-characteristic-list p {
+    font-size: 13px;
+  }
+}
+
+@media (forced-colors: active) {
+  .gold,
+  .lang-switch button.active,
+  .capacity-card b,
+  .version-bar > b,
+  .site-footer h2,
+  .simple-values em,
+  .principles li::before,
+  .job-card summary small,
+  .tone-gold .price-name,
+  .tone-gold .latest-box strong {
+    background: none;
+    color: LinkText;
+    -webkit-text-fill-color: currentColor;
+  }
+}
