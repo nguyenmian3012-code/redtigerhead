@@ -18,6 +18,6 @@ const { kicker, title, lead, image = false, className } = Astro.props;
       <h1 {...i18n(title)}>{copy.vi[title]}</h1>
       <p {...i18n(lead)}>{copy.vi[lead]}</p>
     </div>
-    {image && <div class="about-photo" data-hero role="img" aria-label="Khu vực nhà máy Bình Minh"></div>}
+    {image && <img class="about-photo" src="/assets/binh-minh-factory.webp" alt="Khu vực nhà máy Bình Minh" width="1600" height="900" decoding="async" />}
   </div>
 </section>
