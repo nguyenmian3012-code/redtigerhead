@@ -22,10 +22,10 @@ const values = [
         <article class="panel prose-card">
           <h2 class="section-kicker" {...i18n("aboutPage.company")}>{copy.vi["aboutPage.company"]}</h2>
           <h3>{site.legalName}</h3>
-          <p>{copy.vi["about.summary"]}</p>
+          <p {...i18n("about.summary")}>{copy.vi["about.summary"]}</p>
           <dl class="facts">
             <div><dt data-i18n data-vi="Lĩnh vực" data-en="Field" data-zh="领域">Lĩnh vực</dt><dd data-i18n data-vi="Tinh bột khoai mì / Tapioca starch" data-en="Tapioca starch" data-zh="木薯淀粉">Tinh bột khoai mì / Tapioca starch</dd></div>
-            <div><dt data-i18n data-vi="Công suất trung bình" data-en="Average capacity" data-zh="平均产能">Công suất trung bình</dt><dd>{site.capacity} tấn/ngày</dd></div>
+            <div><dt data-i18n data-vi="Công suất trung bình" data-en="Average capacity" data-zh="平均产能">Công suất trung bình</dt><dd data-i18n data-vi={`${site.capacity} tấn/ngày`} data-en={`${site.capacity} tonnes/day`} data-zh={`${site.capacity} 吨/天`}>{site.capacity} tấn/ngày</dd></div>
             <div><dt data-i18n data-vi="Khu vực" data-en="Region" data-zh="地区">Khu vực</dt><dd data-i18n data-vi="Tây Ninh, Việt Nam" data-en="Tay Ninh, Vietnam" data-zh="越南西宁省">Tây Ninh, Việt Nam</dd></div>
             <div><dt data-i18n data-vi="Địa chỉ" data-en="Address" data-zh="地址">Địa chỉ</dt><dd data-i18n data-vi="Ấp Phước Hưng, Xã Phước Vinh, Tỉnh Tây Ninh, Việt Nam" data-en="Phuoc Hung Hamlet, Phuoc Vinh Commune, Tay Ninh Province, Vietnam" data-zh="越南西宁省福荣社福兴邑">Ấp Phước Hưng, Xã Phước Vinh, Tỉnh Tây Ninh, Việt Nam</dd></div>
           </dl>

@@ -4,8 +4,7 @@ import { spawnSync } from 'node:child_process';
 
 const REQUIRED = [
   'GOOGLE_SERVICE_ACCOUNT_JSON',
-  'POSTGRES_URL',
-  'PRICE_STARCH_SURCHARGE_VND_PER_KG'
+  'POSTGRES_URL'
 ];
 for (const key of REQUIRED) {
   if (!process.env[key]) throw new Error(`Missing required environment variable: ${key}`);
@@ -14,8 +13,7 @@ for (const key of REQUIRED) {
 const SHEET_ID = process.env.GOOGLE_SHEET_ID || '1LAIuJro3p_e27ZMPFsdutAQUdy9aY53DKTIfBTSI1Mw';
 const SHEET_NAME = process.env.GOOGLE_SHEET_NAME || '8-Production Close';
 const RANGE = `'${SHEET_NAME.replaceAll("'", "''")}'!A2:J1020`;
-const SURCHARGE = Number(process.env.PRICE_STARCH_SURCHARGE_VND_PER_KG);
-if (!Number.isFinite(SURCHARGE)) throw new Error('PRICE_STARCH_SURCHARGE_VND_PER_KG must be numeric');
+const SURCHARGE = 1000;
 
 const b64url = (value) => Buffer.from(value).toString('base64url');
 const sqlLit = (value) => `'${String(value ?? '').replaceAll("'", "''")}'`;

@@ -1,51 +1,206 @@
 /* V0.3 review fixes — mobile logo, locale polish and product characteristics. */
 .site-header,
-.nav-row,
-.brand {
+.site-header .nav-row {
   overflow: visible;
 }
 
-.brand {
+.site-header .brand {
   min-height: 64px;
   align-items: center;
   padding-top: 0;
 }
 
-.brand-logo-frame {
-  position: relative;
+.site-header .brand-logo-frame {
   display: grid;
   width: 46px;
-  height: 52px;
-  place-items: start center;
+  height: 49px;
+  place-items: center;
   flex: 0 0 46px;
   overflow: visible;
 }
 
-.brand-logo {
-  position: absolute;
-  top: 0;
-  left: 50%;
+.site-header .brand-logo {
+  position: static;
   display: block;
   width: 46px;
   height: auto;
+  max-width: 100%;
   max-height: none;
   padding: 0;
   object-fit: contain;
-  object-position: top center;
+  object-position: center;
   clip-path: none;
-  transform: translateX(-50%);
+  transform: none;
+}
+
+.footer-logo {
+  width: 52px;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  clip-path: none;
+}
+
+.product-showcase {
+  padding: 24px 0 4px;
+}
+
+.product-showcase .shell {
+  display: grid;
+  place-items: center;
+}
+
+.product-showcase img {
+  display: block;
+  width: min(100%, 900px);
+  height: auto;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 18px 42px rgba(61, 22, 8, .1);
+}
+
+.product-spec-section {
+  padding: 26px 0 20px;
+}
+
+.product-spec-section .shell {
+  max-width: 900px;
+}
+
+.product-spec-panel {
+  padding: 17px 18px 18px;
+}
+
+.product-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.product-tab {
+  min-height: 36px;
+  padding: 7px 10px;
+  color: var(--red-700);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  font: inherit;
+  font-size: 10px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.product-tab:hover,
+.product-tab:focus-visible {
+  border-color: var(--gold-500);
+  outline: none;
+}
+
+.product-tab[aria-selected="true"] {
+  color: #fff;
+  border-color: var(--wine-800);
+  background: var(--wine-800);
+  box-shadow: inset 0 -3px 0 var(--gold-500);
+}
+
+.product-tab-panel[hidden] {
+  display: none;
+}
+
+.product-tab-panel:not([hidden]) {
+  animation: spec-panel-in .22s ease-out;
+}
+
+@keyframes spec-panel-in {
+  from { opacity: .35; transform: translateY(3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.product-spec-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 240px;
+  align-items: center;
+  gap: 20px;
+  min-height: 240px;
+  margin-bottom: 14px;
+}
+
+.product-spec-head h2 {
+  margin: 0 0 8px;
+  font-size: clamp(24px, 2.4vw, 32px);
+  line-height: 1.08;
+}
+
+.product-spec-copy > p {
+  max-width: 570px;
+  margin: 0;
+  color: var(--muted);
+}
+
+.product-spec-image {
+  width: 240px;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--porcelain);
+  box-shadow: 0 10px 24px rgba(61, 22, 8, .1);
+}
+
+.product-spec-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.spec-table {
+  border-spacing: 0 5px;
+}
+
+.spec-table-paired {
+  min-width: 820px;
+  table-layout: fixed;
+}
+
+.spec-table-paired th:nth-child(1),
+.spec-table-paired th:nth-child(4),
+.spec-table-paired td:nth-child(1),
+.spec-table-paired td:nth-child(4) {
+  width: 21%;
+  font-weight: 700;
+}
+
+.spec-table-paired th:nth-child(2),
+.spec-table-paired th:nth-child(5),
+.spec-table-paired td:nth-child(2),
+.spec-table-paired td:nth-child(5) {
+  width: 11%;
+}
+
+.spec-table-paired .spec-pair-start {
+  border-left: 2px solid #dfbd75;
+}
+
+.spec-table th {
+  padding: 7px 9px;
+}
+
+.spec-table td {
+  padding: 8px 9px;
 }
 
 .spec-characteristics {
-  margin-top: 18px;
-  padding: 18px 20px;
+  margin-top: 12px;
+  padding: 12px 14px;
   border: 1px solid var(--line);
   border-radius: 12px;
   background: var(--porcelain);
 }
 
 .spec-characteristics > h3 {
-  margin: 0 0 13px;
+  margin: 0 0 8px;
   color: var(--red-700);
   font-size: 12px;
   letter-spacing: .04em;
@@ -54,7 +209,7 @@
 .spec-characteristic-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 22px;
+  gap: 0 16px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -62,10 +217,10 @@
 
 .spec-characteristic-list li {
   display: grid;
-  grid-template-columns: 36px minmax(0, 1fr);
+  grid-template-columns: 32px minmax(0, 1fr);
   align-items: start;
-  gap: 10px;
-  padding: 12px 0;
+  gap: 8px;
+  padding: 8px 0;
   border-bottom: 1px solid var(--line);
 }
 
@@ -75,8 +230,8 @@
 
 .spec-characteristic-icon {
   display: grid;
-  width: 34px;
-  height: 34px;
+  width: 30px;
+  height: 30px;
   place-items: center;
   color: var(--red-600);
   border: 1px solid #e2c4ac;
@@ -86,7 +241,7 @@
 
 .spec-characteristic-list b {
   display: block;
-  margin-bottom: 3px;
+  margin-bottom: 2px;
   font-size: 11px;
 }
 
@@ -94,35 +249,225 @@
   margin: 0;
   color: var(--muted);
   font-size: 10.5px;
-  line-height: 1.45;
+  line-height: 1.35;
+}
+
+.spec-footnote {
+  margin-top: 10px;
+}
+
+.latest-converted {
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+/* Multilingual typography: native stacks keep VI/EN/ZH crisp without a webfont. */
+:root {
+  --sans: "Segoe UI Variable Text", "Segoe UI", "Helvetica Neue", Arial,
+    "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --display: "Segoe UI Variable Display", "Segoe UI", "Helvetica Neue", Arial,
+    "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+}
+
+body {
+  font-size: clamp(15px, calc(14.5px + .16vw), 16px);
+  line-height: 1.58;
+}
+
+.hero-copy h1,
+.page-hero h1,
+.not-found h1,
+.product-spec-head h2,
+.prose-card h3,
+.contact-card h2,
+.contact-card-v03 h2 {
+  font-family: var(--display);
+  font-weight: 800;
+  letter-spacing: -.018em;
+  text-wrap: balance;
+}
+
+html[lang="zh-CN"] .hero-copy h1,
+html[lang="zh-CN"] .page-hero h1,
+html[lang="zh-CN"] .not-found h1,
+html[lang="zh-CN"] .product-spec-head h2,
+html[lang="zh-CN"] .prose-card h3,
+html[lang="zh-CN"] .contact-card h2,
+html[lang="zh-CN"] .contact-card-v03 h2 {
+  letter-spacing: 0;
+}
+
+.hero-copy h1 {
+  font-size: clamp(44px, 5.5vw, 66px);
+  line-height: 1.03;
+}
+
+.page-hero h1 {
+  font-size: clamp(40px, 4.7vw, 56px);
+  line-height: 1.06;
+}
+
+.compact-page-hero h1 {
+  font-size: clamp(38px, 4.2vw, 50px);
+}
+
+.product-spec-head h2 {
+  font-size: clamp(26px, 2.7vw, 34px);
+  line-height: 1.14;
+}
+
+.section-kicker {
+  font-size: clamp(13px, 1.15vw, 15px);
+  line-height: 1.35;
+}
+
+.brand-word {
+  font-size: clamp(17px, 1.7vw, 20px);
+}
+
+.main-nav a,
+.btn {
+  font-size: max(14px, .875rem);
+}
+
+.product-tab {
+  min-height: 40px;
+  font-size: clamp(12px, 1vw, 13px);
+  line-height: 1.3;
+}
+
+.product-spec-copy > p,
+.intro-text,
+.contact-card-v03 p,
+.contact-card-v03 li,
+.job-detail p {
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.spec-table th,
+.spec-table td,
+.spec-characteristic-list b {
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.spec-characteristics > h3 {
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.spec-characteristic-list p,
+.spec-footnote,
+.pillars small,
+.process-row small,
+.market-note,
+.principle-item small,
+.channel-link small,
+.channel-pending small,
+.footer-brand > p,
+.footer-contact p,
+.footer-hours p,
+label,
+.form-status,
+.qr-panel p {
+  font-size: 11.5px;
+  line-height: 1.5;
+}
+
+.pillars b,
+.principle-item b,
+.job-card summary small,
+.detail-action,
+.text-link,
+.job-detail h3 {
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.axis-label,
+.date-label {
+  font-size: 8.8px;
+}
+
+.latest-box small,
+.latest-box em,
+.price-name small {
+  font-size: 10px;
+}
+
+.contact-page-hero h1 {
+  letter-spacing: -.018em;
 }
 
 @media (max-width: 840px) {
-  .brand {
+  .site-header .brand {
     min-height: 58px;
   }
 
-  .brand-logo-frame {
+  .site-header .brand-logo-frame {
     width: 42px;
-    height: 50px;
+    height: 45px;
     flex-basis: 42px;
   }
 
-  .brand-logo {
+  .site-header .brand-logo {
     width: 42px;
   }
 }
 
 @media (max-width: 600px) {
-  .brand-logo-frame {
+  body {
+    font-size: 15px;
+  }
+
+  .site-header .brand-logo-frame {
     width: 40px;
-    height: 48px;
+    height: 43px;
     flex-basis: 40px;
   }
 
-  .brand-logo {
+  .site-header .brand-logo {
     width: 40px;
-    top: -1px;
+  }
+
+  .product-showcase {
+    padding-top: 14px;
+  }
+
+  .product-showcase img {
+    border-radius: 12px;
+  }
+
+  .product-spec-panel {
+    padding: 15px 13px 16px;
+  }
+
+  .product-tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .product-tab {
+    border-radius: 10px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(42px, 14vw, 52px);
+  }
+
+  .page-hero h1,
+  .compact-page-hero h1 {
+    font-size: clamp(36px, 11vw, 43px);
+  }
+
+  .product-spec-head {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .product-spec-image {
+    width: min(240px, 100%);
+    justify-self: center;
   }
 
   .spec-characteristic-list {
@@ -141,5 +486,11 @@
   .main-nav.open {
     max-height: calc(100vh - 86px);
     overflow-y: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-tab-panel:not([hidden]) {
+    animation: none;
   }
 }

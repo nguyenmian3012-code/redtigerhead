@@ -7,8 +7,8 @@ Status: implementation-ready design for preview. Production credentials must be 
 - Google Sheet: `8-Production close`
 - Source column: `J`
 - Product: native tapioca starch
-- Public display formula: `public_price_vnd_per_kg = source_exw_vnd_per_kg + PRICE_STARCH_SURCHARGE_VND_PER_KG`
-- `PRICE_STARCH_SURCHARGE_VND_PER_KG` is a private runtime secret. Current business value is intentionally not stored in this repository.
+- Public display formula: source EXW price plus the private server-side commercial adjustment.
+- The adjustment must never be exposed as a standalone browser or public API field.
 
 ## Publication cadence
 
@@ -82,7 +82,6 @@ GOOGLE_SERVICE_ACCOUNT_JSON=<secret-json-or-provider-binding>
 GOOGLE_SHEET_ID=<sheet-id>
 GOOGLE_SHEET_NAME=8-Production close
 GOOGLE_SHEET_COLUMN=J
-PRICE_STARCH_SURCHARGE_VND_PER_KG=<private-value>
 ```
 
 Do not commit real values for the secret fields above.

@@ -13,7 +13,7 @@ The website must never read the Google Sheet directly in the browser.
 
 Google Sheet (private) -> sync job -> PostgreSQL `rth_prices` -> sanitized `src/data/prices.json` -> Astro build -> Cloudflare preview / production.
 
-The starch commercial adjustment is supplied only through the runtime secret `PRICE_STARCH_SURCHARGE_VND_PER_KG`. Do not hard-code its value in HTML, JavaScript, JSON, documentation, or public API responses.
+The starch commercial adjustment is fixed inside the private server-side sync script. Never emit it as a field in HTML, client JavaScript, JSON, or public API responses.
 
 ## PostgreSQL
 
@@ -34,7 +34,6 @@ Configure these outside Git:
 - `POSTGRES_URL`
 - `GOOGLE_SERVICE_ACCOUNT_JSON`
 - `GOOGLE_SHEET_ID`
-- `PRICE_STARCH_SURCHARGE_VND_PER_KG`
 
 The Google service account only needs read access to the source spreadsheet. Share the spreadsheet with its `client_email` as Viewer.
 

@@ -6,11 +6,12 @@ interface Props {
   title: CopyKey;
   lead: CopyKey;
   image?: boolean;
+  className?: string;
 }
 
-const { kicker, title, lead, image = false } = Astro.props;
+const { kicker, title, lead, image = false, className } = Astro.props;
 ---
-<section class="page-hero wine-zone">
+<section class:list={["page-hero", "wine-zone", className]}>
   <div class:list={["shell", "page-hero-grid", { "with-image": image }]}>
     <div>
       <p class="eyebrow gold" {...i18n(kicker)}>{copy.vi[kicker]}</p>
