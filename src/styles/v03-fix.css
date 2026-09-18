@@ -397,7 +397,94 @@ label,
 }
 
 .contact-page-hero h1 {
-  letter-spacing: -.018em;
+  max-width: 1160px;
+  font-size: clamp(38px, 4.15vw, 54px);
+  font-weight: 850;
+  letter-spacing: -.022em;
+  line-height: 1.08;
+  color: var(--gold-highlight);
+  background-image: var(--gold-metallic);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 1px 0 rgba(76, 38, 2, .3);
+}
+
+.contact-content-shell {
+  display: grid;
+  gap: 22px;
+}
+
+.contact-history-visual {
+  margin: 0;
+  padding: 2px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: var(--gold-metallic-border);
+  box-shadow: 0 16px 38px rgba(77, 35, 9, .12);
+}
+
+.contact-history-visual img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.contact-page-hero .eyebrow,
+.contact-card-v03 h2 {
+  font-weight: 850;
+}
+
+.contact-card-v03 {
+  border: 2px solid transparent;
+  background:
+    linear-gradient(var(--paper), var(--paper)) padding-box,
+    var(--gold-metallic-border) border-box;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 241, 176, .22),
+    0 12px 30px rgba(73, 36, 27, .08);
+}
+
+.contact-card-v03 h2 {
+  color: var(--gold-shadow);
+  background-image: var(--gold-metallic-dark);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.contact-card-v03 > .icon {
+  color: var(--gold-solid);
+  stroke-width: 2.35;
+  filter:
+    drop-shadow(-.45px -.45px 0 rgba(255, 241, 176, .9))
+    drop-shadow(.75px .85px 0 rgba(111, 63, 0, .72));
+}
+
+html[data-theme="dark"] .contact-card-v03 {
+  background:
+    linear-gradient(var(--paper), var(--paper)) padding-box,
+    var(--gold-metallic-border) border-box;
+}
+
+@media (max-width: 600px) {
+  .contact-page-hero h1 {
+    font-size: clamp(32px, 9.6vw, 42px);
+    line-height: 1.12;
+  }
+
+  .contact-content-shell {
+    gap: 16px;
+  }
+
+  .contact-history-visual {
+    border-radius: 14px;
+  }
+
+  .contact-history-visual img {
+    border-radius: 12px;
+  }
 }
 
 @media (max-width: 840px) {

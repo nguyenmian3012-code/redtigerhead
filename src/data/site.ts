@@ -73,7 +73,7 @@ export const copy = {
     "apply.title": "LIÊN HỆ TUYỂN DỤNG",
     "apply.draft": "Vui lòng liên hệ để xác nhận vị trí và cách gửi hồ sơ.",
     "contact.kicker": "LIÊN HỆ",
-    "contact.title": "Kết nối với Bình Minh",
+    "contact.title": "Kết nối với Bình Minh, kết nối với lịch sử Tinh Bột Khoai Mì",
     "contact.lead": "Các kênh liên hệ công khai phục vụ khách hàng, đối tác và ứng viên."
   },
   en: {
@@ -125,7 +125,7 @@ export const copy = {
     "apply.title": "CAREERS CONTACT",
     "apply.draft": "Contact us to confirm openings and how to submit an application.",
     "contact.kicker": "CONTACT",
-    "contact.title": "Connect with Binh Minh",
+    "contact.title": "Connect with Binh Minh, connect with the heritage of tapioca starch",
     "contact.lead": "Public contact channels for customers, partners and applicants."
   },
   zh: {
@@ -177,7 +177,7 @@ export const copy = {
     "apply.title": "直接申请",
     "apply.draft": "测试环境——申请资料尚未发送或存储。",
     "contact.kicker": "联系我们",
-    "contact.title": "联系 Binh Minh",
+    "contact.title": "连接 Binh Minh，连接木薯淀粉的历史传承",
     "contact.lead": "面向客户、合作伙伴和求职者的公开联系渠道。"
   }
 } as const;
