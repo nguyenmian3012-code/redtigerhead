@@ -2,17 +2,11 @@ import { createSign } from 'node:crypto';
 import { readFile, writeFile } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
 
-const REQUIRED = [
-  'GOOGLE_SERVICE_ACCOUNT_JSON',
-  'POSTGRES_URL'
-];
-for (const key of REQUIRED) {
-  if (!process.env[key]) throw new Error(`Missing required environment variable: ${key}`);
-}
-
 const SHEET_ID = process.env.GOOGLE_SHEET_ID || '1LAIuJro3p_e27ZMPFsdutAQUdy9aY53DKTIfBTSI1Mw';
 const SHEET_NAME = process.env.GOOGLE_SHEET_NAME || '8-Production Close';
-const RANGE = `'${SHEET_NAME.replaceAll("'", "''")}'!A2:J1020`;
+const RANGE = process.env.GOOGLE_SHEET_RANGE || `'${SHEET_NAME.replaceAll("'", "''")}'!A2:J5000`;
+const POSTGRES_URL = process.env.POSTGRES_URL?.trim();
+const MAX_SOURCE_AGE_DAYS = Number(process.env.PRICE_MAX_SOURCE_AGE_DAYS || 5);
 const SURCHARGE = 1000;
 
 const b64url = (value) => Buffer.from(value).toString('base64url');
@@ -31,7 +25,7 @@ function localParts() {
   return { date, slot };
 }
 
-function parseEffectiveDate(text) {
+export function parseEffectiveDate(text) {
   const raw = String(text || '').trim();
   if (!raw) return null;
   const full = [...raw.matchAll(/(\d{1,2})\/(\d{1,2})\/(\d{4})/g)];
@@ -47,7 +41,7 @@ function parseEffectiveDate(text) {
   return null;
 }
 
-function numericCell(value) {
+export function numericCell(value) {
   if (typeof value === 'number') return value;
   const normalized = String(value ?? '').replaceAll(',', '').trim();
   if (!normalized) return null;
@@ -55,7 +49,21 @@ function numericCell(value) {
   return Number.isFinite(number) ? number : null;
 }
 
+export function assertFreshSource(sourceDate, runDate, maxAgeDays = MAX_SOURCE_AGE_DAYS) {
+  const sourceAgeDays = Math.floor((Date.parse(`${runDate}T00:00:00Z`) - Date.parse(`${sourceDate}T00:00:00Z`)) / 86400000);
+  if (!Number.isFinite(maxAgeDays) || maxAgeDays < 0) {
+    throw new Error('PRICE_MAX_SOURCE_AGE_DAYS must be a non-negative number');
+  }
+  if (sourceAgeDays < 0 || sourceAgeDays > maxAgeDays) {
+    throw new Error(`Latest source price ${sourceDate} is ${sourceAgeDays} day(s) from run date ${runDate}`);
+  }
+  return sourceAgeDays;
+}
+
 async function googleAccessToken() {
+  if (!process.env.GOOGLE_SERVICE_ACCOUNT_JSON) {
+    throw new Error('Missing required environment variable: GOOGLE_SERVICE_ACCOUNT_JSON');
+  }
   const service = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_JSON);
   const now = Math.floor(Date.now() / 1000);
   const header = b64url(JSON.stringify({ alg: 'RS256', typ: 'JWT' }));
@@ -111,7 +119,7 @@ async function readSheet() {
 }
 
 function runPsql(sql, label) {
-  const result = spawnSync('psql', [process.env.POSTGRES_URL, '-v', 'ON_ERROR_STOP=1', '-X', '-q'], {
+  const result = spawnSync('psql', [POSTGRES_URL, '-v', 'ON_ERROR_STOP=1', '-X', '-q'], {
     input: sql, encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe']
   });
   if (result.status !== 0) throw new Error(`${label} failed: ${result.stderr || result.stdout}`);
@@ -125,18 +133,20 @@ async function main() {
   const daily = [...byDate.values()].sort((a, b) => a.effectiveDate.localeCompare(b.effectiveDate));
   const latest = daily.at(-1);
   const { date: runDate, slot } = localParts();
+  assertFreshSource(latest.effectiveDate, runDate);
 
-  const schema = await readFile(new URL('../infra/postgres/rth_prices.sql', import.meta.url), 'utf8');
-  runPsql(schema, 'Schema migration');
+  if (POSTGRES_URL) {
+    const schema = await readFile(new URL('../infra/postgres/rth_prices.sql', import.meta.url), 'utf8');
+    runPsql(schema, 'Schema migration');
 
-  const valuesSql = observations.map((item) => `(
+    const valuesSql = observations.map((item) => `(
     ${sqlLit(item.sourceKey)}, ${sqlLit(SHEET_ID)}, ${sqlLit(SHEET_NAME)}, ${item.sheetRow},
     ${sqlLit(item.effectiveDate)}::date, ${item.sourcePrice}, ${sqlLit(item.sourceLabel)}, ${jsonSql(item.payload)}
   )`).join(',\n');
 
-  const latestKey = latest.sourceKey;
-  const publicPrice = latest.sourcePrice + SURCHARGE;
-  const tx = `
+    const latestKey = latest.sourceKey;
+    const publicPrice = latest.sourcePrice + SURCHARGE;
+    const tx = `
 BEGIN;
 INSERT INTO rth_prices.source_observation
   (source_key, spreadsheet_id, sheet_name, sheet_row, effective_date, source_price_vnd_kg, source_label, source_payload)
@@ -169,7 +179,10 @@ ON CONFLICT (product_code, publish_date, publish_slot) DO UPDATE SET
   published_at = now();
 COMMIT;
 `;
-  runPsql(tx, 'Price sync transaction');
+    runPsql(tx, 'Price sync transaction');
+  } else {
+    console.log('POSTGRES_URL not set; internal PostgreSQL archive skipped.');
+  }
 
   const pricesPath = new URL('../src/data/prices.json', import.meta.url);
   const prices = JSON.parse(await readFile(pricesPath, 'utf8'));
@@ -184,16 +197,16 @@ COMMIT;
       mode: 'real',
       source: 'Google Sheet / 8-Production Close / column J',
       last_source_date: latest.effectiveDate,
-      public_formula_private: true,
-      sync_slot: slot,
-      synced_at: new Date().toISOString()
+      public_formula_private: true
     }
   };
   await writeFile(pricesPath, JSON.stringify(prices, null, 2) + '\n');
   console.log(`Synced ${observations.length} source rows; latest ${latest.effectiveDate}; slot ${slot}.`);
 }
 
-main().catch((error) => {
-  console.error(error?.stack || error);
-  process.exit(1);
-});
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main().catch((error) => {
+    console.error(error?.stack || error);
+    process.exit(1);
+  });
+}
