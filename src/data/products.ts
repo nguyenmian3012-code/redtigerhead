@@ -16,10 +16,10 @@ export const productSpecifications = [
     },
     specs: [
       { label: { vi: "Độ ẩm", en: "Moisture", zh: "水分" }, unit: "%", value: "≤ 13" },
-      { label: { vi: "pH", en: "pH", zh: "pH" }, unit: "—", value: "6.4 – 7.0" },
-      { label: { vi: "Độ trắng", en: "Whiteness", zh: "白度" }, unit: "%", value: "> 90" },
+      { label: { vi: "pH", en: "pH", zh: "pH" }, unit: "—", value: "5 – 7" },
+      { label: { vi: "Độ trắng", en: "Whiteness", zh: "白度" }, unit: "%", value: "≥ 92" },
       { label: { vi: "Hàm lượng tinh bột", en: "Starch content", zh: "淀粉含量" }, unit: "%", value: "≥ 85" },
-      { label: { vi: "Độ keo / độ nhớt", en: "Gel viscosity", zh: "胶体黏度" }, unit: "BU", value: { vi: "Theo COA", en: "Per COA", zh: "以 COA 为准" } },
+      { label: { vi: "Độ keo / độ nhớt", en: "Gel viscosity", zh: "胶体黏度" }, unit: "BU", value: "≥ 730" },
       { label: { vi: "Độ tro", en: "Ash", zh: "灰分" }, unit: "%", value: "≤ 0.1" }
     ],
     characteristics: [
@@ -29,9 +29,9 @@ export const productSpecifications = [
       { icon: "factory", title: { vi: "Ứng dụng", en: "Applications", zh: "应用" }, text: { vi: "Thực phẩm Gluten Free và nhiều ứng dụng công nghiệp, tùy cấp chất lượng và COA.", en: "Gluten-free foods and industrial applications, subject to grade and COA.", zh: "适用于无麸质食品及多种工业用途，具体以等级和 COA 为准。" } }
     ],
     footnote: {
-      vi: "Yêu cầu về kim loại nặng, vi sinh và độ nhớt cần được xác nhận riêng theo COA.",
-      en: "Heavy metals, microbiology and viscosity must be confirmed separately in the COA.",
-      zh: "重金属、微生物及黏度指标须在 COA 中另行确认。"
+      vi: "Yêu cầu về kim loại nặng và vi sinh cần được xác nhận riêng theo COA.",
+      en: "Heavy metals and microbiology must be confirmed separately in the COA.",
+      zh: "重金属及微生物指标须在 COA 中另行确认。"
     }
   },
   {
@@ -120,9 +120,9 @@ export const productSpecifications = [
       zh: "木薯根提取淀粉后的副产品。其组成会随原料、提取效率以及鲜湿或干燥状态而变化。"
     },
     specs: [
-      { label: { vi: "Độ ẩm bã tươi", en: "Fresh-pulp moisture", zh: "鲜渣水分" }, unit: "%", value: "≈ 77 – 84*" },
+      { label: { vi: "Độ ẩm bã sấy", en: "Dried-pulp moisture", zh: "干渣水分" }, unit: "%", value: "13" },
       { label: { vi: "pH", en: "pH", zh: "pH" }, unit: "—", value: { vi: "Theo lô", en: "By lot", zh: "按批次" } },
-      { label: { vi: "Ngoại quan", en: "Appearance", zh: "外观" }, unit: "—", value: { vi: "Xơ ẩm, màu kem", en: "Moist, cream-coloured fibre", zh: "湿润、奶油色纤维状" } },
+      { label: { vi: "Ngoại quan", en: "Appearance", zh: "外观" }, unit: "—", value: { vi: "Xơ khô, màu vàng ngà", en: "Dry, pale-yellow fibre", zh: "干燥、淡黄色纤维状" } },
       { label: { vi: "Tinh bột còn lại", en: "Residual starch", zh: "残余淀粉" }, unit: { vi: "% chất khô", en: "% dry basis", zh: "%（干基）" }, value: { vi: "Theo lô", en: "By lot", zh: "按批次" } },
       { label: { vi: "Xơ thô", en: "Crude fibre", zh: "粗纤维" }, unit: { vi: "% chất khô", en: "% dry basis", zh: "%（干基）" }, value: { vi: "Theo lô", en: "By lot", zh: "按批次" } },
       { label: { vi: "Độ tro", en: "Ash", zh: "灰分" }, unit: { vi: "% chất khô", en: "% dry basis", zh: "%（干基）" }, value: { vi: "Theo lô", en: "By lot", zh: "按批次" } }
@@ -134,9 +134,9 @@ export const productSpecifications = [
       { icon: "factory", title: { vi: "Ứng dụng", en: "Applications", zh: "应用" }, text: { vi: "Nguyên liệu thức ăn chăn nuôi, biogas hoặc compost sau xử lý phù hợp.", en: "Feed material, biogas or compost after suitable processing.", zh: "经适当处理后，可用于饲料原料、沼气或堆肥。" } }
     ],
     footnote: {
-      vi: "* Khoảng ẩm suy ra từ tài liệu về bã mì tươi. Mọi chỉ tiêu giao dịch phải lấy mẫu và xác nhận theo từng lô.",
-      en: "* The moisture range is derived from published fresh-pulp data. All commercial parameters require lot-specific sampling and confirmation.",
-      zh: "* 水分范围源自公开的鲜木薯渣数据。所有商业指标均须按批次取样确认。"
+      vi: "Các chỉ tiêu khác cần được lấy mẫu và xác nhận theo từng lô.",
+      en: "Other parameters require lot-specific sampling and confirmation.",
+      zh: "其他指标须按批次取样确认。"
     }
   }
 ] as const;
