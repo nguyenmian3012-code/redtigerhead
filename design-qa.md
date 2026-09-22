@@ -83,7 +83,7 @@ final result: passed
 
 - Logo source is preserved at `2048 × 682`; lossless WebP conversion reduces the file from 1,770,441 bytes to 747,098 bytes with a zero-pixel difference.
 - The history frame and contact cards use 2px metallic-gold borders with highlight, midtone, and shadow stops.
-- Hero title, card headings, and icons use a restrained metallic-gold treatment; body copy remains neutral for legibility.
+- Hero title retains the original white typography; card headings and icons use a restrained metallic-gold treatment.
 - No page-origin browser errors were observed. Cloud Browser extension metadata messages are unrelated to the site.
 
 ## Interaction checks
@@ -105,7 +105,7 @@ final result: passed
 ## Comparison history
 
 - Initial state: short contact title, no brand-history image, thin neutral card borders.
-- Implemented state: multilingual heritage title, lossless optimized logo timeline, and stronger metallic-gold contact styling.
+- Implemented state: multilingual heritage title in original white typography, lossless optimized logo timeline, and stronger metallic-gold card styling.
 - Post-fix evidence: Browser capture confirms balanced layout, correct theme behavior, and no desktop overflow.
 
 final result: passed

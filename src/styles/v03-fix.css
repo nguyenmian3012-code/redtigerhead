@@ -397,17 +397,7 @@ label,
 }
 
 .contact-page-hero h1 {
-  max-width: 1160px;
-  font-size: clamp(38px, 4.15vw, 54px);
-  font-weight: 850;
-  letter-spacing: -.022em;
-  line-height: 1.08;
-  color: var(--gold-highlight);
-  background-image: var(--gold-metallic);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 1px 0 rgba(76, 38, 2, .3);
+  letter-spacing: -.018em;
 }
 
 .contact-content-shell {
@@ -469,11 +459,6 @@ html[data-theme="dark"] .contact-card-v03 {
 }
 
 @media (max-width: 600px) {
-  .contact-page-hero h1 {
-    font-size: clamp(32px, 9.6vw, 42px);
-    line-height: 1.12;
-  }
-
   .contact-content-shell {
     gap: 16px;
   }
