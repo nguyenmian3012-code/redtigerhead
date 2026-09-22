@@ -91,8 +91,23 @@
       "unit": "VND/kg"
     },
     {
+      "date": "2026-09-03",
+      "value": 15986,
+      "unit": "VND/kg"
+    },
+    {
       "date": "2026-09-04",
       "value": 14415,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-09-05",
+      "value": 15047,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-09-06",
+      "value": 15741,
       "unit": "VND/kg"
     },
     {
@@ -103,6 +118,11 @@
     {
       "date": "2026-09-08",
       "value": 14878,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-09-09",
+      "value": 15350,
       "unit": "VND/kg"
     },
     {
@@ -119,13 +139,49 @@
       "date": "2026-09-12",
       "value": 15446,
       "unit": "VND/kg"
+    },
+    {
+      "date": "2026-09-13",
+      "value": 15673,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-09-14",
+      "value": 15658,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-09-16",
+      "value": 15329,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-09-17",
+      "value": 15382,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-09-19",
+      "value": 15207,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-09-20",
+      "value": 14428,
+      "unit": "VND/kg"
+    },
+    {
+      "date": "2026-09-21",
+      "value": 15692,
+      "unit": "VND/kg"
     }
   ],
   "_meta": {
     "starch": {
       "mode": "real",
-      "last_source_date": "2026-09-12",
-      "source": "Google Sheet / 8-Production Close / column J"
+      "last_source_date": "2026-09-21",
+      "source": "Google Sheet / 8-Production Close / column J",
+      "public_formula_private": true
     },
     "exchange_rates": {
       "source": "SBV USD central; Vietcombank CNY transfer reference",
