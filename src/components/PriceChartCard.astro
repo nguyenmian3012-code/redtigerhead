@@ -46,7 +46,7 @@ const ticks = Array.from({ length: tickCount }, (_, index) => {
   };
 });
 const lastIndex = series.length - 1;
-const labelStride = series.length > 14 ? 2 : 1;
+const labelStride = series.length > 20 ? 3 : series.length > 14 ? 2 : 1;
 const dateIndexes = series
   .map((_, index) => index)
   .filter((index) => index === 0 || index === lastIndex || index % labelStride === 0);
