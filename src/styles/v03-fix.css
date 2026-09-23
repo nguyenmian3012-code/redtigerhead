@@ -387,13 +387,77 @@ label,
 
 .axis-label,
 .date-label {
-  font-size: 8.8px;
+  font-size: 11px;
+}
+
+/* Recruitment cards: supplied role artwork, readable salary and compact detail flow. */
+.job-visual {
+  overflow: hidden;
+  padding: 3px;
+  border-width: 2px;
+  background: #fff;
+}
+
+.job-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 9px;
+}
+
+.job-title-block {
+  gap: 5px;
+}
+
+.job-title-block > b {
+  font-size: 17px;
+  line-height: 1.25;
+}
+
+.job-salary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.4;
+}
+
+.job-salary strong {
+  color: var(--red-600);
+}
+
+.job-summary {
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.48;
+}
+
+.detail-action,
+.job-detail h3 {
+  font-size: 13px;
+}
+
+.job-detail .text-link {
+  display: inline-flex;
+  margin-top: 14px;
+  font-size: 13.5px;
 }
 
 .latest-box small,
 .latest-box em,
 .price-name small {
   font-size: 10px;
+}
+
+.fx-source {
+  display: inline-flex;
+  margin: 7px 0 3px;
+  color: var(--muted);
+  font-size: 11px;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
 }
 
 .contact-page-hero h1 {
@@ -785,6 +849,20 @@ html[data-theme="dark"] .contact-card-v03 {
 
   .spec-table td,
   .spec-characteristic-list p {
+    font-size: 13px;
+  }
+
+  .axis-label,
+  .date-label {
+    font-size: 10.5px;
+  }
+
+  .job-title-block > b {
+    font-size: 16px;
+  }
+
+  .job-summary,
+  .job-salary {
     font-size: 13px;
   }
 }

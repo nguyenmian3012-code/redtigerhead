@@ -64,6 +64,48 @@ final result: passed
 
 ---
 
+# Recruitment Data Cards & Price Readability — Design QA
+
+- Card reference: `/workspace/scratch/3557c756b97f/upload/17bfb918-7519-4d54-a092-8d26d0d6cef7.png`
+- Role artwork: four supplied KCS, electrical, drying-control, and mechanical-maintenance images.
+- Implementation: `http://terminal.local:4173/tuyen-dung/`
+- Browser viewport: `1363 × 936` CSS px; full-page and focused card captures inspected.
+- State coverage: VI and EN; first job expanded; light default.
+
+## Full-view comparison
+
+- Four open positions render in the existing compact recruitment list without overlap.
+- Each card now uses its matching supplied image, role name, visible salary range and concise summary.
+- The Chinese language option remains absent from recruitment while VI and EN switch completely.
+- The existing principles and recruitment-contact panels retain their grid and visual hierarchy.
+
+## Focused-region comparison
+
+- Expanded job content clearly separates role, requirements, and salary/benefits.
+- The detailed action targets a dedicated Markdown file for each job.
+- Role artwork totals about 47KB after WebP conversion and retains each source image's native pixel dimensions.
+- The contact history image retains `2048 × 682` pixels while falling from about 730KB to 71KB; no visible artifact was found in the browser capture.
+- Chart axis and date labels now compute to 11px on desktop, with fewer date labels on long series to prevent crowding.
+
+## Interaction checks
+
+- Open/close native job details: passed.
+- VI/EN translation of department, title, salary, summary and expanded copy: passed.
+- Dedicated Markdown targets and static build assets: passed.
+- Contact history natural dimensions (`2048 × 682`): passed.
+- Exchange-rate attribution link: passed.
+- Production build and automated tests: passed.
+
+## Findings
+
+- No actionable P0, P1, or P2 findings.
+- P3: Markdown files intentionally render as plain documents in browsers; they are temporary detailed job briefs, not final designed job pages.
+- P3: responsive behavior remains covered by the existing one-column card breakpoint; this browser surface did not expose a separate mobile viewport capture.
+
+final result: passed
+
+---
+
 # Contact History & Metallic Gold — Design QA
 
 - Source page reference: `/workspace/scratch/3557c756b97f/upload/e679503a-9101-4750-a010-196005552f52.png`

@@ -1,6 +1,46 @@
 [
-  {"id":"kcs-001","status":"open","department":"KCS","title":{"vi":"Nhân viên KCS","en":"QC Staff","zh":"质检人员"},"summary":{"vi":"Kiểm tra các chỉ tiêu chất lượng và ghi nhận dữ liệu trong ca.","en":"Check quality indicators and record shift data.","zh":"检查质量指标并记录班次数据。"},"role":{"vi":"Lấy mẫu, kiểm tra độ ẩm, độ trắng, pH và báo cáo bất thường.","en":"Take samples, check moisture, whiteness, pH and report abnormalities.","zh":"取样，检查水分、白度、pH 并报告异常。"},"benefits":{"vi":"Theo chính sách công ty và vị trí thực tế.","en":"According to company policy and the actual role.","zh":"按公司政策及实际岗位执行。"},"requirements":{"vi":"Cẩn thận, trung thực, có thể làm việc theo ca.","en":"Careful, honest and able to work shifts.","zh":"细心、诚实，可适应倒班。"}},
-  {"id":"mechanic-001","status":"open","department":"Cơ điện","title":{"vi":"Kỹ thuật cơ điện","en":"Mechanical / Electrical Technician","zh":"机电技术员"},"summary":{"vi":"Hỗ trợ vận hành, kiểm tra và xử lý các hạng mục kỹ thuật cơ bản.","en":"Support operation, inspection and basic technical work.","zh":"支持运行、检查并处理基础技术事项。"},"role":{"vi":"Kiểm tra thiết bị, hỗ trợ sửa chữa cơ bản và phối hợp bảo trì.","en":"Inspect equipment, support basic repair and coordinate maintenance.","zh":"检查设备，支持基础维修并协调保养。"},"benefits":{"vi":"Theo chính sách công ty và vị trí thực tế.","en":"According to company policy and the actual role.","zh":"按公司政策及实际岗位执行。"},"requirements":{"vi":"Có tinh thần trách nhiệm; ưu tiên có kinh nghiệm nhà máy.","en":"Responsible mindset; factory experience is preferred.","zh":"有责任心，有工厂经验者优先。"}},
-  {"id":"operator-001","status":"open","department":"Sản xuất","title":{"vi":"Nhân viên vận hành sản xuất","en":"Production Operator","zh":"生产操作员"},"summary":{"vi":"Theo dõi khu vực vận hành và phối hợp xử lý công việc tại chuyền.","en":"Monitor the operating area and coordinate line-side tasks.","zh":"监控操作区域并协调产线相关工作。"},"role":{"vi":"Theo dõi quy trình, báo cáo bất thường và phối hợp trong ca.","en":"Follow the process, report abnormalities and coordinate during shifts.","zh":"跟进流程、报告异常并在班次内协作。"},"benefits":{"vi":"Theo chính sách công ty và vị trí thực tế.","en":"According to company policy and the actual role.","zh":"按公司政策及实际岗位执行。"},"requirements":{"vi":"Có trách nhiệm, tác phong ổn định, làm việc nhóm tốt.","en":"Responsible, steady work style and good teamwork.","zh":"有责任心，作风稳定，具备团队合作能力。"}}
+  {
+    "id": "kcs-001", "status": "open",
+    "department": { "vi": "KCS / Phòng lab", "en": "QC / Laboratory" },
+    "icon": "/assets/jobs/kcs.webp", "detailFile": "/jobs/kcs-lab.md",
+    "salary": { "vi": "8–12 Tr/Tháng", "en": "VND 8–12M/month" },
+    "title": { "vi": "Nhân viên KCS", "en": "QC Laboratory Technician" },
+    "summary": { "vi": "Lấy mẫu, kiểm tra chỉ tiêu chất lượng và ghi nhận dữ liệu trong ca.", "en": "Sample products, verify quality indicators and record shift data." },
+    "role": { "vi": "Kiểm tra độ ẩm, độ trắng, pH và các chỉ tiêu theo quy trình; báo cáo ngay khi phát hiện bất thường.", "en": "Check moisture, whiteness, pH and process indicators; promptly report abnormalities." },
+    "requirements": { "vi": "Cẩn thận, trung thực, có thể làm việc theo ca; ưu tiên người có kinh nghiệm phòng lab hoặc kiểm soát chất lượng.", "en": "Careful, honest and able to work shifts; laboratory or quality-control experience is preferred." },
+    "benefits": { "vi": "Mức lương tham khảo 8–12 triệu đồng/tháng; quyền lợi cụ thể trao đổi theo kinh nghiệm và ca làm việc.", "en": "Reference salary of VND 8–12 million per month; final benefits depend on experience and shift pattern." }
+  },
+  {
+    "id": "electrical-001", "status": "open",
+    "department": { "vi": "Kỹ thuật điện", "en": "Electrical Engineering" },
+    "icon": "/assets/jobs/electrical.webp", "detailFile": "/jobs/ky-thuat-dien.md",
+    "salary": { "vi": "8–12 Tr/Tháng", "en": "VND 8–12M/month" },
+    "title": { "vi": "Kỹ thuật điện nhà máy", "en": "Factory Electrical Technician" },
+    "summary": { "vi": "Kiểm tra hệ thống điện, hỗ trợ vận hành và xử lý sự cố thiết bị trong nhà máy.", "en": "Inspect electrical systems and support equipment operation and troubleshooting." },
+    "role": { "vi": "Theo dõi tủ điện, động cơ và thiết bị điều khiển; thực hiện bảo trì, cô lập nguồn an toàn và phối hợp sửa chữa.", "en": "Monitor panels, motors and controls; perform maintenance, safe isolation and coordinated repairs." },
+    "requirements": { "vi": "Có chuyên môn điện công nghiệp; hiểu an toàn điện và có thể làm việc theo ca. Kinh nghiệm nhà máy là lợi thế.", "en": "Industrial-electrical knowledge, electrical-safety awareness and shift availability; factory experience is preferred." },
+    "benefits": { "vi": "Mức lương căn bản tham khảo 8–12 triệu đồng/tháng; tổng thu nhập phụ thuộc kinh nghiệm, ca và phụ cấp.", "en": "Reference base salary of VND 8–12 million per month; total income depends on experience, shifts and allowances." }
+  },
+  {
+    "id": "drying-operator-001", "status": "open",
+    "department": { "vi": "Sản xuất", "en": "Production" },
+    "icon": "/assets/jobs/drying-control.webp", "detailFile": "/jobs/dieu-khien-say.md",
+    "salary": { "vi": "8–11 Tr/Tháng", "en": "VND 8–11M/month" },
+    "title": { "vi": "Nhân viên điều khiển sấy", "en": "Drying Process Operator" },
+    "summary": { "vi": "Theo dõi hệ thống lò đốt và sấy bã, phối hợp xử lý bất thường trong ca.", "en": "Monitor the furnace and pulp-drying system and coordinate shift troubleshooting." },
+    "role": { "vi": "Vận hành theo quy trình, theo dõi nhiệt độ và thiết bị, ghi nhận thông số và báo cáo bất thường.", "en": "Operate to procedure, monitor temperature and equipment, log readings and report abnormalities." },
+    "requirements": { "vi": "Sức khỏe phù hợp môi trường sản xuất, tuân thủ an toàn và có thể làm việc theo ca.", "en": "Fit for an industrial environment, safety-conscious and able to work shifts." },
+    "benefits": { "vi": "Thu nhập tham khảo 8–11 triệu đồng/tháng, tùy ca làm việc, phụ cấp và năng lực thực tế.", "en": "Reference total income of VND 8–11 million per month, depending on shifts, allowances and capability." }
+  },
+  {
+    "id": "mechanical-lead-001", "status": "open",
+    "department": { "vi": "Cơ khí", "en": "Mechanical Maintenance" },
+    "icon": "/assets/jobs/mechanical-lead.webp", "detailFile": "/jobs/truong-co-khi.md",
+    "salary": { "vi": "13–20 Tr/Tháng", "en": "VND 13–20M/month" },
+    "title": { "vi": "Trưởng cơ khí nhà máy", "en": "Factory Mechanical Lead" },
+    "summary": { "vi": "Phụ trách bảo trì cơ khí, xử lý sự cố và điều phối công việc của tổ cơ khí.", "en": "Lead mechanical maintenance, breakdown response and workshop coordination." },
+    "role": { "vi": "Lập kế hoạch bảo trì phòng ngừa, chẩn đoán hư hỏng, giám sát sửa chữa và theo dõi vật tư, thời gian dừng máy.", "en": "Plan preventive maintenance, diagnose failures, supervise repairs and track spares and downtime." },
+    "requirements": { "vi": "Có kinh nghiệm bảo trì thiết bị công nghiệp và điều phối nhóm; hiểu an toàn máy, hàn và gia công cơ khí là lợi thế.", "en": "Industrial-maintenance and team-coordination experience; machine safety, welding and fabrication knowledge are preferred." },
+    "benefits": { "vi": "Mức lương tham khảo 13–20 triệu đồng/tháng; trao đổi cụ thể theo kinh nghiệm quản lý và năng lực kỹ thuật.", "en": "Reference salary of VND 13–20 million per month; final offer depends on leadership and technical experience." }
+  }
 ]
-

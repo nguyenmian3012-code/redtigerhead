@@ -8,6 +8,7 @@ const RANGE = process.env.GOOGLE_SHEET_RANGE || `'${SHEET_NAME.replaceAll("'", "
 const POSTGRES_URL = process.env.POSTGRES_URL?.trim();
 const MAX_SOURCE_AGE_DAYS = Number(process.env.PRICE_MAX_SOURCE_AGE_DAYS || 5);
 const SURCHARGE = 1000;
+const EXCHANGE_RATE_URL = process.env.EXCHANGE_RATE_URL || 'https://open.er-api.com/v6/latest/USD';
 
 const b64url = (value) => Buffer.from(value).toString('base64url');
 const sqlLit = (value) => `'${String(value ?? '').replaceAll("'", "''")}'`;
@@ -58,6 +59,38 @@ export function assertFreshSource(sourceDate, runDate, maxAgeDays = MAX_SOURCE_A
     throw new Error(`Latest source price ${sourceDate} is ${sourceAgeDays} day(s) from run date ${runDate}`);
   }
   return sourceAgeDays;
+}
+
+export function deriveExchangeRates(rates, updatedAt) {
+  const usdVnd = Number(rates?.VND);
+  const usdCny = Number(rates?.CNY);
+  if (!Number.isFinite(usdVnd) || usdVnd <= 0 || !Number.isFinite(usdCny) || usdCny <= 0) {
+    throw new Error('Exchange-rate response must include positive VND and CNY rates');
+  }
+  const timestamp = Number(updatedAt);
+  const asOf = Number.isFinite(timestamp)
+    ? new Date(timestamp * 1000).toISOString().slice(0, 10)
+    : new Date().toISOString().slice(0, 10);
+  return {
+    source: 'ExchangeRate-API open access (USD base)',
+    as_of: asOf,
+    usd_vnd: Math.round(usdVnd * 100) / 100,
+    cny_vnd: Math.round((usdVnd / usdCny) * 100) / 100
+  };
+}
+
+export async function readExchangeRates(fallback, fetcher = fetch) {
+  try {
+    const response = await fetcher(EXCHANGE_RATE_URL, { signal: AbortSignal.timeout(5000) });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const body = await response.json();
+    if (body.result !== 'success') throw new Error(body['error-type'] || 'unsuccessful response');
+    return deriveExchangeRates(body.rates, body.time_last_update_unix);
+  } catch (error) {
+    if (!fallback?.usd_vnd || !fallback?.cny_vnd) throw error;
+    console.warn(`Exchange-rate refresh skipped; retaining the last known rates: ${error.message}`);
+    return fallback;
+  }
 }
 
 async function googleAccessToken() {
@@ -186,6 +219,7 @@ COMMIT;
 
   const pricesPath = new URL('../src/data/prices.json', import.meta.url);
   const prices = JSON.parse(await readFile(pricesPath, 'utf8'));
+  const exchangeRates = await readExchangeRates(prices._meta?.exchange_rates);
   const cutoff = new Date(`${runDate}T00:00:00+07:00`);
   cutoff.setDate(cutoff.getDate() - 90);
   prices.starch = daily
@@ -198,7 +232,8 @@ COMMIT;
       source: 'Google Sheet / 8-Production Close / column J',
       last_source_date: latest.effectiveDate,
       public_formula_private: true
-    }
+    },
+    exchange_rates: exchangeRates
   };
   await writeFile(pricesPath, JSON.stringify(prices, null, 2) + '\n');
   console.log(`Synced ${observations.length} source rows; latest ${latest.effectiveDate}; slot ${slot}.`);
